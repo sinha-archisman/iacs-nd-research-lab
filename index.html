@@ -93,4 +93,277 @@
 
         .hero p {
             font-size: 1.2rem;
-            font-weight: 30
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        /* Research Thrust Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        /* Publications List */
+        .pub-list {
+            list-style: none;
+        }
+
+        .pub-item {
+            background: var(--bg-light);
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .pub-authors {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+        }
+
+        .pub-journal {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--border);
+        }
+
+        .team-member h4 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.75rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .contact-box { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Lab Name | IACS</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Advanced Molecular & Optical Physics Laboratory</h1>
+            <p>Exploring cold molecular ion spectroscopy, quantum state control, and advanced mass spectrometry at IACS Kolkata.</p>
+            <a href="#research" class="btn">Explore Our Research</a>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Our Laboratory</h2>
+            <p>Our research group focuses on precision spectroscopy, molecular dynamics, and advanced instrumentation design. Utilizing state-of-the-art ultra-high-vacuum systems, velocity map imaging (VMI) spectrometers, and custom electronics, we investigate the fundamental behavior of polyatomic ions and their interactions under controlled environments.</p>
+        </section>
+
+        <!-- Research Thrusts -->
+        <section id="research">
+            <h2>Research Thrust Areas</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Cold Molecular Ions</h3>
+                    <p>Investigating blackbody-radiation-assisted laser cooling schemes, rovibrational energy state distributions, and optical pumping techniques for polyatomic cations.</p>
+                </div>
+                <div class="card">
+                    <h3>Velocity Map Imaging</h3>
+                    <p>Developing dual-sided VMI setups and high-speed CMOS camera synchronizations for coincidence detection and high-resolution ion dynamics visualization.</p>
+                </div>
+                <div class="card">
+                    <h3>Ion Optics & Instrumentation</h3>
+                    <p>Simulating and optimizing asymmetric quadrupole mass filters, high-voltage pulsed valves, and custom RF driver electronics using SIMION and KiCad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications">
+            <h2>Selected Publications</h2>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <div class="pub-title">Laser-induced, blackbody-radiation-assisted rovibrational cooling of symmetric-top molecular ions: NH3+ and ND3+</div>
+                    <div class="pub-authors">Author Name, Collaborators, N. Deb</div>
+                    <div class="pub-journal">The Journal of Chemical Physics (2026)</div>
+                </li>
+                <li class="pub-item">
+                    <div class="pub-title">High-resolution velocity map imaging using custom centroiding and real-time PyQtGraph signal processing</div>
+                    <div class="pub-authors">Author Name, et al.</div>
+                    <div class="pub-journal">Review of Scientific Instruments (2025)</div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team">
+            <h2>Lab Members</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Principal Investigator">
+                    <h4>Dr. Principal Investigator</h4>
+                    <p>Principal Investigator</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="PhD Student">
+                    <h4>Your Name</h4>
+                    <p>DST-INSPIRE PhD Research Fellow</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80" alt="Lab Member">
+                    <h4>Colleague Name</h4>
+                    <p>PhD Research Scholar</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-box">
+                <div class="contact-info">
+                    <h3>Lab Location</h3>
+                    <p><strong>Indian Association for the Cultivation of Science (IACS)</strong></p>
+                    <p>2A & 2B, Raja S.C. Mullick Road</p>
+                    <p>Jadavpur, Kolkata - 700032, West Bengal, India</p>
+                </div>
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><strong>Email:</strong> your.email@iacs.res.in</p>
+                    <p><strong>Positions:</strong> We are always looking for enthusiastic PhD students and postdocs. Feel free to reach out via email with your CV.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Research Group, IACS Kolkata. Hosted freely on GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
