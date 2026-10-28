@@ -3,256 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Laboratory | Academic Group</title>
+    <title>Research Laboratory | IACS Kolkata</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1e3a8a;
-            --primary-dark: #1e293b;
-            --accent: #2563eb;
-            --text: #334155;
-            --bg-light: #f8fafc;
-            --border: #e2e8f0;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
-            color: var(--text);
-            line-height: 1.6;
-            background-color: #ffffff;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: white;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--primary-dark);
-            text-decoration: none;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 41, 59, 0.9)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1600&q=80') center/cover;
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 2.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.025em;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            margin-bottom: 2rem;
-            color: #cbd5e1;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 0.75rem 1.75rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .btn:hover {
-            background-color: #1d4ed8;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-        section {
-            margin-bottom: 4rem;
-        }
-
-        section h2 {
-            font-size: 2rem;
-            color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border);
-        }
-
-        /* Research Thrust Grid */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-        }
-
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-            font-size: 1.25rem;
-        }
-
-        /* Publications List */
-        .pub-list {
-            list-style: none;
-        }
-
-        .pub-item {
-            background: var(--bg-light);
-            border-left: 4px solid var(--accent);
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .pub-title {
-            font-weight: 600;
-            color: var(--primary-dark);
-            margin-bottom: 0.25rem;
-        }
-
-        .pub-authors {
-            font-size: 0.95rem;
-            color: #64748b;
-            margin-bottom: 0.25rem;
-        }
-
-        .pub-journal {
-            font-size: 0.9rem;
-            font-style: italic;
-            color: var(--accent);
-        }
-
-        /* Team Section */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .team-member img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            border: 3px solid var(--border);
-        }
-
-        .team-member h4 {
-            color: var(--primary-dark);
-            font-size: 1.1rem;
-        }
-
-        .team-member p {
-            font-size: 0.9rem;
-            color: #64748b;
-        }
-
-        /* Contact Section */
-        .contact-box {
-            background: var(--bg-light);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 2.5rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .contact-info p {
-            margin-bottom: 0.75rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-dark);
-            color: #94a3b8;
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            nav ul { display: none; }
-            .hero h1 { font-size: 2rem; }
-            .contact-box { grid-template-columns: 1fr; }
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Navigation Header -->
+    <!-- Header -->
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">Lab Name | IACS</a>
+            <a href="#" class="logo">Research Lab | IACS</a>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
@@ -265,7 +25,7 @@
         </div>
     </header>
 
-    <!-- Hero Banner -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Advanced Molecular & Optical Physics Laboratory</h1>
@@ -274,6 +34,7 @@
         </div>
     </section>
 
+    <!-- Main Container -->
     <div class="container">
 
         <!-- About Section -->
@@ -296,7 +57,7 @@
                 </div>
                 <div class="card">
                     <h3>Ion Optics & Instrumentation</h3>
-                    <p>Simulating and optimizing asymmetric quadrupole mass filters, high-voltage pulsed valves, and custom RF driver electronics using SIMION and KiCad.</p>
+                    <p>Simulating and optimizing asymmetric quadrupole mass filters, high-voltage pulsed valves, and custom RF driver electronics using simulation tools and CAD software.</p>
                 </div>
             </div>
         </section>
@@ -306,14 +67,9 @@
             <h2>Selected Publications</h2>
             <ul class="pub-list">
                 <li class="pub-item">
-                    <div class="pub-title">Laser-induced, blackbody-radiation-assisted rovibrational cooling of symmetric-top molecular ions: NH3+ and ND3+</div>
+                    <div class="pub-title">Laser-induced, blackbody-radiation-assisted rovibrational cooling of symmetric-top molecular ions</div>
                     <div class="pub-authors">Author Name, Collaborators, N. Deb</div>
                     <div class="pub-journal">The Journal of Chemical Physics (2026)</div>
-                </li>
-                <li class="pub-item">
-                    <div class="pub-title">High-resolution velocity map imaging using custom centroiding and real-time PyQtGraph signal processing</div>
-                    <div class="pub-authors">Author Name, et al.</div>
-                    <div class="pub-journal">Review of Scientific Instruments (2025)</div>
                 </li>
             </ul>
         </section>
@@ -323,19 +79,14 @@
             <h2>Lab Members</h2>
             <div class="team-grid">
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Principal Investigator">
+                    <div class="avatar-placeholder">PI</div>
                     <h4>Dr. Principal Investigator</h4>
                     <p>Principal Investigator</p>
                 </div>
                 <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="PhD Student">
+                    <div class="avatar-placeholder">YS</div>
                     <h4>Your Name</h4>
-                    <p>DST-INSPIRE PhD Research Fellow</p>
-                </div>
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80" alt="Lab Member">
-                    <h4>Colleague Name</h4>
-                    <p>PhD Research Scholar</p>
+                    <p>PhD Research Fellow</p>
                 </div>
             </div>
         </section>
@@ -353,7 +104,7 @@
                 <div class="contact-info">
                     <h3>Get in Touch</h3>
                     <p><strong>Email:</strong> your.email@iacs.res.in</p>
-                    <p><strong>Positions:</strong> We are always looking for enthusiastic PhD students and postdocs. Feel free to reach out via email with your CV.</p>
+                    <p><strong>Positions:</strong> We welcome motivated PhD students and postdocs. Reach out via email with your CV.</p>
                 </div>
             </div>
         </section>
