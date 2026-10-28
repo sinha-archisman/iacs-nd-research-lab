@@ -3,32 +3,1056 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cold Ion & Molecular Spectroscopy Lab | Dr. Nabanita Deb | IACS Kolkata</title>
-  <meta name="description" content="Cold Ion & Molecular Spectroscopy Research Group led by Dr. Nabanita Deb at the School of Physical Sciences, Indian Association for the Cultivation of Science (IACS), Kolkata." />
-  <link rel="stylesheet" href="style.css" />
+  <title>Cold Ion &amp; Molecular Spectroscopy Lab | Dr. Nabanita Deb | IACS Kolkata</title>
+  <meta name="description" content="Cold Ion & Molecular Spectroscopy Research Group led by Dr. Nabanita Deb at the Indian Association for the Cultivation of Science (IACS), Jadavpur, Kolkata." />
+
+  <style>
+    /* ==========================================================================
+       Dr. Nabanita Deb Research Lab | IACS Kolkata
+       Apple-Inspired Fluid Design System (Dark & Light Mode) — Single-File Build
+       ========================================================================== */
+
+    :root,
+    [data-theme="dark"] {
+      --bg-primary: #06070a;
+      --bg-secondary: #0d1017;
+      --bg-elevated: rgba(22, 27, 38, 0.72);
+      --bg-card: rgba(255, 255, 255, 0.035);
+      --bg-card-hover: rgba(255, 255, 255, 0.065);
+      --glass-bg: rgba(10, 12, 18, 0.78);
+      --glass-border: rgba(255, 255, 255, 0.09);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(56, 189, 248, 0.38);
+
+      --text-primary: #f5f5f7;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+
+      --accent-blue: #2997ff;
+      --accent-cyan: #38bdf8;
+      --accent-violet: #a855f7;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+
+      --gradient-text: linear-gradient(135deg, #ffffff 0%, #bae6fd 45%, #38bdf8 75%, #a855f7 100%);
+      --gradient-accent: linear-gradient(135deg, #2997ff 0%, #38bdf8 50%, #8b5cf6 100%);
+      --gradient-surface: radial-gradient(circle at 50% 0%, rgba(41, 151, 255, 0.16), rgba(168, 85, 247, 0.05) 45%, transparent 70%);
+
+      --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.25);
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.55);
+      --shadow-glow: 0 0 35px rgba(41, 151, 255, 0.22);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #fbfbfd;
+      --bg-secondary: #f2f4f8;
+      --bg-elevated: rgba(255, 255, 255, 0.85);
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --bg-card-hover: #ffffff;
+      --glass-bg: rgba(251, 251, 253, 0.84);
+      --glass-border: rgba(0, 0, 0, 0.08);
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-highlight: rgba(0, 113, 227, 0.35);
+
+      --text-primary: #1d1d1f;
+      --text-secondary: #515154;
+      --text-muted: #86868b;
+
+      --accent-blue: #0071e3;
+      --accent-cyan: #0284c7;
+      --accent-violet: #7c3aed;
+      --accent-emerald: #059669;
+      --accent-amber: #d97706;
+
+      --gradient-text: linear-gradient(135deg, #1d1d1f 0%, #0071e3 55%, #7c3aed 100%);
+      --gradient-accent: linear-gradient(135deg, #0071e3 0%, #0284c7 50%, #7c3aed 100%);
+      --gradient-surface: radial-gradient(circle at 50% 0%, rgba(0, 113, 227, 0.1), rgba(124, 58, 237, 0.04) 45%, transparent 70%);
+
+      --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.09);
+      --shadow-glow: 0 0 30px rgba(0, 113, 227, 0.15);
+    }
+
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "SF Mono", "JetBrains Mono", "Fira Code", monospace;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+      --container-max: 1280px;
+      --container-wide: 1440px;
+      --header-height: 68px;
+      --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      overflow-x: hidden;
+      transition: background-color 0.35s ease, color 0.35s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease, opacity 0.2s ease;
+    }
+
+    img, svg {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Single-Page Application (SPA) View Switching */
+    .page-view {
+      display: none;
+      animation: pageFadeIn 0.45s var(--transition-smooth) forwards;
+    }
+
+    .page-view.active {
+      display: block;
+    }
+
+    @keyframes pageFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Layout Containers */
+    .container {
+      width: min(100% - 2.5rem, var(--container-max));
+      margin-inline: auto;
+    }
+
+    @media (min-width: 1600px) {
+      .container {
+        width: min(100% - 4rem, var(--container-wide));
+      }
+    }
+
+    .section {
+      padding: clamp(3.75rem, 7vw, 6.5rem) 0;
+      position: relative;
+    }
+
+    .section-alt {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* Typography */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.24);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-pill);
+      margin-bottom: 1.2rem;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    h1, h2, h3, h4 {
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    .hero-title {
+      font-size: clamp(2.35rem, 5vw, 4.35rem);
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.85rem, 3.4vw, 2.75rem);
+      margin-bottom: 0.9rem;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1rem, 1.35vw, 1.18rem);
+      color: var(--text-secondary);
+      max-width: 68ch;
+    }
+
+    .section-header {
+      margin-bottom: clamp(2.25rem, 4.5vw, 3.75rem);
+    }
+
+    .section-header.center {
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    .section-header.center .section-subtitle {
+      margin-inline: auto;
+    }
+
+    /* Sticky Glassmorphism Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--header-height);
+      background: var(--glass-bg);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--gradient-accent);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.82rem;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      padding: 0.45rem 0.8rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text-primary);
+      background: var(--bg-card-hover);
+    }
+
+    .nav-links a.active {
+      font-weight: 600;
+      box-shadow: inset 0 0 0 1px var(--border-highlight);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .theme-toggle,
+    .menu-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .theme-toggle:hover,
+    .menu-toggle:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-highlight);
+      transform: scale(1.05);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.85rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.78rem 1.55rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.94rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.25s var(--transition-smooth), box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--gradient-accent);
+      color: #ffffff;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(41, 151, 255, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border-color: var(--border-subtle);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-highlight);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: clamp(4rem, 9vw, 7.5rem) 0 clamp(3.5rem, 6vw, 5.5rem);
+      background: var(--gradient-surface);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+
+    .hero-visual {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.65rem;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(16px);
+    }
+
+    .page-hero {
+      padding: clamp(3.25rem, 6vw, 5.25rem) 0 clamp(2.25rem, 4vw, 3.25rem);
+      background: var(--gradient-surface);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* News Ticker */
+    .ticker-bar {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.75rem 0;
+      overflow: hidden;
+    }
+
+    .ticker-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .ticker-badge {
+      flex-shrink: 0;
+      background: rgba(41, 151, 255, 0.15);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(41, 151, 255, 0.3);
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.08em;
+    }
+
+    .ticker-viewport {
+      overflow: hidden;
+      flex: 1;
+      position: relative;
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 3rem;
+      width: max-content;
+      animation: tickerScroll 40s linear infinite;
+    }
+
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .ticker-item strong {
+      color: var(--text-primary);
+    }
+
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Grid Systems & Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+      gap: 1.75rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+      gap: 1.75rem;
+    }
+
+    .card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: transform 0.35s var(--transition-smooth), border-color 0.3s ease, background 0.3s ease, box-shadow 0.35s ease;
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-highlight);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(41, 151, 255, 0.12);
+      border: 1px solid rgba(41, 151, 255, 0.25);
+      color: var(--accent-cyan);
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .card h3 {
+      font-size: 1.28rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Media Placeholders */
+    .media-placeholder {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(41, 151, 255, 0.12), rgba(168, 85, 247, 0.12));
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .media-placeholder img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+    }
+
+    .placeholder-caption {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Tags & Specs */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.26rem 0.72rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+    }
+
+    [data-theme="light"] .tag {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .spec-list {
+      list-style: none;
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 0.85rem;
+    }
+
+    .spec-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.45rem 0;
+      font-size: 0.86rem;
+      border-bottom: 1px dashed var(--border-subtle);
+    }
+
+    .spec-list li span:first-child {
+      color: var(--text-muted);
+    }
+
+    .spec-list li span:last-child {
+      font-family: var(--font-mono);
+      color: var(--text-primary);
+      font-weight: 500;
+      text-align: right;
+    }
+
+    /* Stats Strip */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+      margin-top: 1.25rem;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 0.9rem;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.3rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-family: var(--font-mono);
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 0.2rem;
+    }
+
+    /* Expandable Accordions */
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .accordion-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+
+    .accordion-item.open {
+      border-color: var(--border-highlight);
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      padding: 1.3rem 1.5rem;
+      text-align: left;
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+    }
+
+    .accordion-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(41, 151, 255, 0.12);
+      display: grid;
+      place-items: center;
+      color: var(--accent-cyan);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .accordion-item.open .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s var(--transition-smooth);
+    }
+
+    .accordion-item.open .accordion-content {
+      grid-template-rows: 1fr;
+    }
+
+    .accordion-inner {
+      overflow: hidden;
+    }
+
+    .accordion-body {
+      padding: 1.2rem 1.5rem 1.5rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* Team Profile Cards */
+    .pi-showcase {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .avatar-placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(41, 151, 255, 0.18), rgba(168, 85, 247, 0.15));
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar-placeholder img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+    }
+
+    .member-avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: var(--gradient-accent);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Filter Bar & Publications */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent-blue);
+      color: #fff;
+      border-color: var(--accent-blue);
+    }
+
+    .search-input {
+      padding: 0.6rem 1.1rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      min-width: 260px;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+    }
+
+    .pub-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      margin-bottom: 1rem;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .pub-item:hover {
+      border-color: var(--border-highlight);
+      transform: translateX(4px);
+    }
+
+    .pub-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+
+    .pub-year {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent-cyan);
+    }
+
+    /* Timeline (News & Events) */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      border-left: 2px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2.45rem;
+      top: 0.35rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 12px var(--accent-cyan);
+    }
+
+    /* Contact Form & Map */
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+      color: var(--text-secondary);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.78rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.94rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 350px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    /* Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s var(--transition-smooth), transform 0.65s var(--transition-smooth);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      padding: 3.5rem 0 2rem;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 2.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-col h4 {
+      font-size: 0.94rem;
+      margin-bottom: 0.9rem;
+      color: var(--text-primary);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .footer-bottom {
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .pi-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .menu-toggle {
+        display: grid;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.25rem;
+        gap: 0.4rem;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.35s var(--transition-smooth), opacity 0.25s ease;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .btn-group {
+        flex-direction: column;
+      }
+      .btn,
+      .search-input {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Sticky Glassmorphism Header -->
+
+  <!-- ========================================================================
+       STICKY GLASSMORPHISM HEADER
+       ======================================================================== -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="brand">
-        <div class="brand-mark">Ca⁺</div>
+      <a href="#home" class="brand" data-nav="home">
+        <div class="brand-mark">VMI</div>
         <div class="brand-text">
           Deb Research Lab
-          <span>IACS Kolkata · Physical Sciences</span>
+          <span>IACS Kolkata · Cold Ion Spectroscopy</span>
         </div>
       </a>
 
       <nav aria-label="Primary Navigation">
         <ul class="nav-links" id="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="research.html">Research</a></li>
-          <li><a href="facilities.html">Facilities</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li><a href="collaborators.html">Collaborators</a></li>
-          <li><a href="publications.html">Publications</a></li>
-          <li><a href="news.html">News &amp; Events</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#home" data-nav="home" class="active">Home</a></li>
+          <li><a href="#research" data-nav="research">Research</a></li>
+          <li><a href="#facilities" data-nav="facilities">Facilities</a></li>
+          <li><a href="#team" data-nav="team">Team</a></li>
+          <li><a href="#collaborators" data-nav="collaborators">Collaborators</a></li>
+          <li><a href="#publications" data-nav="publications">Publications</a></li>
+          <li><a href="#news" data-nav="news">News &amp; Events</a></li>
+          <li><a href="#contact" data-nav="contact">Contact</a></li>
         </ul>
       </nav>
 
@@ -44,234 +1068,1017 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="reveal">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            School of Physical Sciences · IACS Kolkata
-          </div>
-          <h1 class="hero-title">
-            Quantum Control of Cold Molecular Ions at the Single-Particle Limit.
-          </h1>
-          <p class="section-subtitle">
-            Led by <strong>Dr. Nabanita Deb</strong> at the Indian Association for the Cultivation of Science (IACS), our group investigates laser-cooled atomic ion Coulomb crystals, sympathetically cooled molecular ions, high-resolution action spectroscopy, and state-selected cold chemical dynamics.
-          </p>
-          <div class="btn-group">
-            <a href="research.html" class="btn btn-primary">Explore Our Research</a>
-            <a href="facilities.html" class="btn btn-secondary">Tour the Laboratory</a>
-          </div>
-        </div>
-
-        <!-- Animated Ion Trap & Coulomb Crystal Graphic -->
-        <div class="hero-visual tilt-card reveal">
-          <svg viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Schematic of a Linear Paul Ion Trap with Laser-Cooled Coulomb Crystal">
-            <rect width="500" height="360" rx="16" fill="rgba(10, 14, 24, 0.7)" />
-            <!-- RF Trap Rods -->
-            <rect x="70" y="55" width="360" height="22" rx="11" fill="url(#rodGrad)" stroke="rgba(255,255,255,0.2)" />
-            <rect x="70" y="283" width="360" height="22" rx="11" fill="url(#rodGrad)" stroke="rgba(255,255,255,0.2)" />
-            <!-- Laser Cooling Beam -->
-            <line x1="20" y1="180" x2="480" y2="180" stroke="#38bdf8" stroke-width="4" stroke-dasharray="8 4" opacity="0.75" />
-            <ellipse cx="250" cy="180" rx="115" ry="52" fill="url(#crystalGlow)" />
-            <!-- Sympathetic Molecular Ion Shell (Violet) -->
-            <circle cx="185" cy="150" r="6" fill="#a855f7" />
-            <circle cx="220" cy="140" r="6" fill="#a855f7" />
-            <circle cx="255" cy="138" r="6" fill="#a855f7" />
-            <circle cx="290" cy="142" r="6" fill="#a855f7" />
-            <circle cx="315" cy="152" r="6" fill="#a855f7" />
-            <circle cx="185" cy="210" r="6" fill="#a855f7" />
-            <circle cx="220" cy="220" r="6" fill="#a855f7" />
-            <circle cx="255" cy="222" r="6" fill="#a855f7" />
-            <circle cx="290" cy="218" r="6" fill="#a855f7" />
-            <circle cx="315" cy="208" r="6" fill="#a855f7" />
-            <!-- Laser-Cooled Ca+ Core (Cyan) -->
-            <circle cx="205" cy="180" r="7" fill="#38bdf8" />
-            <circle cx="235" cy="180" r="7" fill="#38bdf8" />
-            <circle cx="265" cy="180" r="7" fill="#38bdf8" />
-            <circle cx="295" cy="180" r="7" fill="#38bdf8" />
-            <circle cx="220" cy="164" r="6.5" fill="#38bdf8" />
-            <circle cx="250" cy="164" r="6.5" fill="#38bdf8" />
-            <circle cx="280" cy="164" r="6.5" fill="#38bdf8" />
-            <circle cx="220" cy="196" r="6.5" fill="#38bdf8" />
-            <circle cx="250" cy="196" r="6.5" fill="#38bdf8" />
-            <circle cx="280" cy="196" r="6.5" fill="#38bdf8" />
-            <!-- Labels -->
-            <text x="32" y="168" fill="#38bdf8" font-family="monospace" font-size="11">397 nm + 866 nm Cooling Axis</text>
-            <text x="155" y="42" fill="#a1a1aa" font-family="monospace" font-size="11">Segmented Linear Paul RF Ion Trap</text>
-            <text x="145" y="335" fill="#e4e4e7" font-family="monospace" font-size="11">Ca⁺ Core (Cyan) + Molecular Ions (Violet)</text>
-            <defs>
-              <linearGradient id="rodGrad" x1="70" y1="55" x2="430" y2="77" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#334155" />
-                <stop offset="0.5" stop-color="#64748b" />
-                <stop offset="1" stop-color="#1e293b" />
-              </linearGradient>
-              <radialGradient id="crystalGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(250 180) scale(115 52)">
-                <stop stop-color="#38bdf8" stop-opacity="0.35" />
-                <stop offset="0.6" stop-color="#a855f7" stop-opacity="0.15" />
-                <stop offset="1" stop-color="#000000" stop-opacity="0" />
-              </radialGradient>
-            </defs>
-          </svg>
-
-          <div class="stats-grid" style="margin-top: 1.25rem;">
-            <div class="stat-card" style="padding: 0.9rem;">
-              <div class="stat-value" style="font-size: 1.35rem;">~mK</div>
-              <div class="stat-label">Translational Temp</div>
-            </div>
-            <div class="stat-card" style="padding: 0.9rem;">
-              <div class="stat-value" style="font-size: 1.35rem;">10⁻¹⁰</div>
-              <div class="stat-label">UHV Base (mbar)</div>
-            </div>
-            <div class="stat-card" style="padding: 0.9rem;">
-              <div class="stat-value" style="font-size: 1.35rem;">VMI+TOF</div>
-              <div class="stat-label">3D Ion Detection</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Live Lab News Ticker -->
-    <div class="ticker-bar" aria-label="Latest Lab News Ticker">
-      <div class="container ticker-wrap">
-        <span class="ticker-badge">Lab Pulse</span>
-        <div class="ticker-viewport">
-          <div class="ticker-track">
-            <span class="ticker-item"><strong>[Oct 2026]</strong> PhD &amp; Postdoc openings available for Spring/Autumn cohorts at IACS Kolkata.</span>
-            <span class="ticker-item"><strong>[Aug 2026]</strong> High-resolution Velocity Map Imaging (VMI) detector assembly integrated with linear Paul trap.</span>
-            <span class="ticker-item"><strong>[May 2026]</strong> Collaborative study on cold ion-molecule reaction dynamics with University of Liverpool published.</span>
-            <span class="ticker-item"><strong>[Feb 2026]</strong> Stable multi-ion Ca⁺ Coulomb crystals achieved with automated wavemeter PID laser locking.</span>
-            <!-- Duplicate items for seamless infinite loop -->
-            <span class="ticker-item"><strong>[Oct 2026]</strong> PhD &amp; Postdoc openings available for Spring/Autumn cohorts at IACS Kolkata.</span>
-            <span class="ticker-item"><strong>[Aug 2026]</strong> High-resolution Velocity Map Imaging (VMI) detector assembly integrated with linear Paul trap.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Core Research Pillars -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="eyebrow">Core Capabilities</div>
-          <h2 class="section-title">Precision Atomic &amp; Molecular Physics</h2>
-          <p class="section-subtitle">
-            By combining radiofrequency ion trapping, Doppler laser cooling, and 3D momentum imaging, we isolate cold molecular species in well-defined quantum states to probe fundamental spectroscopy and astrochemically relevant reactions.
-          </p>
-        </div>
-
-        <div class="grid-2">
-          <article class="card tilt-card reveal">
-            <div class="card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
-            </div>
-            <h3>Cold Molecular Ion Spectroscopy</h3>
-            <p>
-              Co-trapping target molecular ions alongside laser-cooled atomic ions (such as Ca⁺) transfers kinetic energy via long-range Coulomb interactions, sympathetically cooling molecules down to millikelvin temperatures for Doppler-free vibrational and electronic action spectroscopy.
-            </p>
-            <div class="tag-list">
-              <span class="tag">Sympathetic Cooling</span>
-              <span class="tag">Action Spectroscopy</span>
-              <span class="tag"> Astrochemistry</span>
-            </div>
-          </article>
-
-          <article class="card tilt-card reveal">
-            <div class="card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            </div>
-            <h3>Laser Cooling &amp; Coulomb Crystals</h3>
-            <p>
-              Using narrow-linewidth CW diode lasers at 397 nm and 866 nm stabilized to a high-precision optical wavemeter, we cool trapped atomic ions until their thermal energy falls well below their mutual Coulomb repulsion—forming spatially ordered 3D Wigner crystals.
-            </p>
-            <div class="tag-list">
-              <span class="tag">Ca⁺ Wigner Crystals</span>
-              <span class="tag">397 nm / 866 nm Lasers</span>
-              <span class="tag">Single-Ion Imaging</span>
-            </div>
-          </article>
-
-          <article class="card tilt-card reveal">
-            <div class="card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-            </div>
-            <h3>Velocity Map Imaging (VMI) &amp; TOF-MS</h3>
-            <p>
-              Our custom electrostatic lens stack projects charged photofragments and reaction products onto a position-sensitive MCP/phosphor screen detector, reconstructing full 3D velocity distributions and branching ratios with single-Dalton mass resolution.
-            </p>
-            <div class="tag-list">
-              <span class="tag">3D Momentum Reconstruction</span>
-              <span class="tag">Time-of-Flight MS</span>
-              <span class="tag">Photodissociation</span>
-            </div>
-          </article>
-
-          <article class="card tilt-card reveal">
-            <div class="card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            </div>
-            <h3>Cold Ion–Molecule Reaction Dynamics</h3>
-            <p>
-              Investigating barrierless ion–molecule collisions at temperatures between 10 mK and 10 K where quantum tunneling, long-range Stark capture, and rotational state-selectivity dominate—mimicking conditions in interstellar clouds and planetary atmospheres.
-            </p>
-            <div class="tag-list">
-              <span class="tag">Quantum Capture</span>
-              <span class="tag">Isotope Effects</span>
-              <span class="tag">Rate Coefficients</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mission & Institutional Context -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="grid-2" style="align-items: center;">
+    <!-- ======================================================================
+         1. HOME VIEW (#home)
+         ====================================================================== -->
+    <section id="view-home" class="page-view active">
+      <div class="hero">
+        <div class="container hero-grid">
           <div class="reveal">
-            <div class="eyebrow">Our Mission at IACS</div>
-            <h2 class="section-title">Bridging Atomic Physics &amp; Quantum Chemistry in India</h2>
-            <p class="section-subtitle" style="margin-bottom: 1.25rem;">
-              Situated at the historic <strong>Indian Association for the Cultivation of Science (IACS)</strong> in Jadavpur, Kolkata—Asia's oldest research institute where Sir C. V. Raman discovered the Raman Effect—our laboratory develops state-of-the-art hybrid ion-trapping and imaging instrumentation from the ground up.
-            </p>
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Indian Association for the Cultivation of Science · Kolkata
+            </div>
+            <h1 class="hero-title">
+              Quantum Control &amp; Spectroscopy of Cold Molecular Ions.
+            </h1>
             <p class="section-subtitle">
-              We train PhD scholars, postdoctoral fellows, and integrated MSc students in ultra-high vacuum engineering, narrow-linewidth laser optics, RF electronics, and computational molecular dynamics simulation.
+              Led by <strong>Dr. Nabanita Deb</strong> at IACS Kolkata, our laboratory investigates cold molecular ion spectroscopy, blackbody-radiation-assisted laser cooling of polyatomic cations, dual-sided Velocity Map Imaging (VMI), Quadrupole Mass Filter (QMF) ion optics, and low-temperature collision dynamics.
             </p>
             <div class="btn-group">
-              <a href="team.html" class="btn btn-primary">Meet Dr. Nabanita Deb &amp; Team</a>
-              <a href="contact.html" class="btn btn-secondary">Apply for Positions</a>
+              <a href="#research" class="btn btn-primary">Explore Our Research</a>
+              <a href="#facilities" class="btn btn-secondary">Tour the Laboratory</a>
             </div>
           </div>
 
-          <div class="card reveal">
-            <h3>Recent Lab Highlights</h3>
-            <ul class="spec-list" style="margin-top: 0.75rem;">
-              <li>
-                <span>Principal Investigator</span>
-                <span>Dr. Nabanita Deb</span>
-              </li>
-              <li>
-                <span>Host School</span>
-                <span>School of Physical Sciences, IACS</span>
-              </li>
-              <li>
-                <span>Key Technique</span>
-                <span>Paul Trap + VMI + Laser Cooling</span>
-              </li>
-              <li>
-                <span>International Links</span>
-                <span>Univ. of Liverpool, Oxford &amp; EU Partners</span>
-              </li>
-              <li>
-                <span>Location</span>
-                <span>Jadavpur, Kolkata 700032, India</span>
-              </li>
-            </ul>
-            <div style="margin-top: 1.5rem;">
-              <a href="news.html" style="color: var(--accent-cyan); font-weight: 600; font-size: 0.92rem;">
-                View full News &amp; Events timeline &rarr;
-              </a>
+          <!-- Interactive Schematic Card -->
+          <div class="hero-visual tilt-card reveal">
+            <svg viewBox="0 0 500 350" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Schematic of Ion Trap, Laser Cooling, and Velocity Map Imaging">
+              <rect width="500" height="350" rx="16" fill="rgba(10, 14, 24, 0.75)" />
+              <!-- QMF / Ion Guide Rods -->
+              <rect x="65" y="55" width="370" height="20" rx="10" fill="url(#rodGrad)" stroke="rgba(255,255,255,0.2)" />
+              <rect x="65" y="275" width="370" height="20" rx="10" fill="url(#rodGrad)" stroke="rgba(255,255,255,0.2)" />
+              <!-- Laser Cooling Axis -->
+              <line x1="20" y1="175" x2="480" y2="175" stroke="#38bdf8" stroke-width="3.5" stroke-dasharray="8 4" opacity="0.8" />
+              <ellipse cx="250" cy="175" rx="115" ry="50" fill="url(#crystalGlow)" />
+              <!-- Polyatomic / Molecular Ions (Violet) -->
+              <circle cx="185" cy="145" r="6" fill="#a855f7" />
+              <circle cx="220" cy="136" r="6" fill="#a855f7" />
+              <circle cx="255" cy="134" r="6" fill="#a855f7" />
+              <circle cx="290" cy="138" r="6" fill="#a855f7" />
+              <circle cx="315" cy="148" r="6" fill="#a855f7" />
+              <circle cx="185" cy="205" r="6" fill="#a855f7" />
+              <circle cx="220" cy="214" r="6" fill="#a855f7" />
+              <circle cx="255" cy="216" r="6" fill="#a855f7" />
+              <circle cx="290" cy="212" r="6" fill="#a855f7" />
+              <circle cx="315" cy="202" r="6" fill="#a855f7" />
+              <!-- Cold Core Ions (Cyan) -->
+              <circle cx="205" cy="175" r="7" fill="#38bdf8" />
+              <circle cx="235" cy="175" r="7" fill="#38bdf8" />
+              <circle cx="265" cy="175" r="7" fill="#38bdf8" />
+              <circle cx="295" cy="175" r="7" fill="#38bdf8" />
+              <circle cx="220" cy="159" r="6.5" fill="#38bdf8" />
+              <circle cx="250" cy="159" r="6.5" fill="#38bdf8" />
+              <circle cx="280" cy="159" r="6.5" fill="#38bdf8" />
+              <circle cx="220" cy="191" r="6.5" fill="#38bdf8" />
+              <circle cx="250" cy="191" r="6.5" fill="#38bdf8" />
+              <circle cx="280" cy="191" r="6.5" fill="#38bdf8" />
+              <!-- Labels -->
+              <text x="30" y="162" fill="#38bdf8" font-family="monospace" font-size="11">Optical Pumping + BBR Rovibrational Cooling</text>
+              <text x="125" y="42" fill="#a1a1aa" font-family="monospace" font-size="11">Quadrupole Ion Optics &amp; Linear Trap</text>
+              <text x="115" y="325" fill="#e4e4e7" font-family="monospace" font-size="11">Cold Molecular Ions (NH₃⁺, ND₃⁺, CO₂⁺, OCS⁺)</text>
+              <defs>
+                <linearGradient id="rodGrad" x1="65" y1="55" x2="435" y2="75" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#334155" />
+                  <stop offset="0.5" stop-color="#64748b" />
+                  <stop offset="1" stop-color="#1e293b" />
+                </linearGradient>
+                <radialGradient id="crystalGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(250 175) scale(115 50)">
+                  <stop stop-color="#38bdf8" stop-opacity="0.35" />
+                  <stop offset="0.6" stop-color="#a855f7" stop-opacity="0.15" />
+                  <stop offset="1" stop-color="#000000" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+            </svg>
+
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-value">10⁻¹⁰</div>
+                <div class="stat-label">UHV Base (mbar)</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">Dual-VMI</div>
+                <div class="stat-label">Coincidence Imaging</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">J. Chem. Phys.</div>
+                <div class="stat-label">2026 BBR Cooling</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live News Ticker -->
+      <div class="ticker-bar" aria-label="Latest Lab News Ticker">
+        <div class="container ticker-wrap">
+          <span class="ticker-badge">Lab Pulse</span>
+          <div class="ticker-viewport">
+            <div class="ticker-track">
+              <span class="ticker-item"><strong>[Oct 2026]</strong> Dual-sided Velocity Map Imaging (VMI) coincidence spectrometer &amp; real-time sub-pixel centroiding software operational.</span>
+              <span class="ticker-item"><strong>[Jun 2026]</strong> Published in <em>The Journal of Chemical Physics</em>: BBR-assisted rovibrational cooling of symmetric-top molecular ions NH₃⁺ and ND₃⁺.</span>
+              <span class="ticker-item"><strong>[Feb 2026]</strong> Research poster presented at SDMC 2026 Conference (Spectroscopy and Dynamics of Molecules and Clusters, Nagpur).</span>
+              <span class="ticker-item"><strong>[Openings]</strong> Motivated PhD candidates (CSIR-NET / GATE / INSPIRE) &amp; Postdoctoral Fellows invited to contact Dr. Nabanita Deb.</span>
+              <!-- Duplicate for seamless loop -->
+              <span class="ticker-item"><strong>[Oct 2026]</strong> Dual-sided Velocity Map Imaging (VMI) coincidence spectrometer &amp; real-time sub-pixel centroiding software operational.</span>
+              <span class="ticker-item"><strong>[Jun 2026]</strong> Published in <em>The Journal of Chemical Physics</em>: BBR-assisted rovibrational cooling of symmetric-top molecular ions NH₃⁺ and ND₃⁺.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Research Highlights -->
+      <div class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="eyebrow">Core Capabilities</div>
+            <h2 class="section-title">Molecular Physics &amp; Chemical Dynamics</h2>
+            <p class="section-subtitle">
+              We integrate ultra-high-vacuum molecular beams, quadrupole and multipole ion optics, laser-induced rovibrational cooling, and coincidence Velocity Map Imaging to probe quantum-state-resolved molecular ions.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <article class="card tilt-card reveal">
+              <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
+              </div>
+              <h3>BBR-Assisted Rovibrational Laser Cooling</h3>
+              <p>
+                We develop optical pumping and blackbody-radiation (BBR)-assisted laser cooling schemes for non-linear symmetric-top cations (NH₃⁺, ND₃⁺) and linear triatomic cations (CO₂⁺, OCS⁺) exhibiting Renner-Teller vibronic coupling, compressing internal population into single rovibrational ground states.
+              </p>
+              <div class="tag-list">
+                <span class="tag">NH₃⁺ &amp; ND₃⁺</span>
+                <span class="tag">Renner-Teller Coupling</span>
+                <span class="tag">Rovibrational Cooling</span>
+              </div>
+            </article>
+
+            <article class="card tilt-card reveal">
+              <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+              <h3>Dual-Sided Velocity Map Imaging (VMI)</h3>
+              <p>
+                Our custom dual-sided VMI spectrometer enables simultaneous positive ion and electron/negative ion coincidence detection using synchronized high-speed cameras and real-time sub-pixel centroiding to reconstruct complete 3D momentum vectors.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Coincidence Detection</span>
+                <span class="tag">Sub-Pixel Centroiding</span>
+                <span class="tag">3D Momentum Mapping</span>
+              </div>
+            </article>
+
+            <article class="card tilt-card reveal">
+              <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <h3>Quadrupole Mass Filters &amp; Multipole Ion Optics</h3>
+              <p>
+                We model and experimentally characterize non-linear resonances, Mathieu stability diagrams, and higher-order hexapole/octupole potential expansions in symmetric and asymmetric Quadrupole Mass Filters (QMF) for high-transmission mass selection.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Mathieu Stability</span>
+                <span class="tag">Non-Linear Resonances</span>
+                <span class="tag">SIMION Ion Optics</span>
+              </div>
+            </article>
+
+            <article class="card tilt-card reveal">
+              <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <h3>Cold Collisions &amp; Penning Ionization Dynamics</h3>
+              <p>
+                Using supersonic molecular beams equipped with Even-Lavie pulsed valves and Dielectric Barrier Discharge (DBD) plasma sources, we generate metastable rare-gas beams (He*) to study Penning ionization and chemi-ionization at low collision energies.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Metastable He* Beams</span>
+                <span class="tag">Even-Lavie + DBD</span>
+                <span class="tag">Penning Ionization</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- Institutional Mission Strip -->
+      <div class="section section-alt">
+        <div class="container">
+          <div class="grid-2" style="align-items: center;">
+            <div class="reveal">
+              <div class="eyebrow">Our Mission at IACS</div>
+              <h2 class="section-title">Custom Instrumentation &amp; Quantum Spectroscopy in Kolkata</h2>
+              <p class="section-subtitle" style="margin-bottom: 1.2rem;">
+                Based at the <strong>Indian Association for the Cultivation of Science (IACS)</strong> in Jadavpur, Kolkata, our group designs and builds custom ultra-high-vacuum spectrometers, high-voltage RF/DC electronics, automated Python/PyQt6 data acquisition suites, and theoretical rate-equation models.
+              </p>
+              <div class="btn-group">
+                <a href="#team" class="btn btn-primary">Meet Dr. Nabanita Deb &amp; Team</a>
+                <a href="#publications" class="btn btn-secondary">Read Recent Papers</a>
+              </div>
+            </div>
+
+            <div class="card reveal">
+              <h3>Quick Lab Overview</h3>
+              <ul class="spec-list">
+                <li><span>Principal Investigator</span><span>Dr. Nabanita Deb</span></li>
+                <li><span>Host School</span><span>School of Chemical Sciences, IACS Kolkata</span></li>
+                <li><span>Core Focus</span><span>Cold Molecular Ions, VMI, QMF &amp; Laser Cooling</span></li>
+                <li><span>International Partner</span><span>University of Liverpool (Dr. B. R. Heazlewood)</span></li>
+                <li><span>Campus Address</span><span>2A &amp; 2B Raja S.C. Mullick Rd, Jadavpur, Kolkata</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         2. RESEARCH VIEW (#research)
+         ====================================================================== -->
+    <section id="view-research" class="page-view">
+      <div class="page-hero">
+        <div class="container reveal">
+          <div class="eyebrow">Scientific Themes</div>
+          <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
+            Cold Molecular Ion Spectroscopy &amp; Reaction Dynamics
+          </h1>
+          <p class="section-subtitle">
+            Our research bridges experimental chemical physics—supersonic molecular beams, RF ion guides, and coincidence Velocity Map Imaging—with rigorous quantum-mechanical modeling of polyatomic ions.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <div class="grid-2">
+            <div class="card tilt-card reveal">
+              <span class="eyebrow">Theme 01</span>
+              <h3>BBR-Assisted Laser Cooling of Polyatomic Molecular Ions</h3>
+              <p>
+                Unlike atomic ions, polyatomic molecular ions possess dense rotational and vibrational manifolds that complicate closed optical cycling. We investigate laser-induced, blackbody-radiation (BBR)-assisted rovibrational cooling in symmetric-top cations (<strong>NH₃⁺</strong> and <strong>ND₃⁺</strong>) as well as linear triatomic cations (<strong>CO₂⁺</strong> and <strong>OCS⁺</strong>) exhibiting Renner-Teller vibronic coupling. By driving selected ro-vibrational transitions and leveraging ambient BBR redistribution, internal populations are funneled into the lowest rotational states.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Symmetric-Top Ions (NH₃⁺ / ND₃⁺)</span>
+                <span class="tag">Linear Triatomics (CO₂⁺ / OCS⁺)</span>
+                <span class="tag">Rate-Equation Modeling</span>
+              </div>
+            </div>
+
+            <div class="card tilt-card reveal">
+              <span class="eyebrow">Theme 02</span>
+              <h3>Dual-Sided Coincidence Velocity Map Imaging (VMI)</h3>
+              <p>
+                We are developing a dual-sided Velocity Map Imaging spectrometer capable of detecting positive ions and electrons/negative ions in coincidence. Equipped with precision electrostatic immersion lenses, dual synchronized gigabit CMOS cameras (Basler ace), and real-time sub-pixel centroiding software (<em>VMI Studio Pro</em>), the apparatus maps 3D velocity spheres of photofragments and collision products with high kinetic energy resolution.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Dual-Sided VMI</span>
+                <span class="tag">Positive/Negative Coincidence</span>
+                <span class="tag">Sub-Pixel Centroiding</span>
+              </div>
+            </div>
+
+            <div class="card tilt-card reveal">
+              <span class="eyebrow">Theme 03</span>
+              <h3>Non-Linear Resonances in Quadrupole Mass Filters (QMF)</h3>
+              <p>
+                Mechanical imperfections or intentional electrode asymmetries in Quadrupole Mass Filters introduce higher-order multipole fields (hexapole, octupole, dodecapole) on top of the ideal quadrupolar potential. Using custom SIMION 8.1/2020 user programs and Python multipole expansions, we map Mathieu stability islands, secular frequency shifts, and non-linear resonance lines in single-rod and dual-rod asymmetric QMFs.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Mathieu Stability Diagrams</span>
+                <span class="tag">Multipole Expansions</span>
+                <span class="tag">Asymmetric QMF</span>
+              </div>
+            </div>
+
+            <div class="card tilt-card reveal">
+              <span class="eyebrow">Theme 04</span>
+              <h3>Supersonic Metastable Beams &amp; Cold Collision Dynamics</h3>
+              <p>
+                Crossed-molecular-beam and guided-ion-beam experiments probe low-temperature Penning ionization and chemi-ionization processes involving metastable helium (He*) and argon (Ar). We design high-voltage RF drivers for Dielectric Barrier Discharge (DBD) plasma sources mounted directly on Even-Lavie pulsed valves to produce intense, cold supersonic packets of metastable atoms and molecular ions.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Even-Lavie Pulsed Valve</span>
+                <span class="tag">DBD Plasma Source</span>
+                <span class="tag">Penning Ionization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beamline Architecture Schematic -->
+      <div class="section section-alt">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="eyebrow">System Architecture</div>
+            <h2 class="section-title">Dual-Sided VMI &amp; Quadrupole Ion Beamline Schematic</h2>
+            <p class="section-subtitle">
+              Functional layout of our supersonic DBD molecular beam source, quadrupole mass filter / ion guide, and dual-sided coincidence Velocity Map Imaging detector at IACS Kolkata.
+            </p>
+          </div>
+
+          <div class="card reveal" style="padding: 2rem;">
+            <svg viewBox="0 0 900 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Schematic of Supersonic Source, QMF, and Dual-Sided VMI">
+              <rect width="900" height="320" rx="14" fill="rgba(8, 11, 18, 0.88)" />
+              <rect x="30" y="30" width="840" height="260" rx="12" stroke="rgba(255,255,255,0.18)" stroke-dasharray="6 4" />
+              <!-- 1. Even-Lavie + DBD Source -->
+              <rect x="55" y="130" width="90" height="60" rx="8" fill="#334155" stroke="#38bdf8" stroke-width="2" />
+              <polygon points="165,160 195,125 195,195" fill="rgba(56,189,248,0.25)" stroke="#38bdf8" />
+              <text x="52" y="112" fill="#38bdf8" font-family="monospace" font-size="11">1. Even-Lavie + DBD</text>
+
+              <!-- 2. Quadrupole Mass Filter -->
+              <rect x="230" y="110" width="210" height="16" rx="8" fill="#64748b" />
+              <rect x="230" y="194" width="210" height="16" rx="8" fill="#64748b" />
+              <line x1="145" y1="160" x2="620" y2="160" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6 4" />
+              <text x="245" y="92" fill="#a855f7" font-family="monospace" font-size="11">2. Quadrupole Mass Filter (QMF)</text>
+
+              <!-- 3. Dual-Sided VMI Extraction Region -->
+              <circle cx="620" cy="160" r="18" fill="rgba(168,85,247,0.3)" stroke="#a855f7" stroke-width="2" />
+              <!-- Top VMI Stack (Positive Ions) -->
+              <line x1="580" y1="115" x2="660" y2="115" stroke="#38bdf8" stroke-width="4" />
+              <line x1="580" y1="95" x2="660" y2="95" stroke="#38bdf8" stroke-width="4" />
+              <rect x="570" y="48" width="100" height="14" rx="4" fill="#10b981" />
+              <text x="685" y="60" fill="#10b981" font-family="monospace" font-size="11">3a. Pos-Ion MCP + Basler Cam 1</text>
+
+              <!-- Bottom VMI Stack (Electrons / Negative Ions) -->
+              <line x1="580" y1="205" x2="660" y2="205" stroke="#a855f7" stroke-width="4" />
+              <line x1="580" y1="225" x2="660" y2="225" stroke="#a855f7" stroke-width="4" />
+              <rect x="570" y="258" width="100" height="14" rx="4" fill="#f59e0b" />
+              <text x="685" y="270" fill="#f59e0b" font-family="monospace" font-size="11">3b. e⁻ / Neg-Ion MCP + Basler Cam 2</text>
+
+              <!-- Laser Axis -->
+              <circle cx="620" cy="160" r="5" fill="#ffffff" />
+              <text x="648" y="164" fill="#e4e4e7" font-family="monospace" font-size="11">Laser Interaction Zone</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Accordions -->
+      <div class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="eyebrow">Methodology Deep Dive</div>
+            <h2 class="section-title">Theoretical &amp; Experimental Principles</h2>
+          </div>
+
+          <div class="accordion reveal">
+            <div class="accordion-item open">
+              <button class="accordion-trigger" aria-expanded="true">
+                <span>1. Blackbody-Radiation-Assisted Optical Cooling of NH₃⁺, ND₃⁺, CO₂⁺ &amp; OCS⁺</span>
+                <span class="accordion-icon">&#9662;</span>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-inner">
+                  <div class="accordion-body">
+                    <p>
+                      By coupling Einstein <em>A</em> and <em>B</em> coefficients for spontaneous emission, ambient blackbody radiation (BBR) absorption/stimulated emission, and laser-driven vibrational pumping into a master rate-equation solver, we simulate time-dependent population dynamics across hundreds of rovibrational levels. In symmetric-top ions (NH₃⁺, ND₃⁺), symmetry constraints preserve nuclear-spin modifications while cooling rotational states; in linear triatomic cations (CO₂⁺, OCS⁺), Renner-Teller vibronic coupling and spin-orbit splitting govern transition dipole moments and cooling efficiency.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" aria-expanded="false">
+                <span>2. Multipole Potential Expansion &amp; Non-Linear Resonances in Asymmetric QMFs</span>
+                <span class="accordion-icon">&#9662;</span>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-inner">
+                  <div class="accordion-body">
+                    <p>
+                      When one or two rods of a four-rod Quadrupole Mass Filter are radially or angularly displaced, higher-order spatial harmonics (<em>A₃</em> hexapole, <em>A₄</em> octupole, etc.) couple the transverse <em>x</em> and <em>y</em> motions. Whenever the secular oscillation frequencies satisfy the resonance condition <em>nₓ&beta;ₓ + nᵧ&beta;ᵧ = 2k</em>, ions gain transverse kinetic energy and are ejected, creating well-defined resonance dips inside the first Mathieu stability region.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-trigger" aria-expanded="false">
+                <span>3. Sub-Pixel Ion Centroiding &amp; Coincidence Velocity Map Reconstruction</span>
+                <span class="accordion-icon">&#9662;</span>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-inner">
+                  <div class="accordion-body">
+                    <p>
+                      Each ion or electron strike on the Chevron MCP stack produces a localized light burst on the phosphor screen imaged at 10–60 Hz by synchronized Basler gigabit Ethernet cameras. Real-time connected-component thresholding and intensity-weighted center-of-mass (COM) calculation achieve sub-pixel spatial resolution, dramatically sharpening the reconstructed 3D velocity distribution after inverse Abel transformation.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. FACILITIES VIEW (#facilities)
+         ====================================================================== -->
+    <section id="view-facilities" class="page-view">
+      <div class="page-hero">
+        <div class="container reveal">
+          <div class="eyebrow">Experimental Infrastructure</div>
+          <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
+            Instrumentation, Vacuum &amp; Control Hardware
+          </h1>
+          <p class="section-subtitle">
+            Our laboratory at IACS Kolkata is equipped with custom ultra-high-vacuum chambers, high-speed turbomolecular pumping stages, dual-sided VMI detectors, supersonic pulsed valves, and automated high-voltage electronics.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <div class="grid-2">
+            <!-- Facility 1 -->
+            <article class="card tilt-card reveal">
+              <div class="media-placeholder">
+                <img src="assets/images/uhv-chamber.jpg" alt="UHV Chamber and Pfeiffer HiPace 1200 Turbomolecular Pumps" onerror="this.style.display='none'" />
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.6">
+                  <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/>
+                </svg>
+                <span class="placeholder-caption">assets/images/uhv-chamber.jpg</span>
+              </div>
+              <h3>UHV Chambers &amp; High-Throughput Vacuum System</h3>
+              <p>
+                Custom multi-chamber 316L stainless steel ultra-high-vacuum beamline pumped by high-compression turbomolecular pumps and dry multi-stage Roots backing pumps to handle high gas loads from supersonic molecular beams.
+              </p>
+              <ul class="spec-list">
+                <li><span>Turbomolecular Pumps</span><span>Pfeiffer HiPace 1200 UHV Pumps</span></li>
+                <li><span>Dry Backing Pumps</span><span>Pfeiffer ACP 28 &amp; ACP 40 Multi-Stage Roots</span></li>
+                <li><span>Pressure Metrology</span><span>Kurt J. Lesker &amp; Agilent Full-Range Gauges</span></li>
+                <li><span>Pulsed Molecular Beam</span><span>Even-Lavie Valve + Dielectric Barrier Discharge</span></li>
+              </ul>
+            </article>
+
+            <!-- Facility 2 -->
+            <article class="card tilt-card reveal">
+              <div class="media-placeholder">
+                <img src="assets/images/vmi-detector.jpg" alt="Dual-Sided Velocity Map Imaging Detector and Basler Cameras" onerror="this.style.display='none'" />
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-violet)" stroke-width="1.6">
+                  <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+                </svg>
+                <span class="placeholder-caption">assets/images/vmi-detector.jpg</span>
+              </div>
+              <h3>Dual-Sided VMI Detectors &amp; Acquisition Software</h3>
+              <p>
+                Opposed electrostatic VMI lens stacks for positive ion and electron/negative ion coincidence imaging, paired with dual GigE vision cameras and our custom Python/PyQt6 real-time centroiding suite (<em>VMI Studio Pro</em>).
+              </p>
+              <ul class="spec-list">
+                <li><span>Imaging Cameras</span><span>Dual Basler ace acA1300-60gm GigE CMOS</span></li>
+                <li><span>Acquisition Suite</span><span>VMI Studio Pro (PyQt6, PyQtGraph, OpenCV, PyPylon)</span></li>
+                <li><span>Spatial Resolution</span><span>Real-Time Sub-Pixel Centroiding @ 10–60 Hz</span></li>
+                <li><span>Ion Optics Modeling</span><span>SIMION 8.1 / 8.2 / 2020 Trajectory Benchmarking</span></li>
+              </ul>
+            </article>
+
+            <!-- Facility 3 -->
+            <article class="card tilt-card reveal">
+              <div class="media-placeholder">
+                <img src="assets/images/rf-electronics.jpg" alt="High Voltage Power Supplies and Custom PCBs" onerror="this.style.display='none'" />
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.6">
+                  <rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/>
+                </svg>
+                <span class="placeholder-caption">assets/images/rf-electronics.jpg</span>
+              </div>
+              <h3>High-Voltage Power Supplies &amp; Custom RF/DC Electronics</h3>
+              <p>
+                Precision multi-channel high-voltage biasing for VMI immersion lenses, MCP detectors, and quadrupole rods, integrated via CAN-bus automation and custom-designed HV control printed circuit boards.
+              </p>
+              <ul class="spec-list">
+                <li><span>Multi-Channel HV Module</span><span>8-Channel iseg EHS-80 30x Power Supply</span></li>
+                <li><span>CAN-Bus Interface</span><span>PEAK PCAN-USB Automated Voltage Control</span></li>
+                <li><span>Custom Bipolar HV PCBs</span><span>XP Power CA10P / CA10N Control Boards (KiCad)</span></li>
+                <li><span>Circuit Simulation</span><span>LTspice &amp; ngspice Analog/RF Verification</span></li>
+              </ul>
+            </article>
+
+            <!-- Facility 4 -->
+            <article class="card tilt-card reveal">
+              <div class="media-placeholder">
+                <img src="assets/images/laser-table.jpg" alt="Laser Spectroscopy and Computational Workstation" onerror="this.style.display='none'" />
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="1.6">
+                  <path d="M2 12h20M16 6l6 6-6 6M8 6l-6 6 6 6"/>
+                </svg>
+                <span class="placeholder-caption">assets/images/laser-table.jpg</span>
+              </div>
+              <h3>Laser Spectroscopy &amp; Computational Modeling Suite</h3>
+              <p>
+                Optical tables for laser photoionization, photodissociation, and rovibrational optical pumping, backed by dedicated scientific workstations for SIMION potential array refinement and quantum rate-equation modeling.
+              </p>
+              <ul class="spec-list">
+                <li><span>Cooling Schemes</span><span>CW / Pulsed IR &amp; UV-Vis Optical Pumping</span></li>
+                <li><span>Ion Optics &amp; Fields</span><span>SIMION Potential Arrays &amp; Multipole Solvers</span></li>
+                <li><span>Scientific Computing</span><span>Python (NumPy, SciPy), Manim 3D &amp; MATLAB</span></li>
+                <li><span>Synchronization</span><span>Precision Multi-Channel Digital Delay Generators</span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. TEAM VIEW (#team)
+         ====================================================================== -->
+    <section id="view-team" class="page-view">
+      <div class="page-hero">
+        <div class="container reveal">
+          <div class="eyebrow">People</div>
+          <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
+            Principal Investigator &amp; Research Team
+          </h1>
+          <p class="section-subtitle">
+            Meet the experimentalists and chemical physicists driving cold molecular ion research at the Indian Association for the Cultivation of Science (IACS), Kolkata.
+          </p>
+        </div>
+      </div>
+
+      <!-- PI Profile -->
+      <div class="section">
+        <div class="container">
+          <div class="card pi-showcase reveal">
+            <div class="avatar-placeholder">
+              <img src="assets/images/pi-nabanita-deb.jpg" alt="Dr. Nabanita Deb, Principal Investigator" onerror="this.style.display='none'" />
+              <div class="member-avatar" style="width: 96px; height: 96px; font-size: 1.75rem;">ND</div>
+              <span class="placeholder-caption">assets/images/pi-nabanita-deb.jpg</span>
+            </div>
+
+            <div>
+              <div class="eyebrow">Principal Investigator</div>
+              <h2 class="section-title" style="margin-bottom: 0.4rem;">Dr. Nabanita Deb</h2>
+              <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 1.2rem;">
+                Faculty, School of Chemical Sciences · Indian Association for the Cultivation of Science (IACS), Kolkata
+              </p>
+              <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                Dr. Nabanita Deb leads the Cold Ion &amp; Molecular Spectroscopy Group at IACS Kolkata. Prior to joining the faculty at IACS, she conducted pioneering research on laser-cooled Coulomb crystals, sympathetic cooling of molecular ions, and cold ion–molecule reaction dynamics at leading international institutions including the <strong>University of Oxford</strong> and the <strong>University of Liverpool</strong>.
+              </p>
+              <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+                At IACS, her research group focuses on blackbody-radiation-assisted laser cooling of polyatomic molecular ions, dual-sided Velocity Map Imaging (VMI) coincidence spectrometry, Quadrupole Mass Filter ion optics, and low-temperature collision dynamics.
+              </p>
+
+              <ul class="spec-list">
+                <li><span>Institution</span><span>Indian Association for the Cultivation of Science (IACS)</span></li>
+                <li><span>School</span><span>School of Chemical Sciences, Jadavpur, Kolkata 700032</span></li>
+                <li><span>Research Areas</span><span>Cold Molecular Ions, BBR Laser Cooling, VMI, Ion Traps</span></li>
+              </ul>
+
+              <div class="btn-group" style="margin-top: 1.5rem;">
+                <a href="#contact" class="btn btn-primary">Contact Dr. Deb</a>
+                <a href="#publications" class="btn btn-secondary">View Lab Publications</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doctoral Scholars & Group Members -->
+      <div class="section section-alt">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="eyebrow">Doctoral Researchers &amp; Fellows</div>
+            <h2 class="section-title">PhD Scholars &amp; Research Members</h2>
+          </div>
+
+          <div class="grid-3">
+            <!-- Archisman Sinha -->
+            <article class="card tilt-card reveal">
+              <div class="member-avatar">AS</div>
+              <span class="tag">DST-INSPIRE PhD Fellow</span>
+              <h3 style="margin-top: 0.75rem;">Mr. Archisman Sinha</h3>
+              <p style="margin-bottom: 0.75rem;">
+                Working on BBR-assisted laser cooling of symmetric-top (NH₃⁺, ND₃⁺) and Renner-Teller triatomic cations, dual-sided VMI coincidence instrumentation (<em>VMI Studio Pro</em>), and non-linear resonances in Quadrupole Mass Filters.
+              </p>
+              <span class="placeholder-caption">M.Sc. Chemistry (SPPU Pune) · PhD Fellow, IACS</span>
+            </article>
+
+            <!-- Shikha Jana -->
+            <article class="card tilt-card reveal">
+              <div class="member-avatar">SJ</div>
+              <span class="tag">Doctoral Researcher</span>
+              <h3 style="margin-top: 0.75rem;">Shikha Jana</h3>
+              <p style="margin-bottom: 0.75rem;">
+                Researching cold molecular ion spectroscopy, rovibrational population dynamics, and experimental molecular beam / ion-trapping instrumentation at IACS Kolkata.
+              </p>
+              <span class="placeholder-caption">Co-Author (J. Chem. Phys. 2026) · IACS Kolkata</span>
+            </article>
+
+            <!-- Shail Chakraborty -->
+            <article class="card tilt-card reveal">
+              <div class="member-avatar">SC</div>
+              <span class="tag">Doctoral Researcher</span>
+              <h3 style="margin-top: 0.75rem;">Shail Chakraborty</h3>
+              <p style="margin-bottom: 0.75rem;">
+                Investigating laser-induced rovibrational cooling schemes, molecular ion dynamics, and high-resolution action spectroscopy in supersonic and trapped-ion environments.
+              </p>
+              <span class="placeholder-caption">Co-Author (J. Chem. Phys. 2026) · IACS Kolkata</span>
+            </article>
+
+            <!-- Open Postdoc / PhD Slot -->
+            <article class="card tilt-card reveal" style="border-style: dashed; border-color: var(--accent-cyan);">
+              <div class="member-avatar" style="background: rgba(56, 189, 248, 0.18); color: var(--accent-cyan);">+</div>
+              <span class="tag" style="color: var(--accent-cyan);">Open Positions</span>
+              <h3 style="margin-top: 0.75rem;">Prospective Postdocs &amp; PhDs</h3>
+              <p style="margin-bottom: 1rem;">
+                We welcome applications from candidates with CSIR-UGC NET, GATE, JEST, DST-INSPIRE, or ANRF-NPDF fellowships interested in experimental AMO &amp; chemical physics.
+              </p>
+              <a href="#contact" style="color: var(--accent-cyan); font-weight: 600;">Apply via Contact Page &rarr;</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. COLLABORATORS VIEW (#collaborators)
+         ====================================================================== -->
+    <section id="view-collaborators" class="page-view">
+      <div class="page-hero">
+        <div class="container reveal">
+          <div class="eyebrow">Global &amp; National Network</div>
+          <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
+            Academic Collaborators &amp; Partner Institutions
+          </h1>
+          <p class="section-subtitle">
+            Our research thrives on active international and national collaborations spanning experimental ion trapping, Velocity Map Imaging, and theoretical molecular physics.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <div class="grid-2">
+            <!-- Collaborator 1: Dr. Brianna R. Heazlewood -->
+            <article class="card tilt-card reveal">
+              <span class="eyebrow">United Kingdom · International Partner</span>
+              <h3>Dr. Brianna R. Heazlewood</h3>
+              <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.65rem;">
+                Department of Physics · University of Liverpool, UK
+              </p>
+              <p>
+                Close academic collaboration on cold ion–molecule reaction dynamics, sympathetic cooling in linear Paul traps, Coulomb crystal diagnostics, and high-resolution Velocity Map Imaging optics.
+              </p>
+              <div class="tag-list">
+                <span class="tag">University of Liverpool</span>
+                <span class="tag">Cold Ion Chemistry</span>
+                <span class="tag">Coulomb Crystals</span>
+              </div>
+            </article>
+
+            <!-- Collaborator 2: Dr. Pintu Mandal -->
+            <article class="card tilt-card reveal">
+              <span class="eyebrow">Kolkata, India · Academic Collaborator</span>
+              <h3>Dr. Pintu Mandal</h3>
+              <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.65rem;">
+                Department of Chemistry · St. Paul's Cathedral Mission College, Kolkata
+              </p>
+              <p>
+                Joint theoretical and computational research on blackbody-radiation-assisted laser cooling of symmetric-top and polyatomic molecular ions, rovibrational transition rates, and spectroscopic modeling.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Rovibrational Cooling</span>
+                <span class="tag">Molecular Spectroscopy</span>
+                <span class="tag">Co-Author (JCP 2026)</span>
+              </div>
+            </article>
+
+            <!-- Collaborator 3: IIT Bombay & National Facilities -->
+            <article class="card tilt-card reveal">
+              <span class="eyebrow">India · National Experimental Collaborations</span>
+              <h3>IIT Bombay, SNBNCBS &amp; IIT Kharagpur</h3>
+              <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.65rem;">
+                Joint Experimental Campaigns &amp; Instrumentation Exchange
+              </p>
+              <p>
+                Collaborative experimental campaigns, high-voltage instrumentation testing, and academic exchange with premier Indian laboratories in molecular beam spectroscopy and chemical dynamics.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Joint Experiments</span>
+                <span class="tag">HV &amp; Detector Testing</span>
+                <span class="tag">Molecular Beams</span>
+              </div>
+            </article>
+
+            <!-- Collaborator 4: Funding Agencies -->
+            <article class="card tilt-card reveal">
+              <span class="eyebrow">Research Support</span>
+              <h3>DST, ANRF (SERB) &amp; IACS Kolkata</h3>
+              <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.65rem;">
+                Government of India Sponsored Research &amp; Fellowships
+              </p>
+              <p>
+                Supported by institutional grants from the Indian Association for the Cultivation of Science (IACS), the Department of Science and Technology (DST-INSPIRE), and the Anusandhan National Research Foundation (ANRF).
+              </p>
+              <div class="tag-list">
+                <span class="tag">IACS Core Grant</span>
+                <span class="tag">DST-INSPIRE</span>
+                <span class="tag">ANRF / SERB</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. PUBLICATIONS VIEW (#publications)
+         ====================================================================== -->
+    <section id="view-publications" class="page-view">
+      <div class="page-hero">
+        <div class="container reveal">
+          <div class="eyebrow">Scholarly Output</div>
+          <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
+            Publications, Preprints &amp; Conference Presentations
+          </h1>
+          <p class="section-subtitle">
+            Filter our peer-reviewed journal articles, ongoing manuscripts, and international conference presentations by category or keyword.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <!-- Interactive Filter & Search Bar -->
+          <div class="filter-bar reveal">
+            <div class="filter-pills" role="tablist" aria-label="Filter publications by category">
+              <button class="filter-btn pub-filter-btn active" data-filter="all">All Outputs</button>
+              <button class="filter-btn pub-filter-btn" data-filter="journal">Journal Articles</button>
+              <button class="filter-btn pub-filter-btn" data-filter="preprint">In Prep / Preprints</button>
+              <button class="filter-btn pub-filter-btn" data-filter="conference">Conferences &amp; Talks</button>
+            </div>
+            <input
+              type="search"
+              id="pub-search"
+              class="search-input"
+              placeholder="Search NH3+, VMI, QMF, JCP..."
+              aria-label="Search publications"
+            />
+          </div>
+
+          <!-- Publication Items -->
+          <div id="publications-list" class="reveal">
+            <article class="pub-item" data-pub-category="journal">
+              <div class="pub-meta">
+                <span class="pub-year">June 2026</span>
+                <span class="tag">The Journal of Chemical Physics (JCP)</span>
+                <span class="tag">Peer-Reviewed Journal</span>
+              </div>
+              <h3>Laser-induced, blackbody-radiation-assisted rovibrational cooling of symmetric-top molecular ions: NH₃⁺ and ND₃⁺</h3>
+              <p style="color: var(--text-secondary); font-size: 0.93rem;">
+                <strong>Archisman Sinha</strong>, <strong>Pintu Mandal</strong>, <strong>Shikha Jana</strong>, <strong>Shail Chakraborty</strong>, and <strong>Nabanita Deb*</strong> — <em>The Journal of Chemical Physics</em> (2026).
+              </p>
+              <div>
+                <a href="https://pubs.aip.org/aip/jcp" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-size: 0.88rem; font-weight: 600;">View in The Journal of Chemical Physics &nearr;</a>
+              </div>
+            </article>
+
+            <article class="pub-item" data-pub-category="preprint">
+              <div class="pub-meta">
+                <span class="pub-year">2026</span>
+                <span class="tag">In Preparation</span>
+                <span class="tag">Rovibrational Cooling &amp; Renner-Teller Coupling</span>
+              </div>
+              <h3>Blackbody-Radiation-Assisted Laser Cooling and Renner-Teller Vibronic Coupling in Linear Triatomic Cations: CO₂⁺ and OCS⁺</h3>
+              <p style="color: var(--text-secondary); font-size: 0.93rem;">
+                <strong>A. Sinha</strong>, <strong>N. Deb*</strong> et al., Indian Association for the Cultivation of Science (IACS), Kolkata.
+              </p>
+            </article>
+
+            <article class="pub-item" data-pub-category="preprint">
+              <div class="pub-meta">
+                <span class="pub-year">2026</span>
+                <span class="tag">In Preparation</span>
+                <span class="tag">Ion Optics &amp; Mass Spectrometry</span>
+              </div>
+              <h3>Characterization of Non-Linear Resonances and Higher-Order Multipole Fields in Single-Rod and Dual-Rod Asymmetric Quadrupole Mass Filters</h3>
+              <p style="color: var(--text-secondary); font-size: 0.93rem;">
+                <strong>A. Sinha</strong>, <strong>N. Deb*</strong> et al., School of Chemical Sciences, IACS Kolkata.
+              </p>
+            </article>
+
+            <article class="pub-item" data-pub-category="conference">
+              <div class="pub-meta">
+                <span class="pub-year">March 2026</span>
+                <span class="tag">Flash Presentation</span>
+                <span class="tag">School of Chemical Sciences Day · IACS Kolkata</span>
+              </div>
+              <h3>3D Manim Visualizations of NH₃⁺ Molecular Rotation, Rovibrational Cooling, and Quadrupole Radiofrequency Fields</h3>
+              <p style="color: var(--text-secondary); font-size: 0.93rem;">
+                <strong>Mr. Archisman Sinha</strong> &amp; <strong>Dr. Nabanita Deb</strong> — Departmental Flash Talk, IACS Kolkata (March 2026).
+              </p>
+            </article>
+
+            <article class="pub-item" data-pub-category="conference">
+              <div class="pub-meta">
+                <span class="pub-year">February 2026</span>
+                <span class="tag">SDMC 2026 Conference · Nagpur</span>
+                <span class="tag">International Conference Poster</span>
+              </div>
+              <h3>Blackbody-Assisted Ro-Vibrational Cooling in Non-Linear Polyatomic Ions NH₃⁺ and ND₃⁺</h3>
+              <p style="color: var(--text-secondary); font-size: 0.93rem;">
+                Presented at <em>Spectroscopy and Dynamics of Molecules and Clusters (SDMC 2026)</em>, Nagpur, India (Feb 19–22, 2026).
+              </p>
+            </article>
+
+            <article class="pub-item" data-pub-category="journal">
+              <div class="pub-meta">
+                <span class="pub-year">Prior Selected Works</span>
+                <span class="tag">Oxford &amp; Liverpool Series</span>
+                <span class="tag">Cold Ion–Molecule Chemistry</span>
+              </div>
+              <h3>Cold Ion–Molecule Reaction Dynamics, Sympathetic Cooling, and Coulomb Crystal Spectroscopy in Linear Paul Traps</h3>
+              <p style="color: var(--text-secondary); font-size: 0.93rem;">
+                <strong>N. Deb</strong>, B. R. Heazlewood, and co-workers — Foundational publications on laser-cooled Ca⁺ Coulomb crystals and state-selected reaction kinetics.
+              </p>
+              <div>
+                <a href="https://scholar.google.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-size: 0.88rem; font-weight: 600;">View Full Profile on Google Scholar &nearr;</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. NEWS & EVENTS VIEW (#news)
+         ====================================================================== -->
+    <section id="view-news" class="page-view">
+      <div class="page-hero">
+        <div class="container reveal">
+          <div class="eyebrow">Milestones &amp; Updates</div>
+          <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
+            Lab News, Instrumentation Milestones &amp; Events
+          </h1>
+          <p class="section-subtitle">
+            Recent publications, hardware commissioning milestones, conference presentations, and student achievements from our group at IACS Kolkata.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <div class="filter-bar reveal">
+            <div class="filter-pills">
+              <button class="filter-btn news-filter-btn active" data-news-filter="all">All Updates</button>
+              <button class="filter-btn news-filter-btn" data-news-filter="milestone">Instrumentation</button>
+              <button class="filter-btn news-filter-btn" data-news-filter="publication">Publications</button>
+              <button class="filter-btn news-filter-btn" data-news-filter="conference">Conferences</button>
+            </div>
+          </div>
+
+          <div class="timeline reveal">
+            <article class="timeline-item card" data-news-category="milestone">
+              <div class="timeline-dot"></div>
+              <div class="pub-meta" style="margin-bottom: 0.5rem;">
+                <span class="pub-year">October 2026</span>
+                <span class="tag">Dual-Sided VMI &amp; Cold Collisions</span>
+              </div>
+              <h3>Dual-Sided VMI Coincidence Spectrometer &amp; Metastable He* Collision Studies</h3>
+              <p>
+                Integration of our dual-sided Velocity Map Imaging setup featuring positive ion and electron/negative ion coincidence detection, dual Basler ace acA1300-60gm cameras, and CAN-bus automated 8-channel iseg EHS-80 HV control alongside crossed-beam Penning ionization modeling.
+              </p>
+            </article>
+
+            <article class="timeline-item card" data-news-category="milestone">
+              <div class="timeline-dot"></div>
+              <div class="pub-meta" style="margin-bottom: 0.5rem;">
+                <span class="pub-year">August 2026</span>
+                <span class="tag">Software &amp; HV Electronics</span>
+              </div>
+              <h3>Launch of "VMI Studio Pro" &amp; Custom KiCad High-Voltage Control PCBs</h3>
+              <p>
+                Developed <em>VMI Studio Pro</em> in Python (PyQt6, PyQtGraph, OpenCV, PyPylon) for real-time 10–60 Hz sub-pixel ion centroiding, alongside custom KiCad HV control boards for XP Power CA10P/CA10N modules and DBD RF plasma drivers for our Even-Lavie valve.
+              </p>
+            </article>
+
+            <article class="timeline-item card" data-news-category="publication">
+              <div class="timeline-dot"></div>
+              <div class="pub-meta" style="margin-bottom: 0.5rem;">
+                <span class="pub-year">June 2026</span>
+                <span class="tag">Journal Publication</span>
+              </div>
+              <h3>Research Article Published in The Journal of Chemical Physics</h3>
+              <p>
+                Congratulations to first author <strong>Mr. Archisman Sinha</strong> and co-authors <strong>Dr. Pintu Mandal</strong>, <strong>Shikha Jana</strong>, <strong>Shail Chakraborty</strong>, and <strong>Dr. Nabanita Deb</strong> on publishing <em>"Laser-induced, blackbody-radiation-assisted rovibrational cooling of symmetric-top molecular ions: NH₃⁺ and ND₃⁺"</em> in JCP!
+              </p>
+            </article>
+
+            <article class="timeline-item card" data-news-category="conference">
+              <div class="timeline-dot"></div>
+              <div class="pub-meta" style="margin-bottom: 0.5rem;">
+                <span class="pub-year">March 2026</span>
+                <span class="tag">Departmental Symposium</span>
+              </div>
+              <h3>Flash Presentation at School of Chemical Sciences Day, IACS Kolkata</h3>
+              <p>
+                Delivered a 5-minute flash talk showcasing custom 3D Manim physics animations of NH₃⁺ symmetric-top molecular rotation and quadrupole radiofrequency trapping fields.
+              </p>
+            </article>
+
+            <article class="timeline-item card" data-news-category="conference">
+              <div class="timeline-dot"></div>
+              <div class="pub-meta" style="margin-bottom: 0.5rem;">
+                <span class="pub-year">February 2026</span>
+                <span class="tag">International Conference</span>
+              </div>
+              <h3>Poster Presentation at SDMC 2026 in Nagpur</h3>
+              <p>
+                Our group presented latest findings on blackbody-assisted rovibrational cooling of non-linear polyatomic ions (NH₃⁺ and ND₃⁺) at the <em>Spectroscopy and Dynamics of Molecules and Clusters (SDMC 2026)</em> conference held from Feb 19–22, 2026.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         8. CONTACT US VIEW (#contact)
+         ====================================================================== -->
+    <section id="view-contact" class="page-view">
+      <div class="page-hero">
+        <div class="container reveal">
+          <div class="eyebrow">Get In Touch</div>
+          <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
+            Join or Collaborate with Our Lab at IACS Kolkata
+          </h1>
+          <p class="section-subtitle">
+            Prospective PhD scholars, postdoctoral fellows, M.Sc. project students, and international collaborators are welcome to contact Dr. Nabanita Deb.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="container">
+          <div class="grid-2">
+            <!-- Interactive Contact Form -->
+            <div class="card reveal">
+              <h3 style="margin-bottom: 0.5rem;">Send an Inquiry</h3>
+              <p style="margin-bottom: 1.5rem;">
+                Fill out the form below to format your inquiry or reach out directly via institutional email with your CV and fellowship details.
+              </p>
+
+              <form id="lab-contact-form">
+                <div class="form-group">
+                  <label class="form-label" for="name">Full Name *</label>
+                  <input type="text" id="name" class="form-control" placeholder="e.g., Arindam Chatterjee" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address *</label>
+                  <input type="email" id="email" class="form-control" placeholder="name@institute.ac.in" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="inquiry-type">Inquiry Category *</label>
+                  <select id="inquiry-type" class="form-control" required>
+                    <option value="PhD Position Inquiry">PhD Position (CSIR-NET / GATE / JEST / INSPIRE)</option>
+                    <option value="Postdoctoral Fellowship">Postdoctoral Fellowship (ANRF-NPDF / Institute PDF)</option>
+                    <option value="MSc Project / Internship">Master's Thesis / Summer Research Internship</option>
+                    <option value="Research Collaboration">Academic &amp; Experimental Collaboration</option>
+                    <option value="General Inquiry">General / Scientific Inquiry</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="message">Message &amp; Research Background *</label>
+                  <textarea id="message" rows="5" class="form-control" placeholder="Briefly describe your academic background, fellowship status, and interest in cold molecular ions / VMI..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                  Prepare &amp; Submit Inquiry
+                </button>
+
+                <div id="form-status" style="display: none; margin-top: 1.25rem; padding: 1rem; border-radius: var(--radius-sm); background: rgba(16, 185, 129, 0.12); border: 1px solid var(--accent-emerald); color: var(--text-primary); font-size: 0.9rem;"></div>
+              </form>
+            </div>
+
+            <!-- Institutional Address & Embedded Map -->
+            <div class="reveal" style="display: flex; flex-direction: column; gap: 1.5rem;">
+              <div class="card">
+                <h3>Official Institutional Address</h3>
+                <ul class="spec-list">
+                  <li><span>Principal Investigator</span><span>Dr. Nabanita Deb</span></li>
+                  <li><span>School</span><span>School of Chemical Sciences</span></li>
+                  <li><span>Institute</span><span>Indian Association for the Cultivation of Science (IACS)</span></li>
+                  <li><span>Address</span><span>2A &amp; 2B Raja S. C. Mullick Road</span></li>
+                  <li><span>City &amp; PIN</span><span>Jadavpur, Kolkata – 700032, West Bengal, India</span></li>
+                  <li><span>Institute Portal</span><span><a href="https://www.iacs.res.in" target="_blank" rel="noopener" style="color: var(--accent-cyan);">www.iacs.res.in &nearr;</a></span></li>
+                </ul>
+              </div>
+
+              <div class="card" style="padding: 1.25rem;">
+                <h4 style="margin-bottom: 0.75rem;">Campus Map · IACS Jadavpur (Opposite Jadavpur University)</h4>
+                <div class="map-frame">
+                  <iframe
+                    title="IACS Kolkata Campus Location Map"
+                    width="100%"
+                    height="100%"
+                    style="border: 0;"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=88.3635%2C22.4945%2C88.3745%2C22.5025&amp;layer=mapnik&amp;marker=22.4986%2C88.3688">
+                  </iframe>
+                </div>
+                <p style="font-size: 0.84rem; color: var(--text-secondary); margin-top: 0.85rem;">
+                  <strong>How to Reach:</strong> Located at Jadavpur 8B Bus Stand directly opposite Jadavpur University Main Campus in South Kolkata.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -279,60 +2086,279 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- ========================================================================
+       GLOBAL FOOTER
+       ======================================================================== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <div class="brand" style="margin-bottom: 1rem;">
-            <div class="brand-mark">Ca⁺</div>
+          <a href="#home" class="brand" style="margin-bottom: 1rem;">
+            <div class="brand-mark">VMI</div>
             <div class="brand-text">
               Deb Research Lab
               <span>IACS Kolkata</span>
             </div>
-          </div>
-          <p style="color: var(--text-secondary); font-size: 0.9rem; max-width: 34ch;">
-            Cold Ion &amp; Molecular Spectroscopy Group, School of Physical Sciences, Indian Association for the Cultivation of Science, Jadavpur, Kolkata 700032.
+          </a>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; max-width: 34ch;">
+            Cold Ion &amp; Molecular Spectroscopy Group, Indian Association for the Cultivation of Science (IACS), 2A &amp; 2B Raja S. C. Mullick Road, Jadavpur, Kolkata 700032.
           </p>
         </div>
 
         <div class="footer-col">
-          <h4>Explore</h4>
+          <h4>Navigation</h4>
           <ul class="footer-links">
-            <li><a href="research.html">Research Themes</a></li>
-            <li><a href="facilities.html">Experimental Facilities</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="collaborators.html">Collaborators</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#research">Research Themes</a></li>
+            <li><a href="#facilities">Experimental Facilities</a></li>
+            <li><a href="#publications">Publications</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>People &amp; Updates</h4>
+          <h4>Group &amp; Network</h4>
           <ul class="footer-links">
-            <li><a href="team.html">Principal Investigator</a></li>
-            <li><a href="team.html#scholars">PhD Scholars &amp; Postdocs</a></li>
-            <li><a href="news.html">Lab News &amp; Grants</a></li>
-            <li><a href="contact.html">Open Positions</a></li>
+            <li><a href="#team">PI &amp; Research Team</a></li>
+            <li><a href="#collaborators">Collaborators</a></li>
+            <li><a href="#news">News &amp; Events</a></li>
+            <li><a href="#contact">Open Positions</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Institutional</h4>
+          <h4>External Links</h4>
           <ul class="footer-links">
-            <li><a href="https://www.iacs.res.in" target="_blank" rel="noopener">IACS Official Portal &nearr;</a></li>
-            <li><a href="contact.html">2A &amp; 2B Raja S.C. Mullick Rd</a></li>
-            <li><a href="mailto:spsnd@iacs.res.in">spsnd@iacs.res.in</a></li>
+            <li><a href="https://www.iacs.res.in" target="_blank" rel="noopener">IACS Official Website &nearr;</a></li>
+            <li><a href="https://pubs.aip.org/aip/jcp" target="_blank" rel="noopener">J. Chem. Phys. (AIP) &nearr;</a></li>
+            <li><a href="#contact">Jadavpur Campus Map</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
         <span>&copy; 2026 Dr. Nabanita Deb Research Lab, IACS Kolkata. All rights reserved.</span>
-        <span>Designed for GitHub Pages · Responsive HTML5 / CSS3 / Vanilla JS</span>
+        <span>Single-File SPA Build · Ready for GitHub Pages</span>
       </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- ========================================================================
+       VANILLA JAVASCRIPT CONTROLLER (Router, Theme, Tilt, Filters, Accordions)
+       ======================================================================== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      /* ----------------------------------------------------------------------
+         1. Hash-Based Single-Page Application (SPA) Router
+         ---------------------------------------------------------------------- */
+      const validPages = ["home", "research", "facilities", "team", "collaborators", "publications", "news", "contact"];
+      const navLinks = document.querySelectorAll("[data-nav]");
+      const navDrawer = document.getElementById("nav-links");
+      const menuToggle = document.getElementById("menu-toggle");
+
+      const triggerRevealInView = (container) => {
+        const els = container.querySelectorAll(".reveal");
+        els.forEach((el, idx) => {
+          setTimeout(() => el.classList.add("visible"), idx * 45);
+        });
+      };
+
+      const switchPage = (pageId, scrollToTop = true) => {
+        const target = validPages.includes(pageId) ? pageId : "home";
+
+        document.querySelectorAll(".page-view").forEach((section) => {
+          const isMatch = section.id === `view-${target}`;
+          section.classList.toggle("active", isMatch);
+          if (isMatch) {
+            triggerRevealInView(section);
+          }
+        });
+
+        navLinks.forEach((link) => {
+          if (link.closest(".nav-links")) {
+            link.classList.toggle("active", link.getAttribute("data-nav") === target);
+          }
+        });
+
+        if (navDrawer && navDrawer.classList.contains("open")) {
+          navDrawer.classList.remove("open");
+          if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+        }
+
+        if (scrollToTop) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      };
+
+      const handleHashChange = () => {
+        const rawHash = window.location.hash.replace("#", "").trim().toLowerCase();
+        switchPage(rawHash || "home");
+      };
+
+      window.addEventListener("hashchange", handleHashChange);
+      handleHashChange();
+
+      /* ----------------------------------------------------------------------
+         2. Dark / Light Theme Toggle with LocalStorage Persistence
+         ---------------------------------------------------------------------- */
+      const root = document.documentElement;
+      const themeToggle = document.getElementById("theme-toggle");
+      const savedTheme = localStorage.getItem("deblab-theme") || "dark";
+
+      const applyTheme = (theme) => {
+        root.setAttribute("data-theme", theme);
+        localStorage.setItem("deblab-theme", theme);
+        if (themeToggle) {
+          themeToggle.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} mode`);
+          themeToggle.innerHTML =
+            theme === "dark"
+              ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`
+              : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+        }
+      };
+
+      applyTheme(savedTheme);
+
+      if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+          const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          applyTheme(next);
+        });
+      }
+
+      /* ----------------------------------------------------------------------
+         3. Mobile Hamburger Menu Toggle
+         ---------------------------------------------------------------------- */
+      if (menuToggle && navDrawer) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = navDrawer.classList.toggle("open");
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
+      }
+
+      /* ----------------------------------------------------------------------
+         4. IntersectionObserver for Scroll Reveal
+         ---------------------------------------------------------------------- */
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+      } else {
+        document.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+      }
+
+      /* ----------------------------------------------------------------------
+         5. 3D Hover Tilt Effect on Cards (.tilt-card)
+         ---------------------------------------------------------------------- */
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!prefersReducedMotion) {
+        document.querySelectorAll(".tilt-card").forEach((card) => {
+          card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -3.5;
+            const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 3.5;
+            card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+          });
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "";
+          });
+        });
+      }
+
+      /* ----------------------------------------------------------------------
+         6. Expandable Accordions (CSS Grid Row Transition — Works Even When Hidden)
+         ---------------------------------------------------------------------- */
+      document.querySelectorAll(".accordion-item").forEach((item) => {
+        const trigger = item.querySelector(".accordion-trigger");
+        if (trigger) {
+          trigger.addEventListener("click", () => {
+            const isOpen = item.classList.toggle("open");
+            trigger.setAttribute("aria-expanded", String(isOpen));
+          });
+        }
+      });
+
+      /* ----------------------------------------------------------------------
+         7. Publications Filter & Live Search
+         ---------------------------------------------------------------------- */
+      const pubButtons = document.querySelectorAll(".pub-filter-btn");
+      const pubSearch = document.getElementById("pub-search");
+      const pubItems = document.querySelectorAll("[data-pub-category]");
+      let activePubCategory = "all";
+      let pubQuery = "";
+
+      const filterPublications = () => {
+        pubItems.forEach((item) => {
+          const cat = item.getAttribute("data-pub-category");
+          const text = item.textContent.toLowerCase();
+          const matchCat = activePubCategory === "all" || cat === activePubCategory;
+          const matchSearch = !pubQuery || text.includes(pubQuery);
+          item.style.display = matchCat && matchSearch ? "" : "none";
+        });
+      };
+
+      pubButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          pubButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          activePubCategory = btn.getAttribute("data-filter") || "all";
+          filterPublications();
+        });
+      });
+
+      if (pubSearch) {
+        pubSearch.addEventListener("input", (e) => {
+          pubQuery = e.target.value.trim().toLowerCase();
+          filterPublications();
+        });
+      }
+
+      /* ----------------------------------------------------------------------
+         8. News & Events Category Filter
+         ---------------------------------------------------------------------- */
+      const newsButtons = document.querySelectorAll(".news-filter-btn");
+      const newsItems = document.querySelectorAll("[data-news-category]");
+
+      newsButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          newsButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filter = btn.getAttribute("data-news-filter") || "all";
+          newsItems.forEach((item) => {
+            const cat = item.getAttribute("data-news-category");
+            item.style.display = filter === "all" || cat === filter ? "" : "none";
+          });
+        });
+      });
+
+      /* ----------------------------------------------------------------------
+         9. Contact Form Handler
+         ---------------------------------------------------------------------- */
+      const contactForm = document.getElementById("lab-contact-form");
+      const formStatus = document.getElementById("form-status");
+
+      if (contactForm && formStatus) {
+        contactForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = contactForm.querySelector("#name").value.trim();
+          const email = contactForm.querySelector("#email").value.trim();
+          const category = contactForm.querySelector("#inquiry-type").value;
+
+          formStatus.style.display = "block";
+          formStatus.innerHTML = `Thank you, <strong>${name}</strong>. Your inquiry regarding <em>${category}</em> has been prepared. Please send your CV and fellowship details directly to Dr. Nabanita Deb at IACS Kolkata (Confirmation logged for <code>${email}</code>).`;
+          contactForm.reset();
+        });
+      }
+    });
+  </script>
 </body>
 </html>
