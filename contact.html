@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Dr. Nabanita Deb Lab | IACS Kolkata</title>
+  <meta name="description" content="Contact Dr. Nabanita Deb at the School of Physical Sciences, Indian Association for the Cultivation of Science (IACS), Jadavpur, Kolkata 700032." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">Ca⁺</div>
+        <div class="brand-text">Deb Research Lab<span>IACS Kolkata · Physical Sciences</span></div>
+      </a>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="facilities.html">Facilities</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="collaborators.html">Collaborators</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News &amp; Events</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme"></button>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container reveal">
+        <div class="eyebrow">Get In Touch</div>
+        <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
+          Join or Collaborate with Our Lab at IACS Kolkata
+        </h1>
+        <p class="section-subtitle">
+          Prospective PhD students, postdoctoral candidates, MSc thesis students, and academic collaborators are warmly encouraged to reach out.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid-2">
+          <!-- Interactive Contact Form -->
+          <div class="card reveal">
+            <h3 style="margin-bottom: 0.5rem;">Send an Inquiry</h3>
+            <p style="margin-bottom: 1.5rem;">
+              Fill out the form below or email Dr. Nabanita Deb directly with your CV and research statement.
+            </p>
+
+            <form id="lab-contact-form">
+              <div class="form-group">
+                <label class="form-label" for="name">Full Name *</label>
+                <input type="text" id="name" class="form-control" placeholder="e.g., Arindam Chatterjee" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">Institutional Email *</label>
+                <input type="email" id="email" class="form-control" placeholder="name@institute.ac.in" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="inquiry-type">Inquiry Category *</label>
+                <select id="inquiry-type" class="form-control" required>
+                  <option value="PhD Application">PhD Position Inquiry (NET / GATE / JEST / INSPIRE)</option>
+                  <option value="Postdoctoral Fellowship">Postdoctoral Fellowship (NPDF / Institute PDF)</option>
+                  <option value="MSc Project / Internship">Master's Thesis / Summer Internship</option>
+                  <option value="Research Collaboration">Academic Collaboration</option>
+                  <option value="General / Scientific Inquiry">General / Instrumentation Inquiry</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Message &amp; Background Summary *</label>
+                <textarea id="message" rows="5" class="form-control" placeholder="Briefly describe your academic background, fellowship status, and research interests..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Prepare &amp; Submit Inquiry
+              </button>
+
+              <div id="form-status" style="display: none; margin-top: 1.25rem; padding: 1rem; border-radius: var(--radius-sm); background: rgba(16, 185, 129, 0.12); border: 1px solid var(--accent-emerald); color: var(--text-primary); font-size: 0.9rem;"></div>
+            </form>
+          </div>
+
+          <!-- Address, Official Email & Embedded Map -->
+          <div class="reveal" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div class="card">
+              <h3>Official Institutional Address</h3>
+              <ul class="spec-list">
+                <li>
+                  <span>Principal Investigator</span>
+                  <span>Dr. Nabanita Deb</span>
+                </li>
+                <li>
+                  <span>School</span>
+                  <span>School of Physical Sciences (SPS)</span>
+                </li>
+                <li>
+                  <span>Institute</span>
+                  <span>Indian Association for the Cultivation of Science (IACS)</span>
+                </li>
+                <li>
+                  <span>Street Address</span>
+                  <span>2A &amp; 2B Raja S. C. Mullick Road</span>
+                </li>
+                <li>
+                  <span>City &amp; PIN</span>
+                  <span>Jadavpur, Kolkata – 700032, West Bengal, India</span>
+                </li>
+                <li>
+                  <span>Official Email</span>
+                  <span><a href="mailto:spsnd@iacs.res.in" style="color: var(--accent-cyan);">spsnd@iacs.res.in</a></span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Interactive Map of IACS Jadavpur, Kolkata -->
+            <div class="card" style="padding: 1.25rem;">
+              <h4 style="margin-bottom: 0.75rem;">Campus Map · IACS Jadavpur (Opposite Jadavpur University)</h4>
+              <div class="map-frame">
+                <iframe
+                  title="IACS Kolkata Campus Location Map"
+                  width="100%"
+                  height="100%"
+                  style="border: 0;"
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=88.3635%2C22.4945%2C88.3745%2C22.5025&amp;layer=mapnik&amp;marker=22.4986%2C88.3688">
+                </iframe>
+              </div>
+              <p style="font-size: 0.84rem; color: var(--text-secondary); margin-top: 0.85rem;">
+                <strong>How to Reach:</strong> Located at Jadavpur 8B Bus Stand directly opposite Jadavpur University Main Campus. ~45 mins from Netaji Subhas Chandra Bose International Airport (CCU) and ~35 mins from Howrah / Sealdah Railway Stations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 Dr. Nabanita Deb Research Lab, IACS Kolkata. All rights reserved.</span>
+        <span><a href="index.html" style="color: var(--accent-cyan);">&larr; Back to Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
