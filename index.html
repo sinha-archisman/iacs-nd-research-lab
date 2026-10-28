@@ -1,120 +1,338 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Laboratory | IACS Kolkata</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cold Ion & Molecular Spectroscopy Lab | Dr. Nabanita Deb | IACS Kolkata</title>
+  <meta name="description" content="Cold Ion & Molecular Spectroscopy Research Group led by Dr. Nabanita Deb at the School of Physical Sciences, Indian Association for the Cultivation of Science (IACS), Kolkata." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-    <!-- Header -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">Research Lab | IACS</a>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+  <!-- Sticky Glassmorphism Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">Ca⁺</div>
+        <div class="brand-text">
+          Deb Research Lab
+          <span>IACS Kolkata · Physical Sciences</span>
         </div>
-    </header>
+      </a>
 
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="facilities.html">Facilities</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="collaborators.html">Collaborators</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News &amp; Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme"></button>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Advanced Molecular & Optical Physics Laboratory</h1>
-            <p>Exploring cold molecular ion spectroscopy, quantum state control, and advanced mass spectrometry at IACS Kolkata.</p>
-            <a href="#research" class="btn">Explore Our Research</a>
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            School of Physical Sciences · IACS Kolkata
+          </div>
+          <h1 class="hero-title">
+            Quantum Control of Cold Molecular Ions at the Single-Particle Limit.
+          </h1>
+          <p class="section-subtitle">
+            Led by <strong>Dr. Nabanita Deb</strong> at the Indian Association for the Cultivation of Science (IACS), our group investigates laser-cooled atomic ion Coulomb crystals, sympathetically cooled molecular ions, high-resolution action spectroscopy, and state-selected cold chemical dynamics.
+          </p>
+          <div class="btn-group">
+            <a href="research.html" class="btn btn-primary">Explore Our Research</a>
+            <a href="facilities.html" class="btn btn-secondary">Tour the Laboratory</a>
+          </div>
         </div>
+
+        <!-- Animated Ion Trap & Coulomb Crystal Graphic -->
+        <div class="hero-visual tilt-card reveal">
+          <svg viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Schematic of a Linear Paul Ion Trap with Laser-Cooled Coulomb Crystal">
+            <rect width="500" height="360" rx="16" fill="rgba(10, 14, 24, 0.7)" />
+            <!-- RF Trap Rods -->
+            <rect x="70" y="55" width="360" height="22" rx="11" fill="url(#rodGrad)" stroke="rgba(255,255,255,0.2)" />
+            <rect x="70" y="283" width="360" height="22" rx="11" fill="url(#rodGrad)" stroke="rgba(255,255,255,0.2)" />
+            <!-- Laser Cooling Beam -->
+            <line x1="20" y1="180" x2="480" y2="180" stroke="#38bdf8" stroke-width="4" stroke-dasharray="8 4" opacity="0.75" />
+            <ellipse cx="250" cy="180" rx="115" ry="52" fill="url(#crystalGlow)" />
+            <!-- Sympathetic Molecular Ion Shell (Violet) -->
+            <circle cx="185" cy="150" r="6" fill="#a855f7" />
+            <circle cx="220" cy="140" r="6" fill="#a855f7" />
+            <circle cx="255" cy="138" r="6" fill="#a855f7" />
+            <circle cx="290" cy="142" r="6" fill="#a855f7" />
+            <circle cx="315" cy="152" r="6" fill="#a855f7" />
+            <circle cx="185" cy="210" r="6" fill="#a855f7" />
+            <circle cx="220" cy="220" r="6" fill="#a855f7" />
+            <circle cx="255" cy="222" r="6" fill="#a855f7" />
+            <circle cx="290" cy="218" r="6" fill="#a855f7" />
+            <circle cx="315" cy="208" r="6" fill="#a855f7" />
+            <!-- Laser-Cooled Ca+ Core (Cyan) -->
+            <circle cx="205" cy="180" r="7" fill="#38bdf8" />
+            <circle cx="235" cy="180" r="7" fill="#38bdf8" />
+            <circle cx="265" cy="180" r="7" fill="#38bdf8" />
+            <circle cx="295" cy="180" r="7" fill="#38bdf8" />
+            <circle cx="220" cy="164" r="6.5" fill="#38bdf8" />
+            <circle cx="250" cy="164" r="6.5" fill="#38bdf8" />
+            <circle cx="280" cy="164" r="6.5" fill="#38bdf8" />
+            <circle cx="220" cy="196" r="6.5" fill="#38bdf8" />
+            <circle cx="250" cy="196" r="6.5" fill="#38bdf8" />
+            <circle cx="280" cy="196" r="6.5" fill="#38bdf8" />
+            <!-- Labels -->
+            <text x="32" y="168" fill="#38bdf8" font-family="monospace" font-size="11">397 nm + 866 nm Cooling Axis</text>
+            <text x="155" y="42" fill="#a1a1aa" font-family="monospace" font-size="11">Segmented Linear Paul RF Ion Trap</text>
+            <text x="145" y="335" fill="#e4e4e7" font-family="monospace" font-size="11">Ca⁺ Core (Cyan) + Molecular Ions (Violet)</text>
+            <defs>
+              <linearGradient id="rodGrad" x1="70" y1="55" x2="430" y2="77" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#334155" />
+                <stop offset="0.5" stop-color="#64748b" />
+                <stop offset="1" stop-color="#1e293b" />
+              </linearGradient>
+              <radialGradient id="crystalGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(250 180) scale(115 52)">
+                <stop stop-color="#38bdf8" stop-opacity="0.35" />
+                <stop offset="0.6" stop-color="#a855f7" stop-opacity="0.15" />
+                <stop offset="1" stop-color="#000000" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+          </svg>
+
+          <div class="stats-grid" style="margin-top: 1.25rem;">
+            <div class="stat-card" style="padding: 0.9rem;">
+              <div class="stat-value" style="font-size: 1.35rem;">~mK</div>
+              <div class="stat-label">Translational Temp</div>
+            </div>
+            <div class="stat-card" style="padding: 0.9rem;">
+              <div class="stat-value" style="font-size: 1.35rem;">10⁻¹⁰</div>
+              <div class="stat-label">UHV Base (mbar)</div>
+            </div>
+            <div class="stat-card" style="padding: 0.9rem;">
+              <div class="stat-value" style="font-size: 1.35rem;">VMI+TOF</div>
+              <div class="stat-label">3D Ion Detection</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Main Container -->
-    <div class="container">
-
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Our Laboratory</h2>
-            <p>Our research group focuses on precision spectroscopy, molecular dynamics, and advanced instrumentation design. Utilizing state-of-the-art ultra-high-vacuum systems, velocity map imaging (VMI) spectrometers, and custom electronics, we investigate the fundamental behavior of polyatomic ions and their interactions under controlled environments.</p>
-        </section>
-
-        <!-- Research Thrusts -->
-        <section id="research">
-            <h2>Research Thrust Areas</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <h3>Cold Molecular Ions</h3>
-                    <p>Investigating blackbody-radiation-assisted laser cooling schemes, rovibrational energy state distributions, and optical pumping techniques for polyatomic cations.</p>
-                </div>
-                <div class="card">
-                    <h3>Velocity Map Imaging</h3>
-                    <p>Developing dual-sided VMI setups and high-speed CMOS camera synchronizations for coincidence detection and high-resolution ion dynamics visualization.</p>
-                </div>
-                <div class="card">
-                    <h3>Ion Optics & Instrumentation</h3>
-                    <p>Simulating and optimizing asymmetric quadrupole mass filters, high-voltage pulsed valves, and custom RF driver electronics using simulation tools and CAD software.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Publications Section -->
-        <section id="publications">
-            <h2>Selected Publications</h2>
-            <ul class="pub-list">
-                <li class="pub-item">
-                    <div class="pub-title">Laser-induced, blackbody-radiation-assisted rovibrational cooling of symmetric-top molecular ions</div>
-                    <div class="pub-authors">Author Name, Collaborators, N. Deb</div>
-                    <div class="pub-journal">The Journal of Chemical Physics (2026)</div>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Team Section -->
-        <section id="team">
-            <h2>Lab Members</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="avatar-placeholder">PI</div>
-                    <h4>Dr. Principal Investigator</h4>
-                    <p>Principal Investigator</p>
-                </div>
-                <div class="team-member">
-                    <div class="avatar-placeholder">YS</div>
-                    <h4>Your Name</h4>
-                    <p>PhD Research Fellow</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <div class="contact-box">
-                <div class="contact-info">
-                    <h3>Lab Location</h3>
-                    <p><strong>Indian Association for the Cultivation of Science (IACS)</strong></p>
-                    <p>2A & 2B, Raja S.C. Mullick Road</p>
-                    <p>Jadavpur, Kolkata - 700032, West Bengal, India</p>
-                </div>
-                <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p><strong>Email:</strong> your.email@iacs.res.in</p>
-                    <p><strong>Positions:</strong> We welcome motivated PhD students and postdocs. Reach out via email with your CV.</p>
-                </div>
-            </div>
-        </section>
-
+    <!-- Live Lab News Ticker -->
+    <div class="ticker-bar" aria-label="Latest Lab News Ticker">
+      <div class="container ticker-wrap">
+        <span class="ticker-badge">Lab Pulse</span>
+        <div class="ticker-viewport">
+          <div class="ticker-track">
+            <span class="ticker-item"><strong>[Oct 2026]</strong> PhD &amp; Postdoc openings available for Spring/Autumn cohorts at IACS Kolkata.</span>
+            <span class="ticker-item"><strong>[Aug 2026]</strong> High-resolution Velocity Map Imaging (VMI) detector assembly integrated with linear Paul trap.</span>
+            <span class="ticker-item"><strong>[May 2026]</strong> Collaborative study on cold ion-molecule reaction dynamics with University of Liverpool published.</span>
+            <span class="ticker-item"><strong>[Feb 2026]</strong> Stable multi-ion Ca⁺ Coulomb crystals achieved with automated wavemeter PID laser locking.</span>
+            <!-- Duplicate items for seamless infinite loop -->
+            <span class="ticker-item"><strong>[Oct 2026]</strong> PhD &amp; Postdoc openings available for Spring/Autumn cohorts at IACS Kolkata.</span>
+            <span class="ticker-item"><strong>[Aug 2026]</strong> High-resolution Velocity Map Imaging (VMI) detector assembly integrated with linear Paul trap.</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Research Group, IACS Kolkata. Hosted freely on GitHub Pages.</p>
-    </footer>
+    <!-- Core Research Pillars -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Core Capabilities</div>
+          <h2 class="section-title">Precision Atomic &amp; Molecular Physics</h2>
+          <p class="section-subtitle">
+            By combining radiofrequency ion trapping, Doppler laser cooling, and 3D momentum imaging, we isolate cold molecular species in well-defined quantum states to probe fundamental spectroscopy and astrochemically relevant reactions.
+          </p>
+        </div>
 
+        <div class="grid-2">
+          <article class="card tilt-card reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
+            </div>
+            <h3>Cold Molecular Ion Spectroscopy</h3>
+            <p>
+              Co-trapping target molecular ions alongside laser-cooled atomic ions (such as Ca⁺) transfers kinetic energy via long-range Coulomb interactions, sympathetically cooling molecules down to millikelvin temperatures for Doppler-free vibrational and electronic action spectroscopy.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Sympathetic Cooling</span>
+              <span class="tag">Action Spectroscopy</span>
+              <span class="tag"> Astrochemistry</span>
+            </div>
+          </article>
+
+          <article class="card tilt-card reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3>Laser Cooling &amp; Coulomb Crystals</h3>
+            <p>
+              Using narrow-linewidth CW diode lasers at 397 nm and 866 nm stabilized to a high-precision optical wavemeter, we cool trapped atomic ions until their thermal energy falls well below their mutual Coulomb repulsion—forming spatially ordered 3D Wigner crystals.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Ca⁺ Wigner Crystals</span>
+              <span class="tag">397 nm / 866 nm Lasers</span>
+              <span class="tag">Single-Ion Imaging</span>
+            </div>
+          </article>
+
+          <article class="card tilt-card reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <h3>Velocity Map Imaging (VMI) &amp; TOF-MS</h3>
+            <p>
+              Our custom electrostatic lens stack projects charged photofragments and reaction products onto a position-sensitive MCP/phosphor screen detector, reconstructing full 3D velocity distributions and branching ratios with single-Dalton mass resolution.
+            </p>
+            <div class="tag-list">
+              <span class="tag">3D Momentum Reconstruction</span>
+              <span class="tag">Time-of-Flight MS</span>
+              <span class="tag">Photodissociation</span>
+            </div>
+          </article>
+
+          <article class="card tilt-card reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Cold Ion–Molecule Reaction Dynamics</h3>
+            <p>
+              Investigating barrierless ion–molecule collisions at temperatures between 10 mK and 10 K where quantum tunneling, long-range Stark capture, and rotational state-selectivity dominate—mimicking conditions in interstellar clouds and planetary atmospheres.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Quantum Capture</span>
+              <span class="tag">Isotope Effects</span>
+              <span class="tag">Rate Coefficients</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Institutional Context -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="grid-2" style="align-items: center;">
+          <div class="reveal">
+            <div class="eyebrow">Our Mission at IACS</div>
+            <h2 class="section-title">Bridging Atomic Physics &amp; Quantum Chemistry in India</h2>
+            <p class="section-subtitle" style="margin-bottom: 1.25rem;">
+              Situated at the historic <strong>Indian Association for the Cultivation of Science (IACS)</strong> in Jadavpur, Kolkata—Asia's oldest research institute where Sir C. V. Raman discovered the Raman Effect—our laboratory develops state-of-the-art hybrid ion-trapping and imaging instrumentation from the ground up.
+            </p>
+            <p class="section-subtitle">
+              We train PhD scholars, postdoctoral fellows, and integrated MSc students in ultra-high vacuum engineering, narrow-linewidth laser optics, RF electronics, and computational molecular dynamics simulation.
+            </p>
+            <div class="btn-group">
+              <a href="team.html" class="btn btn-primary">Meet Dr. Nabanita Deb &amp; Team</a>
+              <a href="contact.html" class="btn btn-secondary">Apply for Positions</a>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <h3>Recent Lab Highlights</h3>
+            <ul class="spec-list" style="margin-top: 0.75rem;">
+              <li>
+                <span>Principal Investigator</span>
+                <span>Dr. Nabanita Deb</span>
+              </li>
+              <li>
+                <span>Host School</span>
+                <span>School of Physical Sciences, IACS</span>
+              </li>
+              <li>
+                <span>Key Technique</span>
+                <span>Paul Trap + VMI + Laser Cooling</span>
+              </li>
+              <li>
+                <span>International Links</span>
+                <span>Univ. of Liverpool, Oxford &amp; EU Partners</span>
+              </li>
+              <li>
+                <span>Location</span>
+                <span>Jadavpur, Kolkata 700032, India</span>
+              </li>
+            </ul>
+            <div style="margin-top: 1.5rem;">
+              <a href="news.html" style="color: var(--accent-cyan); font-weight: 600; font-size: 0.92rem;">
+                View full News &amp; Events timeline &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: 1rem;">
+            <div class="brand-mark">Ca⁺</div>
+            <div class="brand-text">
+              Deb Research Lab
+              <span>IACS Kolkata</span>
+            </div>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; max-width: 34ch;">
+            Cold Ion &amp; Molecular Spectroscopy Group, School of Physical Sciences, Indian Association for the Cultivation of Science, Jadavpur, Kolkata 700032.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="research.html">Research Themes</a></li>
+            <li><a href="facilities.html">Experimental Facilities</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="collaborators.html">Collaborators</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>People &amp; Updates</h4>
+          <ul class="footer-links">
+            <li><a href="team.html">Principal Investigator</a></li>
+            <li><a href="team.html#scholars">PhD Scholars &amp; Postdocs</a></li>
+            <li><a href="news.html">Lab News &amp; Grants</a></li>
+            <li><a href="contact.html">Open Positions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Institutional</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.iacs.res.in" target="_blank" rel="noopener">IACS Official Portal &nearr;</a></li>
+            <li><a href="contact.html">2A &amp; 2B Raja S.C. Mullick Rd</a></li>
+            <li><a href="mailto:spsnd@iacs.res.in">spsnd@iacs.res.in</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Dr. Nabanita Deb Research Lab, IACS Kolkata. All rights reserved.</span>
+        <span>Designed for GitHub Pages · Responsive HTML5 / CSS3 / Vanilla JS</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
