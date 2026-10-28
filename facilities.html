@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facilities | Dr. Nabanita Deb Lab | IACS Kolkata</title>
+  <meta name="description" content="Experimental hardware and instrumentation at the Deb Lab, IACS Kolkata: Ultra-High Vacuum (UHV) chambers, VMI detectors, narrow-linewidth lasers, and RF electronics." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">Ca⁺</div>
+        <div class="brand-text">Deb Research Lab<span>IACS Kolkata · Physical Sciences</span></div>
+      </a>
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="facilities.html" class="active">Facilities</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="collaborators.html">Collaborators</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="news.html">News &amp; Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme"></button>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container reveal">
+        <div class="eyebrow">Experimental Infrastructure</div>
+        <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
+          Custom Instrumentation for Quantum-State Control
+        </h1>
+        <p class="section-subtitle">
+          Our laboratory at IACS Kolkata houses custom-designed Ultra-High Vacuum (UHV) chambers, precision-machined radiofrequency ion traps, frequency-stabilized CW and pulsed laser systems, and 3D particle imaging detectors.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid-2">
+          <!-- Facility 1: UHV Chamber -->
+          <article class="card tilt-card reveal">
+            <div class="media-placeholder">
+              <img src="assets/images/uhv-chamber.jpg" alt="Ultra-High Vacuum Linear Paul Trap Chamber" onerror="this.style.display='none'" />
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.6">
+                <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/>
+              </svg>
+              <span class="placeholder-caption">assets/images/uhv-chamber.jpg</span>
+            </div>
+            <h3>UHV Linear Paul Trap Chamber</h3>
+            <p>
+              Multi-stage differentially pumped 316LN stainless steel vacuum system equipped with turbomolecular, ion getter, and non-evaporable getter (NEG) pumps to prevent background gas collisions with trapped Coulomb crystals over hours of trapping time.
+            </p>
+            <ul class="spec-list">
+              <li><span>Base Pressure</span><span>&lt; 2 &times; 10⁻¹⁰ mbar</span></li>
+              <li><span>Trap Geometry</span><span>Segmented 4-Rod Linear Paul Trap</span></li>
+              <li><span>Optical Access</span><span>High-NA Re-entrant UV Fused Silica Viewports</span></li>
+              <li><span>Neutral Gas Introduction</span><span>Piezo / Pulsed Valve Skimmed Molecular Beam</span></li>
+            </ul>
+          </article>
+
+          <!-- Facility 2: VMI & TOF Detector -->
+          <article class="card tilt-card reveal">
+            <div class="media-placeholder">
+              <img src="assets/images/vmi-detector.jpg" alt="Velocity Map Imaging and Time of Flight Detector" onerror="this.style.display='none'" />
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-violet)" stroke-width="1.6">
+                <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+              </svg>
+              <span class="placeholder-caption">assets/images/vmi-detector.jpg</span>
+            </div>
+            <h3>Velocity Map Imaging (VMI) &amp; TOF Spectrometer</h3>
+            <p>
+              Custom electrostatic immersion lens assembly integrated directly with the ion trap to project ions along a mu-metal shielded Time-of-Flight drift tube onto a dual Microchannel Plate (MCP) and fast P47 phosphor screen.
+            </p>
+            <ul class="spec-list">
+              <li><span>Detector Stack</span><span>40 mm Chevron Dual MCP + P47 Phosphor</span></li>
+              <li><span>Optical Readout</span><span>High-Speed CMOS Camera + Fast PMT</span></li>
+              <li><span>Mass Gating</span><span>Nanosecond HV Push-Pull Pulser</span></li>
+              <li><span>Fluorescence Imaging</span><span>High-Sensitivity EMCCD Camera + 10&times; Objective</span></li>
+            </ul>
+          </article>
+
+          <!-- Facility 3: Laser Systems -->
+          <article class="card tilt-card reveal">
+            <div class="media-placeholder">
+              <img src="assets/images/laser-table.jpg" alt="Optical Table and Stabilized Diode Lasers" onerror="this.style.display='none'" />
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="1.6">
+                <path d="M2 12h20M16 6l6 6-6 6M8 6l-6 6 6 6"/>
+              </svg>
+              <span class="placeholder-caption">assets/images/laser-table.jpg</span>
+            </div>
+            <h3>Narrow-Linewidth CW &amp; Pulsed Laser Suite</h3>
+            <p>
+              Vibration-isolated optical tables housing external-cavity diode lasers (ECDLs) for Ca<sup>+</sup> Doppler cooling, repumping, and photoionization, alongside tunable UV/visible/IR sources for molecular spectroscopy.
+            </p>
+            <ul class="spec-list">
+              <li><span>Ca⁺ Cooling &amp; Repump</span><span>397 nm, 866 nm &amp; 854 nm Grating-Stabilized ECDLs</span></li>
+              <li><span>Neutral Ca Photoionization</span><span>423 nm + 375 nm Two-Photon Ionization</span></li>
+              <li><span>Frequency Stabilization</span><span>High-Finesse Wavelength Meter (&plusmn;10 MHz PID Lock)</span></li>
+              <li><span>Beam Conditioning</span><span>AOM/EOM Switching &amp; Single-Mode PM Fiber Delivery</span></li>
+            </ul>
+          </article>
+
+          <!-- Facility 4: RF & Control Electronics -->
+          <article class="card tilt-card reveal">
+            <div class="media-placeholder">
+              <img src="assets/images/rf-electronics.jpg" alt="RF Trap Drive and FPGA Control Electronics" onerror="this.style.display='none'" />
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.6">
+                <rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/>
+              </svg>
+              <span class="placeholder-caption">assets/images/rf-electronics.jpg</span>
+            </div>
+            <h3>Phase-Locked RF &amp; FPGA Timing Electronics</h3>
+            <p>
+              Low-noise radiofrequency trap drives with active amplitude stabilization and fast HV switching circuitry enabling rapid transition from RF trapping mode to electrostatic VMI extraction mode within a fraction of an RF cycle.
+            </p>
+            <ul class="spec-list">
+              <li><span>Trap RF Drive</span><span>1–4 MHz Phase-Locked Sinusoidal Drive (up to 600 V<sub>pp</sub>)</span></li>
+              <li><span>HV Extraction Switches</span><span>&lt; 25 ns Rise-Time Behlke MOSFET Switches</span></li>
+              <li><span>Experimental Timing</span><span>FPGA Pulse Generator (1 ns Resolution)</span></li>
+              <li><span>Data Acquisition</span><span>Custom Python / LabVIEW Control &amp; MD Simulation Cluster</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 2026 Dr. Nabanita Deb Research Lab, IACS Kolkata.</span>
+        <span><a href="team.html" style="color: var(--accent-cyan);">Next: Meet the Research Team &rarr;</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
