@@ -121,7 +121,7 @@
       transition: color 0.2s ease, opacity 0.2s ease;
     }
 
-    img, svg {
+    img, svg, video {
       max-width: 100%;
       display: block;
     }
@@ -393,7 +393,7 @@
       transform: translateY(-2px);
     }
 
-    /* Hero Section */
+    /* Hero Section & Video Player */
     .hero {
       position: relative;
       padding: clamp(4rem, 9vw, 7.5rem) 0 clamp(3.5rem, 6vw, 5.5rem);
@@ -413,9 +413,46 @@
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
-      padding: 1.65rem;
+      padding: 1.4rem;
       box-shadow: var(--shadow-lg);
       backdrop-filter: blur(16px);
+    }
+
+    .hero-video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(10, 14, 24, 0.92), rgba(41, 151, 255, 0.16));
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-video-frame video,
+    .hero-video-frame iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .video-fallback-caption {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      text-align: center;
+      z-index: 1;
+      color: var(--text-secondary);
+      font-size: 0.84rem;
     }
 
     .page-hero {
@@ -571,6 +608,7 @@
       font-size: 0.74rem;
       color: var(--text-muted);
       margin-top: 0.5rem;
+      display: inline-block;
     }
 
     /* Tags & Specs */
@@ -725,7 +763,7 @@
       border-top: 1px solid var(--border-subtle);
     }
 
-    /* Team Profile Cards */
+    /* Team Profile Cards (PI, Postdocs & PhD Students) */
     .pi-showcase {
       display: grid;
       grid-template-columns: 300px 1fr;
@@ -756,6 +794,30 @@
       z-index: 2;
     }
 
+    .member-photo-frame {
+      width: 100%;
+      aspect-ratio: 4 / 4.2;
+      border-radius: var(--radius-md);
+      background: linear-gradient(145deg, rgba(41, 151, 255, 0.14), rgba(168, 85, 247, 0.12));
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1.15rem;
+    }
+
+    .member-photo-frame img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+    }
+
     .member-avatar {
       width: 76px;
       height: 76px;
@@ -766,10 +828,10 @@
       color: #fff;
       font-weight: 700;
       font-size: 1.25rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.4rem;
     }
 
-    /* Filter Bar & Publications */
+    /* Filter Bar & Publications (With Sheet Images) */
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
@@ -820,20 +882,49 @@
     }
 
     .pub-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 1.5rem;
+      align-items: center;
       padding: 1.5rem;
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      margin-bottom: 1rem;
-      transition: border-color 0.25s ease, transform 0.25s ease;
+      margin-bottom: 1.15rem;
+      transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .pub-item:hover {
       border-color: var(--border-highlight);
       transform: translateX(4px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pub-thumb {
+      width: 150px;
+      height: 150px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .pub-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .pub-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
     }
 
     .pub-meta {
@@ -848,6 +939,17 @@
       font-family: var(--font-mono);
       font-weight: 700;
       color: var(--accent-cyan);
+      font-size: 0.9rem;
+    }
+
+    .sheet-sync-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      margin-bottom: 1rem;
     }
 
     /* Timeline (News & Events) */
@@ -1013,7 +1115,14 @@
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 680px) {
+      .pub-item {
+        grid-template-columns: 1fr;
+      }
+      .pub-thumb {
+        width: 100%;
+        height: 180px;
+      }
       .footer-grid,
       .stats-grid {
         grid-template-columns: 1fr;
@@ -1069,7 +1178,7 @@
 
   <main>
     <!-- ======================================================================
-         1. HOME VIEW (#home)
+         1. HOME VIEW (#home) — UPDATED WITH HERO VIDEO
          ====================================================================== -->
     <section id="view-home" class="page-view active">
       <div class="hero">
@@ -1091,55 +1200,32 @@
             </div>
           </div>
 
-          <!-- Interactive Schematic Card -->
+          <!-- Hero Video Card (Replaced First Image/Schematic with Video) -->
           <div class="hero-visual tilt-card reveal">
-            <svg viewBox="0 0 500 350" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Schematic of Ion Trap, Laser Cooling, and Velocity Map Imaging">
-              <rect width="500" height="350" rx="16" fill="rgba(10, 14, 24, 0.75)" />
-              <!-- QMF / Ion Guide Rods -->
-              <rect x="65" y="55" width="370" height="20" rx="10" fill="url(#rodGrad)" stroke="rgba(255,255,255,0.2)" />
-              <rect x="65" y="275" width="370" height="20" rx="10" fill="url(#rodGrad)" stroke="rgba(255,255,255,0.2)" />
-              <!-- Laser Cooling Axis -->
-              <line x1="20" y1="175" x2="480" y2="175" stroke="#38bdf8" stroke-width="3.5" stroke-dasharray="8 4" opacity="0.8" />
-              <ellipse cx="250" cy="175" rx="115" ry="50" fill="url(#crystalGlow)" />
-              <!-- Polyatomic / Molecular Ions (Violet) -->
-              <circle cx="185" cy="145" r="6" fill="#a855f7" />
-              <circle cx="220" cy="136" r="6" fill="#a855f7" />
-              <circle cx="255" cy="134" r="6" fill="#a855f7" />
-              <circle cx="290" cy="138" r="6" fill="#a855f7" />
-              <circle cx="315" cy="148" r="6" fill="#a855f7" />
-              <circle cx="185" cy="205" r="6" fill="#a855f7" />
-              <circle cx="220" cy="214" r="6" fill="#a855f7" />
-              <circle cx="255" cy="216" r="6" fill="#a855f7" />
-              <circle cx="290" cy="212" r="6" fill="#a855f7" />
-              <circle cx="315" cy="202" r="6" fill="#a855f7" />
-              <!-- Cold Core Ions (Cyan) -->
-              <circle cx="205" cy="175" r="7" fill="#38bdf8" />
-              <circle cx="235" cy="175" r="7" fill="#38bdf8" />
-              <circle cx="265" cy="175" r="7" fill="#38bdf8" />
-              <circle cx="295" cy="175" r="7" fill="#38bdf8" />
-              <circle cx="220" cy="159" r="6.5" fill="#38bdf8" />
-              <circle cx="250" cy="159" r="6.5" fill="#38bdf8" />
-              <circle cx="280" cy="159" r="6.5" fill="#38bdf8" />
-              <circle cx="220" cy="191" r="6.5" fill="#38bdf8" />
-              <circle cx="250" cy="191" r="6.5" fill="#38bdf8" />
-              <circle cx="280" cy="191" r="6.5" fill="#38bdf8" />
-              <!-- Labels -->
-              <text x="30" y="162" fill="#38bdf8" font-family="monospace" font-size="11">Optical Pumping + BBR Rovibrational Cooling</text>
-              <text x="125" y="42" fill="#a1a1aa" font-family="monospace" font-size="11">Quadrupole Ion Optics &amp; Linear Trap</text>
-              <text x="115" y="325" fill="#e4e4e7" font-family="monospace" font-size="11">Cold Molecular Ions (NH₃⁺, ND₃⁺, CO₂⁺, OCS⁺)</text>
-              <defs>
-                <linearGradient id="rodGrad" x1="65" y1="55" x2="435" y2="75" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#334155" />
-                  <stop offset="0.5" stop-color="#64748b" />
-                  <stop offset="1" stop-color="#1e293b" />
-                </linearGradient>
-                <radialGradient id="crystalGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(250 175) scale(115 50)">
-                  <stop stop-color="#38bdf8" stop-opacity="0.35" />
-                  <stop offset="0.6" stop-color="#a855f7" stop-opacity="0.15" />
-                  <stop offset="1" stop-color="#000000" stop-opacity="0" />
-                </radialGradient>
-              </defs>
-            </svg>
+            <div class="hero-video-frame">
+              <!-- Replace "assets/videos/lab-hero.mp4" with your actual video path or URL -->
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
+                controls
+                poster="assets/images/uhv-chamber.jpg"
+              >
+                <source src="assets/videos/lab-hero.mp4" type="video/mp4" />
+                <source src="assets/videos/lab-hero.webm" type="video/webm" />
+                Your browser does not support HTML5 video.
+              </video>
+
+              <!-- Fallback label shown behind video until video file is placed at assets/videos/lab-hero.mp4 -->
+              <div class="video-fallback-caption">
+                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.75" style="margin-bottom: 0.5rem;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <strong>Lab Research Highlight Video</strong>
+                <span class="placeholder-caption">Place video at: assets/videos/lab-hero.mp4</span>
+              </div>
+            </div>
 
             <div class="stats-grid">
               <div class="stat-card">
@@ -1166,12 +1252,12 @@
           <div class="ticker-viewport">
             <div class="ticker-track">
               <span class="ticker-item"><strong>[Oct 2026]</strong> Dual-sided Velocity Map Imaging (VMI) coincidence spectrometer &amp; real-time sub-pixel centroiding software operational.</span>
-              <span class="ticker-item"><strong>[Jun 2026]</strong> Published in <em>The Journal of Chemical Physics</em>: BBR-assisted rovibrational cooling of symmetric-top molecular ions NH₃⁺ and ND₃⁺.</span>
-              <span class="ticker-item"><strong>[Feb 2026]</strong> Research poster presented at SDMC 2026 Conference (Spectroscopy and Dynamics of Molecules and Clusters, Nagpur).</span>
+              <span class="ticker-item"><strong>[2026]</strong> Published in <em>The Journal of Chemical Physics</em>: BBR-assisted rovibrational cooling of symmetric-top molecular ions NH₃⁺ and ND₃⁺.</span>
+              <span class="ticker-item"><strong>[2026]</strong> Published in <em>Int. J. Mass Spectrom.</em>: Influence of octupole field on quadrupole mass filter performance in the second stability zone.</span>
               <span class="ticker-item"><strong>[Openings]</strong> Motivated PhD candidates (CSIR-NET / GATE / INSPIRE) &amp; Postdoctoral Fellows invited to contact Dr. Nabanita Deb.</span>
               <!-- Duplicate for seamless loop -->
               <span class="ticker-item"><strong>[Oct 2026]</strong> Dual-sided Velocity Map Imaging (VMI) coincidence spectrometer &amp; real-time sub-pixel centroiding software operational.</span>
-              <span class="ticker-item"><strong>[Jun 2026]</strong> Published in <em>The Journal of Chemical Physics</em>: BBR-assisted rovibrational cooling of symmetric-top molecular ions NH₃⁺ and ND₃⁺.</span>
+              <span class="ticker-item"><strong>[2026]</strong> Published in <em>The Journal of Chemical Physics</em>: BBR-assisted rovibrational cooling of symmetric-top molecular ions NH₃⁺ and ND₃⁺.</span>
             </div>
           </div>
         </div>
@@ -1189,21 +1275,6 @@
           </div>
 
           <div class="grid-2">
-            <article class="card tilt-card reveal">
-              <div class="card-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-              </div>
-              <h3>Cold Collisions &amp; Penning Ionization Dynamics</h3>
-              <p>
-                Using supersonic molecular beams equipped with Even-Lavie pulsed valves and Dielectric Barrier Discharge (DBD) plasma sources, we generate metastable rare-gas beams (He*) to study Penning ionization and chemi-ionization at low collision energies.
-              </p>
-              <div class="tag-list">
-                <span class="tag">Metastable He* Beams</span>
-                <span class="tag">Even-Lavie + DBD</span>
-                <span class="tag">Penning Ionization</span>
-              </div>
-            </article>
-            
             <article class="card tilt-card reveal">
               <div class="card-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
@@ -1249,7 +1320,20 @@
               </div>
             </article>
 
-            
+            <article class="card tilt-card reveal">
+              <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <h3>Cold Collisions &amp; Penning Ionization Dynamics</h3>
+              <p>
+                Using supersonic molecular beams equipped with Even-Lavie pulsed valves and Dielectric Barrier Discharge (DBD) plasma sources, we generate metastable rare-gas beams (He*) to study Penning ionization and chemi-ionization at low collision energies.
+              </p>
+              <div class="tag-list">
+                <span class="tag">Metastable He* Beams</span>
+                <span class="tag">Even-Lavie + DBD</span>
+                <span class="tag">Penning Ionization</span>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -1440,7 +1524,7 @@
                 <div class="accordion-inner">
                   <div class="accordion-body">
                     <p>
-                      When one or two rods of a four-rod Quadrupole Mass Filter are radially or angularly displaced, higher-order spatial harmonics (<em>A₃</em> hexapole, <em>A₄</em> octupole, etc.) couple the transverse <em>x</em> and <em>y</em> motions. Whenever the secular oscillation frequencies satisfy the resonance condition <em>nₓ&beta;ₓ + nᵧ&beta;ᵧ = 2k</em>, ions gain transverse kinetic energy and are ejected, creating well-defined resonance dips inside the first Mathieu stability region.
+                      When one or two rods of a four-rod Quadrupole Mass Filter are radially or angularly displaced, higher-order spatial harmonics (<em>A₃</em> hexapole, <em>A₄</em> octupole, etc.) couple the transverse <em>x</em> and <em>y</em> motions. Whenever the secular oscillation frequencies satisfy the resonance condition <em>nₓ&beta;ₓ + nᵧ&beta;ᵧ = 2k</em>, ions gain transverse kinetic energy and are ejected, creating well-defined resonance dips inside the first and second Mathieu stability regions.
                     </p>
                   </div>
                 </div>
@@ -1575,14 +1659,14 @@
     </section>
 
     <!-- ======================================================================
-         4. TEAM VIEW (#team)
+         4. TEAM VIEW (#team) — UPDATED WITH PHD & POSTDOC PHOTO FRAMES
          ====================================================================== -->
     <section id="view-team" class="page-view">
       <div class="page-hero">
         <div class="container reveal">
           <div class="eyebrow">People</div>
           <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
-            Principal Investigator &amp; Research Team
+            Principal Investigator, Postdocs &amp; PhD Scholars
           </h1>
           <p class="section-subtitle">
             Meet the experimentalists and chemical physicists driving cold molecular ion research at the Indian Association for the Cultivation of Science (IACS), Kolkata.
@@ -1616,7 +1700,7 @@
               <ul class="spec-list">
                 <li><span>Institution</span><span>Indian Association for the Cultivation of Science (IACS)</span></li>
                 <li><span>School</span><span>School of Chemical Sciences, Jadavpur, Kolkata 700032</span></li>
-                <li><span>Research Areas</span><span>Cold Molecular Ions, BBR Laser Cooling, VMI, Ion Traps</span></li>
+                <li><span>Corresponding Email</span><span>nabanita.deb@gmail.com</span></li>
               </ul>
 
               <div class="btn-group" style="margin-top: 1.5rem;">
@@ -1628,18 +1712,66 @@
         </div>
       </div>
 
-      <!-- Doctoral Scholars & Group Members -->
+      <!-- Postdoctoral Fellows Section -->
       <div class="section section-alt">
         <div class="container">
           <div class="section-header reveal">
-            <div class="eyebrow">Doctoral Researchers &amp; Fellows</div>
+            <div class="eyebrow">Postdoctoral Researchers</div>
+            <h2 class="section-title">Postdoctoral Fellows &amp; Research Associates</h2>
+          </div>
+
+          <div class="grid-3">
+            <!-- Postdoc Card 1 (Template with Photo Container) -->
+            <article class="card tilt-card reveal">
+              <div class="member-photo-frame">
+                <img src="assets/images/team/postdoc-1.jpg" alt="Postdoctoral Fellow Photo" onerror="this.style.display='none'" />
+                <div class="member-avatar">PD</div>
+                <span class="placeholder-caption">assets/images/team/postdoc-1.jpg</span>
+              </div>
+              <span class="tag">Postdoctoral Fellow</span>
+              <h3 style="margin-top: 0.75rem;">Postdoctoral Research Fellow</h3>
+              <p style="margin-bottom: 0.75rem;">
+                Investigating cold molecular ion spectroscopy, Velocity Map Imaging coincidence dynamics, and supersonic molecular beam collision experiments.
+              </p>
+              <span class="placeholder-caption">School of Chemical Sciences · IACS Kolkata</span>
+            </article>
+
+            <!-- Open Postdoc / PhD Slot -->
+            <article class="card tilt-card reveal" style="border-style: dashed; border-color: var(--accent-cyan);">
+              <div class="member-photo-frame" style="background: rgba(56, 189, 248, 0.08);">
+                <div class="member-avatar" style="background: rgba(56, 189, 248, 0.18); color: var(--accent-cyan);">+</div>
+                <span class="placeholder-caption">Join the Group</span>
+              </div>
+              <span class="tag" style="color: var(--accent-cyan);">Open Positions</span>
+              <h3 style="margin-top: 0.75rem;">Prospective Postdocs &amp; PhDs</h3>
+              <p style="margin-bottom: 1rem;">
+                We welcome applications from candidates with ANRF-NPDF, Institute PDF, CSIR-UGC NET, GATE, JEST, or DST-INSPIRE fellowships interested in experimental chemical physics.
+              </p>
+              <a href="#contact" style="color: var(--accent-cyan); font-weight: 600;">Apply via Contact Page &rarr;</a>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doctoral Scholars & Group Members (With Photos) -->
+      <div class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="eyebrow">Doctoral Researchers</div>
             <h2 class="section-title">PhD Scholars &amp; Research Members</h2>
+            <p class="section-subtitle">
+              Place student photos in <code>assets/images/team/</code> (or replace the <code>src</code> URL in each card) to display portraits.
+            </p>
           </div>
 
           <div class="grid-3">
             <!-- Archisman Sinha -->
             <article class="card tilt-card reveal">
-              <div class="member-avatar">AS</div>
+              <div class="member-photo-frame">
+                <img src="assets/images/team/archisman-sinha.jpg" alt="Mr. Archisman Sinha" onerror="this.style.display='none'" />
+                <div class="member-avatar">AS</div>
+                <span class="placeholder-caption">assets/images/team/archisman-sinha.jpg</span>
+              </div>
               <span class="tag">DST-INSPIRE PhD Fellow</span>
               <h3 style="margin-top: 0.75rem;">Mr. Archisman Sinha</h3>
               <p style="margin-bottom: 0.75rem;">
@@ -1648,37 +1780,79 @@
               <span class="placeholder-caption">M.Sc. Chemistry (SPPU Pune) · PhD Fellow, IACS</span>
             </article>
 
-            <!-- Shikha Jana -->
+            <!-- Sukanya Jana -->
             <article class="card tilt-card reveal">
-              <div class="member-avatar">SJ</div>
+              <div class="member-photo-frame">
+                <img src="assets/images/team/sukanya-jana.jpg" alt="Sukanya Jana" onerror="this.style.display='none'" />
+                <div class="member-avatar">SJ</div>
+                <span class="placeholder-caption">assets/images/team/sukanya-jana.jpg</span>
+              </div>
               <span class="tag">Doctoral Researcher</span>
-              <h3 style="margin-top: 0.75rem;">Shikha Jana</h3>
+              <h3 style="margin-top: 0.75rem;">Sukanya Jana</h3>
               <p style="margin-bottom: 0.75rem;">
-                Researching cold molecular ion spectroscopy, rovibrational population dynamics, and experimental molecular beam / ion-trapping instrumentation at IACS Kolkata.
+                Researching radial and rod asymmetry in linear Quadrupole Mass Filters, multipole field distortions, stability zones, and transmission resolution enhancement.
               </p>
-              <span class="placeholder-caption">Co-Author (J. Chem. Phys. 2026) · IACS Kolkata</span>
+              <span class="placeholder-caption">First Author (JASMS &amp; IJMS) · IACS Kolkata</span>
             </article>
 
-            <!-- Shail Chakraborty -->
+            <!-- Anushree Dutta -->
             <article class="card tilt-card reveal">
-              <div class="member-avatar">SC</div>
+              <div class="member-photo-frame">
+                <img src="assets/images/team/anushree-dutta.jpg" alt="Anushree Dutta" onerror="this.style.display='none'" />
+                <div class="member-avatar">AD</div>
+                <span class="placeholder-caption">assets/images/team/anushree-dutta.jpg</span>
+              </div>
               <span class="tag">Doctoral Researcher</span>
-              <h3 style="margin-top: 0.75rem;">Shail Chakraborty</h3>
+              <h3 style="margin-top: 0.75rem;">Anushree Dutta</h3>
               <p style="margin-bottom: 0.75rem;">
-                Investigating laser-induced rovibrational cooling schemes, molecular ion dynamics, and high-resolution action spectroscopy in supersonic and trapped-ion environments.
+                Investigating higher-order octupole fields in Quadrupole Mass Filters operating in the second stability zone and spectral response of push–pull chromophores.
               </p>
-              <span class="placeholder-caption">Co-Author (J. Chem. Phys. 2026) · IACS Kolkata</span>
+              <span class="placeholder-caption">First Author (JPCA &amp; IJMS) · IACS Kolkata</span>
             </article>
 
-            <!-- Open Postdoc / PhD Slot -->
-            <article class="card tilt-card reveal" style="border-style: dashed; border-color: var(--accent-cyan);">
-              <div class="member-avatar" style="background: rgba(56, 189, 248, 0.18); color: var(--accent-cyan);">+</div>
-              <span class="tag" style="color: var(--accent-cyan);">Open Positions</span>
-              <h3 style="margin-top: 0.75rem;">Prospective Postdocs &amp; PhDs</h3>
-              <p style="margin-bottom: 1rem;">
-                We welcome applications from candidates with CSIR-UGC NET, GATE, JEST, DST-INSPIRE, or ANRF-NPDF fellowships interested in experimental AMO &amp; chemical physics.
+            <!-- Sayel Chakraborty -->
+            <article class="card tilt-card reveal">
+              <div class="member-photo-frame">
+                <img src="assets/images/team/sayel-chakraborty.jpg" alt="Sayel Chakraborty" onerror="this.style.display='none'" />
+                <div class="member-avatar">SC</div>
+                <span class="placeholder-caption">assets/images/team/sayel-chakraborty.jpg</span>
+              </div>
+              <span class="tag">Doctoral Researcher</span>
+              <h3 style="margin-top: 0.75rem;">Sayel Chakraborty</h3>
+              <p style="margin-bottom: 0.75rem;">
+                Investigating quadrupole mass filter stability, laser-induced rovibrational cooling schemes, and molecular ion dynamics in trapped-ion and beam environments.
               </p>
-              <a href="#contact" style="color: var(--accent-cyan); font-weight: 600;">Apply via Contact Page &rarr;</a>
+              <span class="placeholder-caption">Doctoral Researcher · IACS Kolkata</span>
+            </article>
+
+            <!-- Snigdha Bose -->
+            <article class="card tilt-card reveal">
+              <div class="member-photo-frame">
+                <img src="assets/images/team/snigdha-bose.jpg" alt="Snigdha Bose" onerror="this.style.display='none'" />
+                <div class="member-avatar">SB</div>
+                <span class="placeholder-caption">assets/images/team/snigdha-bose.jpg</span>
+              </div>
+              <span class="tag">Doctoral Researcher</span>
+              <h3 style="margin-top: 0.75rem;">Snigdha Bose</h3>
+              <p style="margin-bottom: 0.75rem;">
+                Exploring multipole field effects, radial asymmetry in quadrupole ion optics, and experimental molecular beam spectroscopy.
+              </p>
+              <span class="placeholder-caption">Researcher · IACS Kolkata</span>
+            </article>
+
+            <!-- Santu Nath -->
+            <article class="card tilt-card reveal">
+              <div class="member-photo-frame">
+                <img src="assets/images/team/santu-nath.jpg" alt="Santu Nath" onerror="this.style.display='none'" />
+                <div class="member-avatar">SN</div>
+                <span class="placeholder-caption">assets/images/team/santu-nath.jpg</span>
+              </div>
+              <span class="tag">Research Member</span>
+              <h3 style="margin-top: 0.75rem;">Santu Nath</h3>
+              <p style="margin-bottom: 0.75rem;">
+                Studying electrode rod asymmetry, field distortions, and ion transmission characteristics in linear quadrupole mass filters.
+              </p>
+              <span class="placeholder-caption">Researcher · IACS Kolkata</span>
             </article>
           </div>
         </div>
@@ -1712,12 +1886,12 @@
                 Department of Physics · University of Liverpool, UK
               </p>
               <p>
-                Close academic collaboration on cold ion–molecule reaction dynamics, sympathetic cooling in linear Paul traps, Coulomb crystal diagnostics, and high-resolution Velocity Map Imaging optics.
+                Close academic collaboration on cold ion–molecule reaction dynamics, BBR-assisted rovibrational cooling of symmetric-top ions, sympathetic cooling in linear Paul traps, and Velocity Map Imaging optics.
               </p>
               <div class="tag-list">
                 <span class="tag">University of Liverpool</span>
                 <span class="tag">Cold Ion Chemistry</span>
-                <span class="tag">Coulomb Crystals</span>
+                <span class="tag">Co-Author (JCP 2026)</span>
               </div>
             </article>
 
@@ -1729,12 +1903,12 @@
                 Department of Chemistry · St. Paul's Cathedral Mission College, Kolkata
               </p>
               <p>
-                Joint theoretical and computational research on blackbody-radiation-assisted laser cooling of symmetric-top and polyatomic molecular ions, rovibrational transition rates, and spectroscopic modeling.
+                Joint theoretical and computational research on quadrupole mass filter asymmetries, octupole field perturbations, and blackbody-radiation-assisted laser cooling of polyatomic ions.
               </p>
               <div class="tag-list">
-                <span class="tag">Rovibrational Cooling</span>
+                <span class="tag">Quadrupole Ion Optics</span>
                 <span class="tag">Molecular Spectroscopy</span>
-                <span class="tag">Co-Author (JCP 2026)</span>
+                <span class="tag">Co-Author (JASMS &amp; IJMS)</span>
               </div>
             </article>
 
@@ -1777,120 +1951,47 @@
     </section>
 
     <!-- ======================================================================
-         6. PUBLICATIONS VIEW (#publications)
+         6. PUBLICATIONS VIEW (#publications) — LIVE GOOGLE SHEET SYNC + IMAGES
          ====================================================================== -->
     <section id="view-publications" class="page-view">
       <div class="page-hero">
         <div class="container reveal">
-          <div class="eyebrow">Scholarly Output</div>
+          <div class="eyebrow">Scholarly Output · Live Google Sheet Sync</div>
           <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
-            Publications, Preprints &amp; Conference Presentations
+            Publications &amp; Journal Articles
           </h1>
           <p class="section-subtitle">
-            Filter our peer-reviewed journal articles, ongoing manuscripts, and international conference presentations by category or keyword.
+            Automatically synced with the <strong>ND Lab Publication List</strong> Google Sheet. Any new row or image added to the Google Sheet updates this page automatically.
           </p>
         </div>
       </div>
 
       <div class="section">
         <div class="container">
+          <!-- Sync Status Indicator -->
+          <div id="sheet-sync-status" class="sheet-sync-badge reveal">
+            <span class="eyebrow-dot"></span>
+            <span>Syncing live publications from Google Sheets...</span>
+          </div>
+
           <!-- Interactive Filter & Search Bar -->
           <div class="filter-bar reveal">
-            <div class="filter-pills" role="tablist" aria-label="Filter publications by category">
-              <button class="filter-btn pub-filter-btn active" data-filter="all">All Outputs</button>
-              <button class="filter-btn pub-filter-btn" data-filter="journal">Journal Articles</button>
-              <button class="filter-btn pub-filter-btn" data-filter="preprint">In Prep / Preprints</button>
-              <button class="filter-btn pub-filter-btn" data-filter="conference">Conferences &amp; Talks</button>
+            <div class="filter-pills" id="pub-year-pills" role="tablist" aria-label="Filter publications by year">
+              <button class="filter-btn pub-filter-btn active" data-filter="all">All Years</button>
+              <button class="filter-btn pub-filter-btn" data-filter="2026">2026</button>
+              <button class="filter-btn pub-filter-btn" data-filter="2025">2025</button>
             </div>
             <input
               type="search"
               id="pub-search"
               class="search-input"
-              placeholder="Search NH3+, VMI, QMF, JCP..."
+              placeholder="Search title, author, journal, NH3+, QMF..."
               aria-label="Search publications"
             />
           </div>
 
-          <!-- Publication Items -->
-          <div id="publications-list" class="reveal">
-            <article class="pub-item" data-pub-category="journal">
-              <div class="pub-meta">
-                <span class="pub-year">June 2026</span>
-                <span class="tag">The Journal of Chemical Physics (JCP)</span>
-                <span class="tag">Peer-Reviewed Journal</span>
-              </div>
-              <h3>Laser-induced, blackbody-radiation-assisted rovibrational cooling of symmetric-top molecular ions: NH₃⁺ and ND₃⁺</h3>
-              <p style="color: var(--text-secondary); font-size: 0.93rem;">
-                <strong>Archisman Sinha</strong>, <strong>Pintu Mandal</strong>, <strong>Shikha Jana</strong>, <strong>Shail Chakraborty</strong>, and <strong>Nabanita Deb*</strong> — <em>The Journal of Chemical Physics</em> (2026).
-              </p>
-              <div>
-                <a href="https://pubs.aip.org/aip/jcp" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-size: 0.88rem; font-weight: 600;">View in The Journal of Chemical Physics &nearr;</a>
-              </div>
-            </article>
-
-            <article class="pub-item" data-pub-category="preprint">
-              <div class="pub-meta">
-                <span class="pub-year">2026</span>
-                <span class="tag">In Preparation</span>
-                <span class="tag">Rovibrational Cooling &amp; Renner-Teller Coupling</span>
-              </div>
-              <h3>Blackbody-Radiation-Assisted Laser Cooling and Renner-Teller Vibronic Coupling in Linear Triatomic Cations: CO₂⁺ and OCS⁺</h3>
-              <p style="color: var(--text-secondary); font-size: 0.93rem;">
-                <strong>A. Sinha</strong>, <strong>N. Deb*</strong> et al., Indian Association for the Cultivation of Science (IACS), Kolkata.
-              </p>
-            </article>
-
-            <article class="pub-item" data-pub-category="preprint">
-              <div class="pub-meta">
-                <span class="pub-year">2026</span>
-                <span class="tag">In Preparation</span>
-                <span class="tag">Ion Optics &amp; Mass Spectrometry</span>
-              </div>
-              <h3>Characterization of Non-Linear Resonances and Higher-Order Multipole Fields in Single-Rod and Dual-Rod Asymmetric Quadrupole Mass Filters</h3>
-              <p style="color: var(--text-secondary); font-size: 0.93rem;">
-                <strong>A. Sinha</strong>, <strong>N. Deb*</strong> et al., School of Chemical Sciences, IACS Kolkata.
-              </p>
-            </article>
-
-            <article class="pub-item" data-pub-category="conference">
-              <div class="pub-meta">
-                <span class="pub-year">March 2026</span>
-                <span class="tag">Flash Presentation</span>
-                <span class="tag">School of Chemical Sciences Day · IACS Kolkata</span>
-              </div>
-              <h3>3D Manim Visualizations of NH₃⁺ Molecular Rotation, Rovibrational Cooling, and Quadrupole Radiofrequency Fields</h3>
-              <p style="color: var(--text-secondary); font-size: 0.93rem;">
-                <strong>Mr. Archisman Sinha</strong> &amp; <strong>Dr. Nabanita Deb</strong> — Departmental Flash Talk, IACS Kolkata (March 2026).
-              </p>
-            </article>
-
-            <article class="pub-item" data-pub-category="conference">
-              <div class="pub-meta">
-                <span class="pub-year">February 2026</span>
-                <span class="tag">SDMC 2026 Conference · Nagpur</span>
-                <span class="tag">International Conference Poster</span>
-              </div>
-              <h3>Blackbody-Assisted Ro-Vibrational Cooling in Non-Linear Polyatomic Ions NH₃⁺ and ND₃⁺</h3>
-              <p style="color: var(--text-secondary); font-size: 0.93rem;">
-                Presented at <em>Spectroscopy and Dynamics of Molecules and Clusters (SDMC 2026)</em>, Nagpur, India (Feb 19–22, 2026).
-              </p>
-            </article>
-
-            <article class="pub-item" data-pub-category="journal">
-              <div class="pub-meta">
-                <span class="pub-year">Prior Selected Works</span>
-                <span class="tag">Oxford &amp; Liverpool Series</span>
-                <span class="tag">Cold Ion–Molecule Chemistry</span>
-              </div>
-              <h3>Cold Ion–Molecule Reaction Dynamics, Sympathetic Cooling, and Coulomb Crystal Spectroscopy in Linear Paul Traps</h3>
-              <p style="color: var(--text-secondary); font-size: 0.93rem;">
-                <strong>N. Deb</strong>, B. R. Heazlewood, and co-workers — Foundational publications on laser-cooled Ca⁺ Coulomb crystals and state-selected reaction kinetics.
-              </p>
-              <div>
-                <a href="https://scholar.google.com" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-size: 0.88rem; font-weight: 600;">View Full Profile on Google Scholar &nearr;</a>
-              </div>
-            </article>
-          </div>
+          <!-- Dynamic Publication Items Container -->
+          <div id="publications-list" class="reveal"></div>
         </div>
       </div>
     </section>
@@ -1950,12 +2051,12 @@
             <article class="timeline-item card" data-news-category="publication">
               <div class="timeline-dot"></div>
               <div class="pub-meta" style="margin-bottom: 0.5rem;">
-                <span class="pub-year">June 2026</span>
-                <span class="tag">Journal Publication</span>
+                <span class="pub-year">2026</span>
+                <span class="tag">Journal Publications</span>
               </div>
-              <h3>Research Article Published in The Journal of Chemical Physics</h3>
+              <h3>New Articles Published in The Journal of Chemical Physics &amp; Int. J. Mass Spectrom.</h3>
               <p>
-                Congratulations to first author <strong>Mr. Archisman Sinha</strong> and co-authors <strong>Dr. Pintu Mandal</strong>, <strong>Shikha Jana</strong>, <strong>Shail Chakraborty</strong>, and <strong>Dr. Nabanita Deb</strong> on publishing <em>"Laser-induced, blackbody-radiation-assisted rovibrational cooling of symmetric-top molecular ions: NH₃⁺ and ND₃⁺"</em> in JCP!
+                Congratulations to <strong>Mr. Archisman Sinha</strong>, <strong>Dr. Brianna R. Heazlewood</strong>, and <strong>Dr. Nabanita Deb</strong> on publishing in <em>J. Chem. Phys.</em> (164, 224303), and to <strong>Anushree Dutta</strong>, <strong>Dr. Pintu Mandal</strong>, and <strong>Dr. Nabanita Deb</strong> on publishing in <em>Int. J. Mass Spectrom.</em> (117621)!
               </p>
             </article>
 
@@ -1988,7 +2089,7 @@
     </section>
 
     <!-- ======================================================================
-         8. CONTACT US VIEW (#contact)
+         8. CONTACT US VIEW (#contact) — LIVE EMAIL DELIVERY
          ====================================================================== -->
     <section id="view-contact" class="page-view">
       <div class="page-hero">
@@ -2006,27 +2107,27 @@
       <div class="section">
         <div class="container">
           <div class="grid-2">
-            <!-- Interactive Contact Form -->
+            <!-- Interactive Contact Form (Connected to Email Delivery) -->
             <div class="card reveal">
               <h3 style="margin-bottom: 0.5rem;">Send an Inquiry</h3>
               <p style="margin-bottom: 1.5rem;">
-                Fill out the form below to format your inquiry or reach out directly via institutional email with your CV and fellowship details.
+                Fill out the form below to send your inquiry directly to Dr. Nabanita Deb's inbox, or email your CV and fellowship details directly.
               </p>
 
               <form id="lab-contact-form">
                 <div class="form-group">
                   <label class="form-label" for="name">Full Name *</label>
-                  <input type="text" id="name" class="form-control" placeholder="e.g., Arindam Chatterjee" required />
+                  <input type="text" id="name" name="name" class="form-control" placeholder="e.g., Arindam Chatterjee" required />
                 </div>
 
                 <div class="form-group">
                   <label class="form-label" for="email">Email Address *</label>
-                  <input type="email" id="email" class="form-control" placeholder="name@institute.ac.in" required />
+                  <input type="email" id="email" name="email" class="form-control" placeholder="name@institute.ac.in" required />
                 </div>
 
                 <div class="form-group">
                   <label class="form-label" for="inquiry-type">Inquiry Category *</label>
-                  <select id="inquiry-type" class="form-control" required>
+                  <select id="inquiry-type" name="category" class="form-control" required>
                     <option value="PhD Position Inquiry">PhD Position (CSIR-NET / GATE / JEST / INSPIRE)</option>
                     <option value="Postdoctoral Fellowship">Postdoctoral Fellowship (ANRF-NPDF / Institute PDF)</option>
                     <option value="MSc Project / Internship">Master's Thesis / Summer Research Internship</option>
@@ -2037,11 +2138,11 @@
 
                 <div class="form-group">
                   <label class="form-label" for="message">Message &amp; Research Background *</label>
-                  <textarea id="message" rows="5" class="form-control" placeholder="Briefly describe your academic background, fellowship status, and interest in cold molecular ions / VMI..." required></textarea>
+                  <textarea id="message" name="message" rows="5" class="form-control" placeholder="Briefly describe your academic background, fellowship status, and interest in cold molecular ions / VMI..." required></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%;">
-                  Prepare &amp; Submit Inquiry
+                <button type="submit" id="contact-submit-btn" class="btn btn-primary" style="width: 100%;">
+                  Send Inquiry to Lab Inbox
                 </button>
 
                 <div id="form-status" style="display: none; margin-top: 1.25rem; padding: 1rem; border-radius: var(--radius-sm); background: rgba(16, 185, 129, 0.12); border: 1px solid var(--accent-emerald); color: var(--text-primary); font-size: 0.9rem;"></div>
@@ -2054,6 +2155,7 @@
                 <h3>Official Institutional Address</h3>
                 <ul class="spec-list">
                   <li><span>Principal Investigator</span><span>Dr. Nabanita Deb</span></li>
+                  <li><span>Email</span><span><a href="mailto:nabanita.deb@gmail.com" style="color: var(--accent-cyan);">nabanita.deb@gmail.com</a></span></li>
                   <li><span>School</span><span>School of Chemical Sciences</span></li>
                   <li><span>Institute</span><span>Indian Association for the Cultivation of Science (IACS)</span></li>
                   <li><span>Address</span><span>2A &amp; 2B Raja S. C. Mullick Road</span></li>
@@ -2138,15 +2240,90 @@
 
       <div class="footer-bottom">
         <span>&copy; 2026 Dr. Nabanita Deb Research Lab, IACS Kolkata. All rights reserved.</span>
-        <span>Single-File SPA Build · Ready for GitHub Pages</span>
+        <span>Single-File SPA Build · Live Google Sheet Sync</span>
       </div>
     </div>
   </footer>
 
   <!-- ========================================================================
-       VANILLA JAVASCRIPT CONTROLLER (Router, Theme, Tilt, Filters, Accordions)
+       VANILLA JAVASCRIPT CONTROLLER
        ======================================================================== -->
   <script>
+    /* ------------------------------------------------------------------------
+       CONFIGURATION: GOOGLE SHEET ID & CONTACT RECEIVER EMAIL
+       ------------------------------------------------------------------------ */
+    const GOOGLE_SHEET_ID = "1nVChMnsl5uugxxERZtt8Y5UOVehjl0wtf4s7C2ZepIo";
+    const CONTACT_RECEIVER_EMAIL = "nabanita.deb@gmail.com"; // Change to institutional email if preferred
+
+    /* Fallback publication list matching your Google Sheet rows (used immediately while syncing or if offline) */
+    const FALLBACK_PUBLICATIONS = [
+      {
+        year: "2026",
+        title: "Laser-induced, blackbody-radiation-assisted rovibrational cooling of symmetric-top molecular ions: NH3+ and ND3+",
+        mainAuthors: "Archisman Sinha",
+        others: "Brianna R. Heazlewood",
+        correspondingAuthor: "Nabanita Deb",
+        correspondingEmail: "nabanita.deb@gmail.com",
+        journal: "The Journal of Chemical Physics",
+        volume: "164",
+        pages: "224303",
+        link: "https://doi.org/10.1063/5.0331866",
+        image: "https://publishing.aip.org/wp-content/uploads/2022/10/AIPP-Master-Logo-Dark-RGB-1.png"
+      },
+      {
+        year: "2026",
+        title: "Influence of octupole field on quadrupole mass filter performance in the second stability zone",
+        mainAuthors: "Anushree Dutta",
+        others: "Pintu Mandal",
+        correspondingAuthor: "Nabanita Deb",
+        correspondingEmail: "nabanita.deb@gmail.com",
+        journal: "International Journal of Mass Spectrometry",
+        volume: "",
+        pages: "117621",
+        link: "https://doi.org/10.1016/j.ijms.2026.117621",
+        image: "https://ars.els-cdn.com/content/image/1-s2.0-S1387380625X00105-cov200h.gif"
+      },
+      {
+        year: "2025",
+        title: "Radial asymmetry in quadrupole mass filters: stability, multipole fields and resolution enhancement",
+        mainAuthors: "Sukanya Jana",
+        others: "Snigdha Bose, Sayel Chakraborty, Pintu Mandal",
+        correspondingAuthor: "Nabanita Deb",
+        correspondingEmail: "nabanita.deb@gmail.com",
+        journal: "Journal of the American Society for Mass Spectrometry",
+        volume: "37",
+        pages: "180",
+        link: "https://pubs.acs.org/doi/10.1021/jasms.5c00288",
+        image: "https://storage.googleapis.com/labrulez-bucket-strapi-h3hsga3/ASMS_The_American_Society_for_Mass_Spectrometry_Logo_40856a718e/ASMS-The-American-Society-for-Mass-Spectrometry-Logo.jpg"
+      },
+      {
+        year: "2025",
+        title: "Effect of rod asymmetry on field distortions and transmission characteristics in linear quadrupole mass filters",
+        mainAuthors: "Sukanya Jana",
+        others: "Santu Nath, Pintu Mandal",
+        correspondingAuthor: "Nabanita Deb",
+        correspondingEmail: "nabanita.deb@gmail.com",
+        journal: "International Journal of Mass Spectrometry",
+        volume: "517",
+        pages: "117495",
+        link: "https://doi.org/10.1016/j.ijms.2025.117495",
+        image: "https://ars.els-cdn.com/content/image/1-s2.0-S1387380625X00105-cov200h.gif"
+      },
+      {
+        year: "2025",
+        title: "Tailoring spectral response and first hyperpolarizability of Aryl-Substituted BODIPY-Based ‘Push–Pull’ Chromophores: influence of medium and structural modifications",
+        mainAuthors: "Anushree Dutta",
+        others: "Alex Iglesias-Reguant, Josep M Luis, Ramprasad Misra",
+        correspondingAuthor: "Nabanita Deb",
+        correspondingEmail: "nabanita.deb@gmail.com",
+        journal: "The Journal of Physical Chemistry A",
+        volume: "129",
+        pages: "5427",
+        link: "https://pubs.acs.org/doi/10.1021/acs.jpca.5c00383",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJgEimA1dGXJ28WJh5Zdf64exNYzb-BGFyg&s"
+      }
+    ];
+
     document.addEventListener("DOMContentLoaded", () => {
       /* ----------------------------------------------------------------------
          1. Hash-Based Single-Page Application (SPA) Router
@@ -2276,7 +2453,7 @@
       }
 
       /* ----------------------------------------------------------------------
-         6. Expandable Accordions (CSS Grid Row Transition — Works Even When Hidden)
+         6. Expandable Accordions
          ---------------------------------------------------------------------- */
       document.querySelectorAll(".accordion-item").forEach((item) => {
         const trigger = item.querySelector(".accordion-trigger");
@@ -2289,32 +2466,172 @@
       });
 
       /* ----------------------------------------------------------------------
-         7. Publications Filter & Live Search
+         7. Dynamic Publications Sync from Google Sheets + Filter & Search
          ---------------------------------------------------------------------- */
-      const pubButtons = document.querySelectorAll(".pub-filter-btn");
+      const pubListContainer = document.getElementById("publications-list");
+      const pubYearPillsContainer = document.getElementById("pub-year-pills");
       const pubSearch = document.getElementById("pub-search");
-      const pubItems = document.querySelectorAll("[data-pub-category]");
-      let activePubCategory = "all";
+      const syncStatusEl = document.getElementById("sheet-sync-status");
+
+      let activePubYear = "all";
       let pubQuery = "";
 
+      const escapeHTML = (str) =>
+        String(str || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+
       const filterPublications = () => {
-        pubItems.forEach((item) => {
-          const cat = item.getAttribute("data-pub-category");
+        if (!pubListContainer) return;
+        const items = pubListContainer.querySelectorAll(".pub-item");
+        items.forEach((item) => {
+          const itemYear = item.getAttribute("data-pub-year") || "";
           const text = item.textContent.toLowerCase();
-          const matchCat = activePubCategory === "all" || cat === activePubCategory;
+          const matchYear = activePubYear === "all" || itemYear === activePubYear;
           const matchSearch = !pubQuery || text.includes(pubQuery);
-          item.style.display = matchCat && matchSearch ? "" : "none";
+          item.style.display = matchYear && matchSearch ? "" : "none";
         });
       };
 
-      pubButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          pubButtons.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          activePubCategory = btn.getAttribute("data-filter") || "all";
-          filterPublications();
+      const updateYearFilterPills = (publications) => {
+        if (!pubYearPillsContainer) return;
+        const years = [...new Set(publications.map((p) => String(p.year).trim()).filter(Boolean))].sort((a, b) => Number(b) - Number(a));
+        pubYearPillsContainer.innerHTML = `<button class="filter-btn pub-filter-btn ${activePubYear === "all" ? "active" : ""}" data-filter="all">All Years (${publications.length})</button>`;
+        years.forEach((yr) => {
+          const btn = document.createElement("button");
+          btn.className = `filter-btn pub-filter-btn ${activePubYear === yr ? "active" : ""}`;
+          btn.setAttribute("data-filter", yr);
+          btn.textContent = yr;
+          pubYearPillsContainer.appendChild(btn);
         });
-      });
+
+        pubYearPillsContainer.querySelectorAll(".pub-filter-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            pubYearPillsContainer.querySelectorAll(".pub-filter-btn").forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            activePubYear = btn.getAttribute("data-filter") || "all";
+            filterPublications();
+          });
+        });
+      };
+
+      const renderPublications = (publications) => {
+        if (!pubListContainer) return;
+
+        // Sort newest year first
+        const sorted = [...publications].sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0));
+        updateYearFilterPills(sorted);
+
+        pubListContainer.innerHTML = sorted
+          .map((pub) => {
+            const authorParts = [];
+            if (pub.mainAuthors) authorParts.push(`<strong>${escapeHTML(pub.mainAuthors)}</strong>`);
+            if (pub.others) authorParts.push(escapeHTML(pub.others));
+            if (pub.correspondingAuthor) {
+              const corr = pub.correspondingEmail
+                ? `<a href="mailto:${escapeHTML(pub.correspondingEmail)}" title="Email Corresponding Author" style="text-decoration: underline;"><strong>${escapeHTML(pub.correspondingAuthor)}*</strong></a>`
+                : `<strong>${escapeHTML(pub.correspondingAuthor)}*</strong>`;
+              authorParts.push(corr);
+            }
+
+            const volPages = [
+              pub.volume ? `Vol. ${escapeHTML(pub.volume)}` : "",
+              pub.pages ? `pp. ${escapeHTML(pub.pages)}` : ""
+            ]
+              .filter(Boolean)
+              .join(", ");
+
+            const thumbHTML = pub.image
+              ? `<img src="${escapeHTML(pub.image)}" alt="${escapeHTML(pub.journal || pub.title)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                 <svg style="display:none;" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`
+              : `<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`;
+
+            return `
+              <article class="pub-item" data-pub-year="${escapeHTML(pub.year)}">
+                <div class="pub-thumb">
+                  ${thumbHTML}
+                </div>
+                <div class="pub-content">
+                  <div class="pub-meta">
+                    <span class="pub-year">${escapeHTML(pub.year)}</span>
+                    ${pub.journal ? `<span class="tag">${escapeHTML(pub.journal)}</span>` : ""}
+                    ${volPages ? `<span class="tag">${volPages}</span>` : ""}
+                  </div>
+                  <h3>${escapeHTML(pub.title)}</h3>
+                  <p style="color: var(--text-secondary); font-size: 0.93rem;">
+                    ${authorParts.join(", ")}
+                    ${pub.journal ? ` — <em>${escapeHTML(pub.journal)}</em>` : ""}
+                    ${pub.volume ? ` <strong>${escapeHTML(pub.volume)}</strong>` : ""}${pub.pages ? `, ${escapeHTML(pub.pages)}` : ""} (${escapeHTML(pub.year)}).
+                  </p>
+                  ${
+                    pub.link
+                      ? `<div>
+                           <a href="${escapeHTML(pub.link)}" target="_blank" rel="noopener" style="color: var(--accent-cyan); font-size: 0.88rem; font-weight: 600;">
+                             View Publication / DOI &nearr;
+                           </a>
+                         </div>`
+                      : ""
+                  }
+                </div>
+              </article>
+            `;
+          })
+          .join("");
+
+        filterPublications();
+      };
+
+      // Render fallback immediately so the section is never empty
+      renderPublications(FALLBACK_PUBLICATIONS);
+
+      // Live Google Sheets JSONP Loader (Bypasses CORS on static websites)
+      window.handleGoogleSheetPublications = (response) => {
+        try {
+          if (!response || !response.table || !response.table.rows) return;
+          const rows = response.table.rows;
+          const getCell = (row, idx) => (row.c && row.c[idx] && row.c[idx].v !== null && row.c[idx].v !== undefined ? String(row.c[idx].v).trim() : "");
+
+          const parsed = rows
+            .map((r) => ({
+              year: getCell(r, 0),
+              title: getCell(r, 1),
+              mainAuthors: getCell(r, 2),
+              others: getCell(r, 3),
+              correspondingAuthor: getCell(r, 4),
+              correspondingEmail: getCell(r, 5),
+              journal: getCell(r, 6),
+              volume: getCell(r, 7),
+              pages: getCell(r, 8),
+              link: getCell(r, 9),
+              image: getCell(r, 10)
+            }))
+            .filter((item) => item.title && item.title.toLowerCase() !== "title");
+
+          if (parsed.length > 0) {
+            renderPublications(parsed);
+            if (syncStatusEl) {
+              syncStatusEl.innerHTML = `<span class="eyebrow-dot" style="background: var(--accent-emerald); box-shadow: 0 0 8px var(--accent-emerald);"></span><span>Live synced with Google Sheets (${parsed.length} publications loaded)</span>`;
+            }
+          }
+        } catch (err) {
+          console.warn("Google Sheet parse error, using fallback list:", err);
+        }
+      };
+
+      const loadGoogleSheetScript = () => {
+        const script = document.createElement("script");
+        script.src = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=responseHandler:handleGoogleSheetPublications`;
+        script.onerror = () => {
+          if (syncStatusEl) {
+            syncStatusEl.innerHTML = `<span class="eyebrow-dot"></span><span>Showing cached publications (Ensure Google Sheet access is set to "Anyone with the link can view" for live updates)</span>`;
+          }
+        };
+        document.body.appendChild(script);
+      };
+
+      loadGoogleSheetScript();
 
       if (pubSearch) {
         pubSearch.addEventListener("input", (e) => {
@@ -2342,21 +2659,74 @@
       });
 
       /* ----------------------------------------------------------------------
-         9. Contact Form Handler
+         9. Contact Form Handler (Live Email Delivery via FormSubmit + Mailto Fallback)
          ---------------------------------------------------------------------- */
       const contactForm = document.getElementById("lab-contact-form");
       const formStatus = document.getElementById("form-status");
+      const submitBtn = document.getElementById("contact-submit-btn");
 
       if (contactForm && formStatus) {
-        contactForm.addEventListener("submit", (e) => {
+        contactForm.addEventListener("submit", async (e) => {
           e.preventDefault();
           const name = contactForm.querySelector("#name").value.trim();
           const email = contactForm.querySelector("#email").value.trim();
           const category = contactForm.querySelector("#inquiry-type").value;
+          const message = contactForm.querySelector("#message").value.trim();
 
-          formStatus.style.display = "block";
-          formStatus.innerHTML = `Thank you, <strong>${name}</strong>. Your inquiry regarding <em>${category}</em> has been prepared. Please send your CV and fellowship details directly to Dr. Nabanita Deb at IACS Kolkata (Confirmation logged for <code>${email}</code>).`;
-          contactForm.reset();
+          const mailtoSubject = encodeURIComponent(`[Deb Lab Website] ${category} — ${name}`);
+          const mailtoBody = encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\nCategory: ${category}\n\nMessage:\n${message}`
+          );
+          const mailtoLink = `mailto:${CONTACT_RECEIVER_EMAIL}?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Sending Inquiry...";
+          }
+
+          try {
+            const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_RECEIVER_EMAIL}`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+              },
+              body: JSON.stringify({
+                _subject: `[Deb Lab Website] ${category} from ${name}`,
+                Name: name,
+                Email: email,
+                Category: category,
+                Message: message
+              })
+            });
+
+            if (response.ok) {
+              formStatus.style.display = "block";
+              formStatus.innerHTML = `
+                Thank you, <strong>${escapeHTML(name)}</strong>! Your inquiry regarding <em>${escapeHTML(category)}</em> has been sent to <code>${CONTACT_RECEIVER_EMAIL}</code>.<br/><br/>
+                <strong>Want to attach your CV PDF?</strong>
+                <a href="${mailtoLink}" style="color: var(--accent-cyan); font-weight: 600; text-decoration: underline;">
+                  Click here to open in your email client &amp; attach files &nearr;
+                </a>
+              `;
+              contactForm.reset();
+            } else {
+              throw new Error("FormSubmit returned non-OK status");
+            }
+          } catch (err) {
+            formStatus.style.display = "block";
+            formStatus.innerHTML = `
+              Your inquiry is ready to send! Click below to send directly via your email client to <code>${CONTACT_RECEIVER_EMAIL}</code>:<br/><br/>
+              <a href="${mailtoLink}" class="btn btn-primary" style="margin-top: 0.5rem;">
+                Open Email Client &amp; Send Inquiry &nearr;
+              </a>
+            `;
+          } finally {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = "Send Inquiry to Lab Inbox";
+            }
+          }
         });
       }
     });
