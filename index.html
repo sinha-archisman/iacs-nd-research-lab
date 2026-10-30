@@ -818,6 +818,12 @@
       z-index: 2;
     }
 
+    .postdoc-card .member-photo-frame {
+      width: min(100%, 180px);
+      aspect-ratio: 1;
+      margin-inline: auto;
+    }
+
     .member-avatar {
       width: 76px;
       height: 76px;
@@ -1666,7 +1672,7 @@
         <div class="container reveal">
           <div class="eyebrow">People</div>
           <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
-            Principal Investigator, Postdocs &amp; PhD Scholars
+            Principal Investigator, Postdocs, PhD Scholars &amp; Students
           </h1>
           <p class="section-subtitle">
             Meet the experimentalists and chemical physicists driving cold molecular ion research at the Indian Association for the Cultivation of Science (IACS), Kolkata.
@@ -1722,7 +1728,7 @@
 
           <div class="grid-3">
             <!-- Postdoc Card 1 (Template with Photo Container) -->
-            <article class="card tilt-card reveal">
+            <article class="card tilt-card reveal postdoc-card">
               <div class="member-photo-frame">
                 <img src="assets/images/team/postdoc-1.jpg" alt="Postdoctoral Fellow Photo" onerror="this.style.display='none'" />
                 <div class="member-avatar">PD</div>
@@ -1737,7 +1743,7 @@
             </article>
 
             <!-- Open Postdoc / PhD Slot -->
-            <article class="card tilt-card reveal" style="border-style: dashed; border-color: var(--accent-cyan);">
+            <article class="card tilt-card reveal postdoc-card" style="border-style: dashed; border-color: var(--accent-cyan);">
               <div class="member-photo-frame" style="background: rgba(56, 189, 248, 0.08);">
                 <div class="member-avatar" style="background: rgba(56, 189, 248, 0.18); color: var(--accent-cyan);">+</div>
                 <span class="placeholder-caption">Join the Group</span>
@@ -1753,31 +1759,28 @@
         </div>
       </div>
 
-      <!-- Doctoral Scholars & Group Members (With Photos) -->
+      <!-- Current PhD Students -->
       <div class="section">
         <div class="container">
           <div class="section-header reveal">
             <div class="eyebrow">Doctoral Researchers</div>
-            <h2 class="section-title">PhD Scholars &amp; Research Members</h2>
-            <p class="section-subtitle">
-              Place student photos in <code>assets/images/team/</code> (or replace the <code>src</code> URL in each card) to display portraits.
-            </p>
+            <h2 class="section-title">PhD Students</h2>
           </div>
 
           <div class="grid-3">
-            <!-- Archisman Sinha -->
+            <!-- Anushree Dutta -->
             <article class="card tilt-card reveal">
               <div class="member-photo-frame">
-                <img src="assets/images/team/archisman-sinha.jpg" alt="Mr. Archisman Sinha" onerror="this.style.display='none'" />
-                <div class="member-avatar">AS</div>
-                <span class="placeholder-caption">assets/images/team/archisman-sinha.jpg</span>
+                <img src="assets/images/team/anushree-dutta.jpg" alt="Anushree Dutta" onerror="this.style.display='none'" />
+                <div class="member-avatar">AD</div>
+                <span class="placeholder-caption">assets/images/team/anushree-dutta.jpg</span>
               </div>
-              <span class="tag">DST-INSPIRE PhD Fellow</span>
-              <h3 style="margin-top: 0.75rem;">Mr. Archisman Sinha</h3>
+              <span class="tag">Doctoral Researcher</span>
+              <h3 style="margin-top: 0.75rem;">Anushree Dutta</h3>
               <p style="margin-bottom: 0.75rem;">
-                Working on BBR-assisted laser cooling of symmetric-top (NH₃⁺, ND₃⁺) and Renner-Teller triatomic cations, dual-sided VMI coincidence instrumentation (<em>VMI Studio Pro</em>), and non-linear resonances in Quadrupole Mass Filters.
+                Investigating higher-order octupole fields in Quadrupole Mass Filters operating in the second stability zone and spectral response of push–pull chromophores.
               </p>
-              <span class="placeholder-caption">M.Sc. Chemistry (SPPU Pune) · PhD Fellow, IACS</span>
+              <span class="placeholder-caption">First Author (JPCA &amp; IJMS) · IACS Kolkata</span>
             </article>
 
             <!-- Sukanya Jana -->
@@ -1795,21 +1798,44 @@
               <span class="placeholder-caption">First Author (JASMS &amp; IJMS) · IACS Kolkata</span>
             </article>
 
-            <!-- Anushree Dutta -->
+            <!-- Archisman Sinha -->
             <article class="card tilt-card reveal">
               <div class="member-photo-frame">
-                <img src="assets/images/team/anushree-dutta.jpg" alt="Anushree Dutta" onerror="this.style.display='none'" />
-                <div class="member-avatar">AD</div>
-                <span class="placeholder-caption">assets/images/team/anushree-dutta.jpg</span>
+                <img src="assets/images/team/archisman-sinha.jpg" alt="Mr. Archisman Sinha" onerror="this.style.display='none'" />
+                <div class="member-avatar">AS</div>
+                <span class="placeholder-caption">assets/images/team/archisman-sinha.jpg</span>
               </div>
-              <span class="tag">Doctoral Researcher</span>
-              <h3 style="margin-top: 0.75rem;">Anushree Dutta</h3>
+              <span class="tag">DST-INSPIRE PhD Fellow</span>
+              <h3 style="margin-top: 0.75rem;">Mr. Archisman Sinha</h3>
               <p style="margin-bottom: 0.75rem;">
-                Investigating higher-order octupole fields in Quadrupole Mass Filters operating in the second stability zone and spectral response of push–pull chromophores.
+                Working on BBR-assisted laser cooling of symmetric-top (NH₃⁺, ND₃⁺) and Renner-Teller triatomic cations, dual-sided VMI coincidence instrumentation (<em>VMI Studio Pro</em>), and non-linear resonances in Quadrupole Mass Filters.
               </p>
-              <span class="placeholder-caption">First Author (JPCA &amp; IJMS) · IACS Kolkata</span>
+              <span class="placeholder-caption">M.Sc. Chemistry (SPPU Pune) · PhD Fellow, IACS</span>
             </article>
+          </div>
+        </div>
+      </div>
 
+      <!-- Master's and Project Students -->
+      <div class="section section-alt">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="eyebrow">Student Researchers</div>
+            <h2 class="section-title">Master &amp; Project Students</h2>
+            <p class="section-subtitle">Master's and project student profiles will be added soon.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Past Group Members -->
+      <div class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="eyebrow">Alumni</div>
+            <h2 class="section-title">Past Members</h2>
+          </div>
+
+          <div class="grid-3">
             <!-- Sayel Chakraborty -->
             <article class="card tilt-card reveal">
               <div class="member-photo-frame">
@@ -1817,7 +1843,7 @@
                 <div class="member-avatar">SC</div>
                 <span class="placeholder-caption">assets/images/team/sayel-chakraborty.jpg</span>
               </div>
-              <span class="tag">Doctoral Researcher</span>
+              <span class="tag">Past PhD Researcher</span>
               <h3 style="margin-top: 0.75rem;">Sayel Chakraborty</h3>
               <p style="margin-bottom: 0.75rem;">
                 Investigating quadrupole mass filter stability, laser-induced rovibrational cooling schemes, and molecular ion dynamics in trapped-ion and beam environments.
@@ -1832,25 +1858,10 @@
                 <div class="member-avatar">SB</div>
                 <span class="placeholder-caption">assets/images/team/snigdha-bose.jpg</span>
               </div>
-              <span class="tag">Doctoral Researcher</span>
+              <span class="tag">Past PhD Researcher</span>
               <h3 style="margin-top: 0.75rem;">Snigdha Bose</h3>
               <p style="margin-bottom: 0.75rem;">
                 Exploring multipole field effects, radial asymmetry in quadrupole ion optics, and molecular beam ion dynamics.
-              </p>
-              <span class="placeholder-caption">Researcher · IACS Kolkata</span>
-            </article>
-
-            <!-- Santu Nath -->
-            <article class="card tilt-card reveal">
-              <div class="member-photo-frame">
-                <img src="assets/images/team/santu-nath.jpg" alt="Santu Nath" onerror="this.style.display='none'" />
-                <div class="member-avatar">SN</div>
-                <span class="placeholder-caption">assets/images/team/santu-nath.jpg</span>
-              </div>
-              <span class="tag">Research Member</span>
-              <h3 style="margin-top: 0.75rem;">Santu Nath</h3>
-              <p style="margin-bottom: 0.75rem;">
-                Studying electrode rod asymmetry, field distortions, and ion transmission characteristics in linear quadrupole mass filters.
               </p>
               <span class="placeholder-caption">Researcher · IACS Kolkata</span>
             </article>
