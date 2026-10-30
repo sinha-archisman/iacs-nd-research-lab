@@ -795,8 +795,8 @@
     }
 
     .member-photo-frame {
-      width: 100%;
-      aspect-ratio: 4 / 4.2;
+      width: min(100%, 180px);
+      aspect-ratio: 1;
       border-radius: var(--radius-md);
       background: linear-gradient(145deg, rgba(41, 151, 255, 0.14), rgba(168, 85, 247, 0.12));
       border: 1px solid var(--border-subtle);
@@ -816,12 +816,6 @@
       height: 100%;
       object-fit: cover;
       z-index: 2;
-    }
-
-    .postdoc-card .member-photo-frame {
-      width: min(100%, 180px);
-      aspect-ratio: 1;
-      margin-inline: auto;
     }
 
     .member-avatar {
@@ -1728,7 +1722,7 @@
 
           <div class="grid-3">
             <!-- Postdoc Card 1 (Template with Photo Container) -->
-            <article class="card tilt-card reveal postdoc-card">
+            <article class="card tilt-card reveal">
               <div class="member-photo-frame">
                 <img src="assets/images/team/postdoc-1.jpg" alt="Postdoctoral Fellow Photo" onerror="this.style.display='none'" />
                 <div class="member-avatar">PD</div>
@@ -1743,7 +1737,7 @@
             </article>
 
             <!-- Open Postdoc / PhD Slot -->
-            <article class="card tilt-card reveal postdoc-card" style="border-style: dashed; border-color: var(--accent-cyan);">
+            <article class="card tilt-card reveal" style="border-style: dashed; border-color: var(--accent-cyan);">
               <div class="member-photo-frame" style="background: rgba(56, 189, 248, 0.08);">
                 <div class="member-avatar" style="background: rgba(56, 189, 248, 0.18); color: var(--accent-cyan);">+</div>
                 <span class="placeholder-caption">Join the Group</span>
