@@ -516,8 +516,8 @@ h1, h2, h3, h4 {
   font-size: 0.96rem;
 }
 
-/* Media Placeholders & Visual Containers */
-.media-placeholder {
+/* Media Frames */
+.media-frame {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 10;
@@ -534,7 +534,7 @@ h1, h2, h3, h4 {
   text-align: center;
 }
 
-.media-placeholder img {
+.media-frame img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -543,11 +543,11 @@ h1, h2, h3, h4 {
   z-index: 2;
 }
 
-.placeholder-caption {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-top: 0.5rem;
+.profile-meta {
+  display: block;
+  margin-top: 0.65rem;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
 }
 
 /* Tags, Badges & Specs */
@@ -701,7 +701,7 @@ h1, h2, h3, h4 {
   align-items: start;
 }
 
-.avatar-placeholder {
+.profile-photo-frame {
   width: 100%;
   aspect-ratio: 4 / 5;
   border-radius: var(--radius-lg);

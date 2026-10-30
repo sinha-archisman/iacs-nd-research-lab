@@ -576,8 +576,8 @@
       font-size: 0.95rem;
     }
 
-    /* Media Placeholders */
-    .media-placeholder {
+    /* Media Frames */
+    .media-frame {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 10;
@@ -594,7 +594,7 @@
       text-align: center;
     }
 
-    .media-placeholder img {
+    .media-frame img {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -603,12 +603,11 @@
       z-index: 2;
     }
 
-    .placeholder-caption {
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-      display: inline-block;
+    .profile-meta {
+      display: block;
+      margin-top: 0.65rem;
+      color: var(--text-secondary);
+      font-size: 0.86rem;
     }
 
     /* Tags & Specs */
@@ -771,7 +770,7 @@
       align-items: start;
     }
 
-    .avatar-placeholder {
+    .profile-photo-frame {
       width: 100%;
       aspect-ratio: 4 / 5;
       border-radius: var(--radius-lg);
@@ -785,7 +784,7 @@
       overflow: hidden;
     }
 
-    .avatar-placeholder img {
+    .profile-photo-frame img {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -1178,7 +1177,7 @@
 
   <main>
     <!-- ======================================================================
-         1. HOME VIEW (#home) — UPDATED WITH HERO VIDEO
+         1. HOME VIEW (#home)
          ====================================================================== -->
     <section id="view-home" class="page-view active">
       <div class="hero">
@@ -1200,36 +1199,32 @@
             </div>
           </div>
 
-          <!-- Hero Video Card (Replaced First Image/Schematic with Video) -->
           <div class="hero-visual tilt-card reveal">
             <div class="hero-video-frame">
-              <!-- Replace "assets/videos/Lab_setup_timelapse_compressed.mp4" with your actual video path or URL -->
               <video
                 autoplay
                 muted
                 loop
                 playsinline
                 controls
-                poster="assets/images/uhv-chamber.jpg"
+                poster="assets/images/instrument/UHV%20chamber.JPG"
               >
                 <source src="assets/videos/Lab_setup_timelapse_compressed.mp4" type="video/mp4" />
-                <source src="assets/videos/Lab_setup_timelapse_compressed.webm" type="video/webm" />
                 Your browser does not support HTML5 video.
               </video>
 
-              <!-- Fallback label shown behind video until video file is placed at assets/videos/Lab_setup_timelapse_compressed.mp4 -->
               <div class="video-fallback-caption">
                 <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.75" style="margin-bottom: 0.5rem;">
                   <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
-                <strong>Lab Research Highlight Video</strong>
-                <span class="placeholder-caption">Place video at: assets/videos/Lab_setup_timelapse_compressed.mp4</span>
+                <strong>Inside the Cold Ion Dynamics Laboratory</strong>
+                <span>Laboratory setup and experimental instrumentation at IACS Kolkata.</span>
               </div>
             </div>
 
             <div class="stats-grid">
               <div class="stat-card">
-                <div class="stat-value">10e-9</div>
+                <div class="stat-value">10⁻⁹</div>
                 <div class="stat-label">UHV Base (mbar)</div>
               </div>
               <div class="stat-card">
@@ -1572,12 +1567,11 @@
           <div class="grid-2">
             <!-- Facility 1 -->
             <article class="card tilt-card reveal">
-              <div class="media-placeholder">
+              <div class="media-frame">
                 <img src="assets/images/instrument/UHV%20chamber.JPG" alt="UHV chamber" onerror="this.style.display='none'" />
                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.6">
                   <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/>
                 </svg>
-                <span class="placeholder-caption">assets/images/instrument/UHV chamber.JPG</span>
               </div>
               <h3>UHV Chambers &amp; High-Throughput Vacuum System</h3>
               <p>
@@ -1593,12 +1587,11 @@
 
             <!-- Facility 2 -->
             <article class="card tilt-card reveal">
-              <div class="media-placeholder">
+              <div class="media-frame">
                 <img src="assets/images/instrument/SRS%20power%20supply.JPG" alt="SRS power supply for the VMI system" onerror="this.style.display='none'" />
                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-violet)" stroke-width="1.6">
                   <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
                 </svg>
-                <span class="placeholder-caption">assets/images/instrument/SRS power supply.JPG</span>
               </div>
               <h3>Dual-Sided VMI Detectors &amp; Acquisition Software</h3>
               <p>
@@ -1614,12 +1607,11 @@
 
             <!-- Facility 3 -->
             <article class="card tilt-card reveal">
-              <div class="media-placeholder">
+              <div class="media-frame">
                 <img src="assets/images/instrument/spincore.JPG" alt="SpinCore RF electronics" onerror="this.style.display='none'" />
                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.6">
                   <rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/>
                 </svg>
-                <span class="placeholder-caption">assets/images/instrument/spincore.JPG</span>
               </div>
               <h3>High-Voltage Power Supplies &amp; Custom RF/DC Electronics</h3>
               <p>
@@ -1635,12 +1627,11 @@
 
             <!-- Facility 4 -->
             <article class="card tilt-card reveal">
-              <div class="media-placeholder">
+              <div class="media-frame">
                 <img src="assets/images/instrument/fillament.JPG" alt="Filament on the laser table" onerror="this.style.display='none'" />
                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="1.6">
                   <path d="M2 12h20M16 6l6 6-6 6M8 6l-6 6 6 6"/>
                 </svg>
-                <span class="placeholder-caption">assets/images/instrument/fillament.JPG</span>
               </div>
               <h3>Laser-Controlled Ion Dynamics &amp; Computational Modeling Suite</h3>
               <p>
@@ -1659,17 +1650,17 @@
     </section>
 
     <!-- ======================================================================
-         4. TEAM VIEW (#team) — UPDATED WITH PHD & POSTDOC PHOTO FRAMES
+         4. TEAM VIEW (#team)
          ====================================================================== -->
     <section id="view-team" class="page-view">
       <div class="page-hero">
         <div class="container reveal">
           <div class="eyebrow">People</div>
           <h1 class="hero-title" style="font-size: clamp(2.1rem, 4.2vw, 3.6rem);">
-            Principal Investigator, Postdocs, PhD Scholars &amp; Students
+            People, Research Team &amp; Opportunities
           </h1>
           <p class="section-subtitle">
-            Meet the experimentalists and chemical physicists driving cold molecular ion research at the Indian Association for the Cultivation of Science (IACS), Kolkata.
+            Meet our principal investigator and doctoral researchers, and learn how to enquire about joining the Cold Ion &amp; Molecular Dynamics Group at IACS Kolkata.
           </p>
         </div>
       </div>
@@ -1678,10 +1669,9 @@
       <div class="section">
         <div class="container">
           <div class="card pi-showcase reveal">
-            <div class="avatar-placeholder">
+            <div class="profile-photo-frame">
               <img src="assets/images/team/pi-nabanita-deb.jpg" alt="Dr. Nabanita Deb, Principal Investigator" onerror="this.style.display='none'" />
               <div class="member-avatar" style="width: 96px; height: 96px; font-size: 1.75rem;">ND</div>
-              <span class="placeholder-caption">assets/images/team/pi-nabanita-deb.jpg</span>
             </div>
 
             <div>
@@ -1712,43 +1702,19 @@
         </div>
       </div>
 
-      <!-- Postdoctoral Fellows Section -->
+      <!-- Research opportunities -->
       <div class="section section-alt">
         <div class="container">
-          <div class="section-header reveal">
-            <div class="eyebrow">Postdoctoral Researchers</div>
-            <h2 class="section-title">Postdoctoral Fellows &amp; Research Associates</h2>
-          </div>
-
-          <div class="grid-3">
-            <!-- Postdoc Card 1 (Template with Photo Container) -->
-            <article class="card tilt-card reveal">
-              <div class="member-photo-frame">
-                <img src="assets/images/team/postdoc-1.jpg" alt="Postdoctoral Fellow Photo" onerror="this.style.display='none'" />
-                <div class="member-avatar">PD</div>
-                <span class="placeholder-caption">assets/images/team/postdoc-1.jpg</span>
-              </div>
-              <span class="tag">Postdoctoral Fellow</span>
-              <h3 style="margin-top: 0.75rem;">Postdoctoral Research Fellow</h3>
-              <p style="margin-bottom: 0.75rem;">
-                Investigating cold molecular ion dynamics, Velocity Map Imaging coincidence dynamics, and supersonic molecular beam collision experiments.
-              </p>
-              <span class="placeholder-caption">School of Chemical Sciences · IACS Kolkata</span>
-            </article>
-
-            <!-- Open Postdoc / PhD Slot -->
-            <article class="card tilt-card reveal" style="border-style: dashed; border-color: var(--accent-cyan);">
-              <div class="member-photo-frame" style="background: rgba(56, 189, 248, 0.08);">
-                <div class="member-avatar" style="background: rgba(56, 189, 248, 0.18); color: var(--accent-cyan);">+</div>
-                <span class="placeholder-caption">Join the Group</span>
-              </div>
-              <span class="tag" style="color: var(--accent-cyan);">Open Positions</span>
-              <h3 style="margin-top: 0.75rem;">Prospective Postdocs &amp; PhDs</h3>
-              <p style="margin-bottom: 1rem;">
-                We welcome applications from candidates with ANRF-NPDF, Institute PDF, CSIR-UGC NET, GATE, JEST, or DST-INSPIRE fellowships interested in experimental chemical physics.
-              </p>
-              <a href="#contact" style="color: var(--accent-cyan); font-weight: 600;">Apply via Contact Page &rarr;</a>
-            </article>
+          <div class="card reveal">
+            <div class="eyebrow">Research Opportunities</div>
+            <h2 class="section-title">Prospective Students &amp; Researchers</h2>
+            <p class="section-subtitle" style="margin-bottom: 1.25rem;">
+              Students interested in doctoral research, M.Sc. projects or internships, and researchers exploring postdoctoral or collaborative work in experimental chemical physics are welcome to get in touch. Research opportunities depend on current projects, funding, and the institute's admissions and fellowship processes.
+            </p>
+            <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+              In your enquiry, please outline your research interests, relevant experience, current qualifications, and fellowship status (if applicable). For postdoctoral or project enquiries, include a CV and the dates you would be available.
+            </p>
+            <a href="#contact" class="btn btn-primary">Enquire about research opportunities</a>
           </div>
         </div>
       </div>
@@ -1767,14 +1733,13 @@
               <div class="member-photo-frame">
                 <img src="assets/images/team/anushree-dutta.jpg" alt="Anushree Dutta" onerror="this.style.display='none'" />
                 <div class="member-avatar">AD</div>
-                <span class="placeholder-caption">assets/images/team/anushree-dutta.jpg</span>
               </div>
               <span class="tag">Doctoral Researcher</span>
               <h3 style="margin-top: 0.75rem;">Anushree Dutta</h3>
               <p style="margin-bottom: 0.75rem;">
                 Investigating higher-order octupole fields in Quadrupole Mass Filters operating in the second stability zone and spectral response of push–pull chromophores.
               </p>
-              <span class="placeholder-caption">First Author (JPCA &amp; IJMS) · IACS Kolkata</span>
+              <span class="profile-meta">First author on articles in JPCA and IJMS · IACS Kolkata</span>
             </article>
 
             <!-- Sukanya Jana -->
@@ -1782,14 +1747,13 @@
               <div class="member-photo-frame">
                 <img src="assets/images/team/sukanya-jana.jpg" alt="Sukanya Jana" onerror="this.style.display='none'" />
                 <div class="member-avatar">SJ</div>
-                <span class="placeholder-caption">assets/images/team/sukanya-jana.jpg</span>
               </div>
               <span class="tag">Doctoral Researcher</span>
               <h3 style="margin-top: 0.75rem;">Sukanya Jana</h3>
               <p style="margin-bottom: 0.75rem;">
                 Researching radial and rod asymmetry in linear Quadrupole Mass Filters, multipole field distortions, stability zones, and transmission resolution enhancement.
               </p>
-              <span class="placeholder-caption">First Author (JASMS &amp; IJMS) · IACS Kolkata</span>
+              <span class="profile-meta">First author on articles in JASMS and IJMS · IACS Kolkata</span>
             </article>
 
             <!-- Archisman Sinha -->
@@ -1797,26 +1761,14 @@
               <div class="member-photo-frame">
                 <img src="assets/images/team/archisman-sinha.jpg" alt="Mr. Archisman Sinha" onerror="this.style.display='none'" />
                 <div class="member-avatar">AS</div>
-                <span class="placeholder-caption">assets/images/team/archisman-sinha.jpg</span>
               </div>
               <span class="tag">DST-INSPIRE PhD Fellow</span>
               <h3 style="margin-top: 0.75rem;">Mr. Archisman Sinha</h3>
               <p style="margin-bottom: 0.75rem;">
                 Working on BBR-assisted laser cooling of symmetric-top (NH₃⁺, ND₃⁺) and Renner-Teller triatomic cations, dual-sided VMI coincidence instrumentation (<em>VMI Studio Pro</em>), and non-linear resonances in Quadrupole Mass Filters.
               </p>
-              <span class="placeholder-caption">M.Sc. Chemistry (SPPU Pune) · PhD Fellow, IACS</span>
+              <span class="profile-meta">M.Sc. Chemistry (SPPU Pune) · PhD Fellow, IACS</span>
             </article>
-          </div>
-        </div>
-      </div>
-
-      <!-- Master's and Project Students -->
-      <div class="section section-alt">
-        <div class="container">
-          <div class="section-header reveal">
-            <div class="eyebrow">Student Researchers</div>
-            <h2 class="section-title">Master &amp; Project Students</h2>
-            <p class="section-subtitle">Master's and project student profiles will be added soon.</p>
           </div>
         </div>
       </div>
@@ -1833,31 +1785,25 @@
             <!-- Sayel Chakraborty -->
             <article class="card tilt-card reveal">
               <div class="member-photo-frame">
-                <img src="assets/images/team/sayel-chakraborty.jpg" alt="Sayel Chakraborty" onerror="this.style.display='none'" />
                 <div class="member-avatar">SC</div>
-                <span class="placeholder-caption">assets/images/team/sayel-chakraborty.jpg</span>
               </div>
               <span class="tag">Past PhD Researcher</span>
               <h3 style="margin-top: 0.75rem;">Sayel Chakraborty</h3>
               <p style="margin-bottom: 0.75rem;">
-                Investigating quadrupole mass filter stability, laser-induced rovibrational cooling schemes, and molecular ion dynamics in trapped-ion and beam environments.
+                Research focused on quadrupole mass-filter stability, laser-induced rovibrational cooling schemes, and molecular-ion dynamics in trapped-ion and beam environments.
               </p>
-              <span class="placeholder-caption">Doctoral Researcher · IACS Kolkata</span>
             </article>
 
             <!-- Snigdha Bose -->
             <article class="card tilt-card reveal">
               <div class="member-photo-frame">
-                <img src="assets/images/team/snigdha-bose.jpg" alt="Snigdha Bose" onerror="this.style.display='none'" />
                 <div class="member-avatar">SB</div>
-                <span class="placeholder-caption">assets/images/team/snigdha-bose.jpg</span>
               </div>
               <span class="tag">Past PhD Researcher</span>
               <h3 style="margin-top: 0.75rem;">Snigdha Bose</h3>
               <p style="margin-bottom: 0.75rem;">
-                Exploring multipole field effects, radial asymmetry in quadrupole ion optics, and molecular beam ion dynamics.
+                Research focused on multipole-field effects, radial asymmetry in quadrupole ion optics, and molecular-beam ion dynamics.
               </p>
-              <span class="placeholder-caption">Researcher · IACS Kolkata</span>
             </article>
           </div>
         </div>
@@ -2122,17 +2068,18 @@
               <form id="lab-contact-form">
                 <div class="form-group">
                   <label class="form-label" for="name">Full Name *</label>
-                  <input type="text" id="name" name="name" class="form-control" placeholder="e.g., Arindam Chatterjee" required />
+                  <input type="text" id="name" name="name" class="form-control" placeholder="Your full name" required />
                 </div>
 
                 <div class="form-group">
                   <label class="form-label" for="email">Email Address *</label>
-                  <input type="email" id="email" name="email" class="form-control" placeholder="name@institute.ac.in" required />
+                  <input type="email" id="email" name="email" class="form-control" placeholder="you@institute.ac.in" required />
                 </div>
 
                 <div class="form-group">
                   <label class="form-label" for="inquiry-type">Inquiry Category *</label>
                   <select id="inquiry-type" name="category" class="form-control" required>
+                    <option value="" disabled selected>Select an inquiry category</option>
                     <option value="PhD Position Inquiry">PhD Position (CSIR-NET / GATE / JEST / INSPIRE)</option>
                     <option value="Postdoctoral Fellowship">Postdoctoral Fellowship (ANRF-NPDF / Institute PDF)</option>
                     <option value="MSc Project / Internship">Master's Thesis / Summer Research Internship</option>
@@ -2143,7 +2090,7 @@
 
                 <div class="form-group">
                   <label class="form-label" for="message">Message &amp; Research Background *</label>
-                  <textarea id="message" name="message" rows="5" class="form-control" placeholder="Briefly describe your academic background, fellowship status, and interest in cold molecular ions / VMI..." required></textarea>
+                  <textarea id="message" name="message" rows="5" class="form-control" placeholder="Share your academic background, relevant experience, current qualification or fellowship, and research interests." required></textarea>
                 </div>
 
                 <button type="submit" id="contact-submit-btn" class="btn btn-primary" style="width: 100%;">
@@ -2245,7 +2192,7 @@
 
       <div class="footer-bottom">
         <span>&copy; 2026 Dr. Nabanita Deb Research Lab, IACS Kolkata. All rights reserved.</span>
-        <span>Single-File SPA Build · Live Google Sheet Sync</span>
+        <span>Cold Ion &amp; Molecular Dynamics · IACS Kolkata</span>
       </div>
     </div>
   </footer>
@@ -2591,10 +2538,21 @@
       // Render fallback immediately so the section is never empty
       renderPublications(FALLBACK_PUBLICATIONS);
 
+      const setPublicationSyncStatus = (message, isLive = false) => {
+        if (!syncStatusEl) return;
+        const liveStyle = isLive
+          ? ' style="background: var(--accent-emerald); box-shadow: 0 0 8px var(--accent-emerald);"'
+          : "";
+        syncStatusEl.innerHTML = `<span class="eyebrow-dot"${liveStyle}></span><span>${message}</span>`;
+      };
+
       // Live Google Sheets JSONP Loader (Bypasses CORS on static websites)
       window.handleGoogleSheetPublications = (response) => {
         try {
-          if (!response || !response.table || !response.table.rows) return;
+          if (!response || !response.table || !response.table.rows) {
+            setPublicationSyncStatus("Live updates are unavailable. Showing the saved publication list.");
+            return;
+          }
           const rows = response.table.rows;
           const getCell = (row, idx) => (row.c && row.c[idx] && row.c[idx].v !== null && row.c[idx].v !== undefined ? String(row.c[idx].v).trim() : "");
 
@@ -2616,12 +2574,13 @@
 
           if (parsed.length > 0) {
             renderPublications(parsed);
-            if (syncStatusEl) {
-              syncStatusEl.innerHTML = `<span class="eyebrow-dot" style="background: var(--accent-emerald); box-shadow: 0 0 8px var(--accent-emerald);"></span><span>Live synced with Google Sheets (${parsed.length} publications loaded)</span>`;
-            }
+            setPublicationSyncStatus(`Live publication list updated (${parsed.length} publications).`, true);
+          } else {
+            setPublicationSyncStatus("No live publication data is available. Showing the saved publication list.");
           }
         } catch (err) {
           console.warn("Google Sheet parse error, using fallback list:", err);
+          setPublicationSyncStatus("Live updates are unavailable. Showing the saved publication list.");
         }
       };
 
@@ -2629,9 +2588,7 @@
         const script = document.createElement("script");
         script.src = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=responseHandler:handleGoogleSheetPublications`;
         script.onerror = () => {
-          if (syncStatusEl) {
-            syncStatusEl.innerHTML = `<span class="eyebrow-dot"></span><span>Showing cached publications (Ensure Google Sheet access is set to "Anyone with the link can view" for live updates)</span>`;
-          }
+          setPublicationSyncStatus("Live updates are unavailable. Showing the saved publication list.");
         };
         document.body.appendChild(script);
       };
