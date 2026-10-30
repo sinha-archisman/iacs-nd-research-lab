@@ -576,8 +576,8 @@
       font-size: 0.95rem;
     }
 
-    /* Media Frames */
-    .media-frame {
+    /* Media Placeholders */
+    .media-placeholder {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 10;
@@ -594,7 +594,7 @@
       text-align: center;
     }
 
-    .media-frame img {
+    .media-placeholder img {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -603,11 +603,12 @@
       z-index: 2;
     }
 
-    .profile-meta {
-      display: block;
-      margin-top: 0.65rem;
-      color: var(--text-secondary);
-      font-size: 0.86rem;
+    .placeholder-caption {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      display: inline-block;
     }
 
     /* Tags & Specs */
@@ -770,7 +771,7 @@
       align-items: start;
     }
 
-    .profile-photo-frame {
+    .avatar-placeholder {
       width: 100%;
       aspect-ratio: 4 / 5;
       border-radius: var(--radius-lg);
@@ -784,7 +785,7 @@
       overflow: hidden;
     }
 
-    .profile-photo-frame img {
+    .avatar-placeholder img {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -1177,7 +1178,7 @@
 
   <main>
     <!-- ======================================================================
-         1. HOME VIEW (#home)
+         1. HOME VIEW (#home) — UPDATED WITH HERO VIDEO
          ====================================================================== -->
     <section id="view-home" class="page-view active">
       <div class="hero">
@@ -1199,32 +1200,36 @@
             </div>
           </div>
 
+          <!-- Hero Video Card (Replaced First Image/Schematic with Video) -->
           <div class="hero-visual tilt-card reveal">
             <div class="hero-video-frame">
+              <!-- Replace "assets/videos/Lab_setup_timelapse_compressed.mp4" with your actual video path or URL -->
               <video
                 autoplay
                 muted
                 loop
                 playsinline
                 controls
-                poster="assets/images/instrument/UHV%20chamber.JPG"
+                poster="assets/images/uhv-chamber.jpg"
               >
                 <source src="assets/videos/Lab_setup_timelapse_compressed.mp4" type="video/mp4" />
+                <source src="assets/videos/Lab_setup_timelapse_compressed.webm" type="video/webm" />
                 Your browser does not support HTML5 video.
               </video>
 
+              <!-- Fallback label shown behind video until video file is placed at assets/videos/Lab_setup_timelapse_compressed.mp4 -->
               <div class="video-fallback-caption">
                 <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.75" style="margin-bottom: 0.5rem;">
                   <polygon points="5 3 19 12 5 21 5 3"></polygon>
                 </svg>
-                <strong>Inside the Cold Ion Dynamics Laboratory</strong>
-                <span>Laboratory setup and experimental instrumentation at IACS Kolkata.</span>
+                <strong>Lab Research Highlight Video</strong>
+                <span class="placeholder-caption">Place video at: assets/videos/Lab_setup_timelapse_compressed.mp4</span>
               </div>
             </div>
 
             <div class="stats-grid">
               <div class="stat-card">
-                <div class="stat-value">10⁻⁹</div>
+                <div class="stat-value">10e-9</div>
                 <div class="stat-label">UHV Base (mbar)</div>
               </div>
               <div class="stat-card">
@@ -1567,11 +1572,12 @@
           <div class="grid-2">
             <!-- Facility 1 -->
             <article class="card tilt-card reveal">
-              <div class="media-frame">
+              <div class="media-placeholder">
                 <img src="assets/images/instrument/UHV%20chamber.JPG" alt="UHV chamber" onerror="this.style.display='none'" />
                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.6">
                   <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/>
                 </svg>
+                <span class="placeholder-caption">assets/images/instrument/UHV chamber.JPG</span>
               </div>
               <h3>UHV Chambers &amp; High-Throughput Vacuum System</h3>
               <p>
@@ -1587,11 +1593,12 @@
 
             <!-- Facility 2 -->
             <article class="card tilt-card reveal">
-              <div class="media-frame">
+              <div class="media-placeholder">
                 <img src="assets/images/instrument/SRS%20power%20supply.JPG" alt="SRS power supply for the VMI system" onerror="this.style.display='none'" />
                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-violet)" stroke-width="1.6">
                   <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
                 </svg>
+                <span class="placeholder-caption">assets/images/instrument/SRS power supply.JPG</span>
               </div>
               <h3>Dual-Sided VMI Detectors &amp; Acquisition Software</h3>
               <p>
@@ -1607,11 +1614,12 @@
 
             <!-- Facility 3 -->
             <article class="card tilt-card reveal">
-              <div class="media-frame">
+              <div class="media-placeholder">
                 <img src="assets/images/instrument/spincore.JPG" alt="SpinCore RF electronics" onerror="this.style.display='none'" />
                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.6">
                   <rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/>
                 </svg>
+                <span class="placeholder-caption">assets/images/instrument/spincore.JPG</span>
               </div>
               <h3>High-Voltage Power Supplies &amp; Custom RF/DC Electronics</h3>
               <p>
@@ -1627,11 +1635,12 @@
 
             <!-- Facility 4 -->
             <article class="card tilt-card reveal">
-              <div class="media-frame">
+              <div class="media-placeholder">
                 <img src="assets/images/instrument/fillament.JPG" alt="Filament on the laser table" onerror="this.style.display='none'" />
                 <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="1.6">
                   <path d="M2 12h20M16 6l6 6-6 6M8 6l-6 6 6 6"/>
                 </svg>
+                <span class="placeholder-caption">assets/images/instrument/fillament.JPG</span>
               </div>
               <h3>Laser-Controlled Ion Dynamics &amp; Computational Modeling Suite</h3>
               <p>
